@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:40:48 2016 Antoine Baché
-** Last update Fri Mar 18 23:14:40 2016 Antoine Baché
+** Last update Fri Mar 18 23:26:54 2016 Antoine Baché
 */
 
 #ifndef	COMMON_H_
@@ -30,5 +30,6 @@ void	*my_malloc(size_t, const char *, int);
 # endif /* !DEBUG */
 
 void	my_free(void *);
+void	free2DArray(void **);
 
 #endif	/* !COMMON_H_ */
