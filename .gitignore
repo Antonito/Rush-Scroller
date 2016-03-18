@@ -1,0 +1,9 @@
+*.o
+*.obj
+*.elf
+*.lib
+*.a
+*.la
+*.so
+*.so.*
+*.out
