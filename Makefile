@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Fri Mar 18 21:20:41 2016 Antoine Baché
+## Last update Fri Mar 18 22:00:23 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -51,7 +51,7 @@ $(DEMO1): $(OBJ_DEMO1)
 	@echo -n "OK"
 	@echo -n " ] "
 	@echo "Compiled demo1"
-	@$(CC) $(OBJ_DEMO1) -o $(DEMO1)
+	@$(CC) $(OBJ_DEMO1) -o $(DEMO1) $(LIB)
 
 %.o:	%.c
 	@echo -n "[ "
