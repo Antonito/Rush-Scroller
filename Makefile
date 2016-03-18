@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Fri Mar 18 23:25:18 2016 Antoine Baché
+## Last update Fri Mar 18 23:30:13 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -19,7 +19,8 @@ TOOLS_PREFIX=		src/tools/
 
 TOOLS_FILES=		my_malloc.c			\
 			my_free.c			\
-			free2D.c
+			free2D.c			\
+			tekpixel.c
 
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 
