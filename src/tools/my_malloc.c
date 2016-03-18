@@ -5,17 +5,17 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:03:41 2016 Antoine Baché
-** Last update Fri Mar 18 23:09:41 2016 Antoine Baché
+** Last update Fri Mar 18 23:22:25 2016 Antoine Baché
 */
 
 #define	_GNU_SOURCE
 #define	_XOPEN_SOURCE
 #define	_POSX_C_SOURCE
 #include <stdio.h>
+#include <unistd.h>
 #include <lapin.h>
 
 #ifdef	DEBUG
-
 void	*my_malloc(size_t size, const char *file, int line)
 {
   void	*elem;
@@ -30,6 +30,13 @@ void	*my_malloc(size_t size, const char *file, int line)
 #else
 void	*my_malloc(size_t size)
 {
-  return (bunny_malloc(size));
+  void	*elem;
+
+  if (!(elem = bunny_malloc(size)))
+    {
+      write(2, "Memory allocation failed\n", 25);
+      return (NULL);
+    }
+  return (elem);
 }
 #endif
