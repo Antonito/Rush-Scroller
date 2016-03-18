@@ -5,20 +5,24 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:03:41 2016 Antoine Baché
-** Last update Fri Mar 18 22:09:14 2016 Antoine Baché
+** Last update Fri Mar 18 23:09:41 2016 Antoine Baché
 */
 
+#define	_GNU_SOURCE
+#define	_XOPEN_SOURCE
+#define	_POSX_C_SOURCE
 #include <stdio.h>
 #include <lapin.h>
 
 #ifdef	DEBUG
-void	*my_malloc(size_t size, int line)
+
+void	*my_malloc(size_t size, const char *file, int line)
 {
   void	*elem;
 
   if (!(elem = bunny_malloc(size)))
     {
-      dprintf(2, "Malloc failed : line %d\n", line);
+      dprintf(2, "Malloc failed %s : line %d\n", file, line);
       return (NULL);
     }
   return (elem);

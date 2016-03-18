@@ -5,18 +5,28 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Fri Mar 18 22:00:23 2016 Antoine Baché
+## Last update Fri Mar 18 23:15:02 2016 Antoine Baché
 ##
 
 DEBUG=			yes
 
-SRC_DEMO1_PREFIX=	src/demo1/
+SRC_DEMO_PREFIX=	src/
 
-SRC_DEMO1_FILES=	main.c
+SRC_DEMO_FILES=		main.c				\
+			free.c
 
-SRC_DEMO1=		$(addprefix $(SRC_DEMO1_PREFIX),$(SRC_DEMO1_FILES))
+TOOLS_PREFIX=		src/tools/
 
-DEMO1=			demo1
+TOOLS_FILES=		my_malloc.c			\
+			my_free.c
+
+SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
+
+SRC_TOOLS=		$(addprefix $(TOOLS_PREFIX),$(TOOLS_FILES))
+
+SRC_DEMO+=		$(SRC_TOOLS)
+
+DEMO=			demoEtDesLettres
 
 HEAD=			-Iinclude			\
 			-I/home/${USER}/.froot/include
@@ -42,16 +52,16 @@ CC=			gcc
 
 RM=			rm -f
 
-OBJ_DEMO1=		$(SRC_DEMO1:.c=.o)
+OBJ_DEMO=		$(SRC_DEMO:.c=.o)
 
-$(DEMO1): $(OBJ_DEMO1)
+$(DEMO): $(OBJ_DEMO)
 	@echo -n "Flags: "
 	@echo $(CFLAGS)
 	@echo -n "[ "
 	@echo -n "OK"
 	@echo -n " ] "
-	@echo "Compiled demo1"
-	@$(CC) $(OBJ_DEMO1) -o $(DEMO1) $(LIB)
+	@echo "Compiled demo"
+	@$(CC) $(OBJ_DEMO) -o $(DEMO) $(LIB)
 
 %.o:	%.c
 	@echo -n "[ "
@@ -60,21 +70,21 @@ $(DEMO1): $(OBJ_DEMO1)
 	@echo "Compiling" $<
 	@$(CC) -o $@ -c $< $(CFLAGS)
 
-all:	$(DEMO1)
+all:	$(DEMO)
 
 clean:
 	@echo -n "[ "
 	@echo -n "OK"
 	@echo -n " ] "
 	@echo "Removing OBJ files ..."
-	@$(RM) $(OBJ_DEMO1)
+	@$(RM) $(OBJ_DEMO)
 
 fclean:	clean
 	@echo -n "[ "
 	@echo -n "OK"
 	@echo -n " ] "
 	@echo "Deleting binaries ..."
-	@$(RM) $(DEMO1)
+	@$(RM) $(DEMO)
 
 re:	fclean all
 
