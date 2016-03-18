@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Fri Mar 18 19:40:00 2016 Antoine Baché
+## Last update Fri Mar 18 21:20:41 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -21,7 +21,8 @@ DEMO1=			demo1
 HEAD=			-Iinclude			\
 			-I/home/${USER}/.froot/include
 
-LIB=			-L/home/${USER}/.froot/include	\
+LIB=			-L/usr/local/lib		\
+			-L/home/${USER}/.froot/lib	\
 			-llapin 			\
 			-lsfml-audio 			\
 			-lsfml-graphics 		\
