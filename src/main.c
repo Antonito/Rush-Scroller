@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 19:40:34 2016 Antoine Baché
-** Last update Sat Mar 19 19:27:12 2016 Antoine Baché
+** Last update Sat Mar 19 20:32:17 2016 Ludovic Petrenko
 */
 
 #include <unistd.h>
@@ -58,8 +58,8 @@ int			demo(void)
       setContext(data) || !(closeIt = selector()))
     return (1);
   data->new = true;
-  data->contextId = 1;
-  data->contextPrev = 1;
+  data->contextId = 3;
+  data->contextPrev = 3;
   data->mousePos = (t_bunny_position *)bunny_get_mouse_position();
   ret = GO_ON;
   while (ret != EXIT_ON_SUCCESS)

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 17:41:57 2016 Antoine Baché
-** Last update Sat Mar 19 20:02:24 2016 Ludovic Petrenko
+** Last update Sat Mar 19 20:28:23 2016 Ludovic Petrenko
 */
 
 #include "demo.h"
@@ -18,7 +18,7 @@ closeEvent     	selector(void)
     return (NULL);
   array[0] = &fireClose;
   array[1] = &plasmaClose;
-  array[2] = &spriteClose;
+  array[2] = &plasmaClose;
   array[3] = &starClose;
   return (array);
 }

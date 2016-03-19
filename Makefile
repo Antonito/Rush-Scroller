@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 20:10:30 2016 Ludovic Petrenko
+## Last update Sat Mar 19 20:42:14 2016 Ludovic Petrenko
 ##
 
 DEBUG=			yes
@@ -88,7 +88,8 @@ STARFIELD_PREFIX=	src/starfield/
 
 STARFIELD_FILES=	gen_star.c			\
 			main.c				\
-			starfield.c
+			starfield.c			\
+			tekline.c
 
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 

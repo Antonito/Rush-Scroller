@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 18:21:55 2016 Ludovic Petrenko
-** Last update Sat Mar 19 20:23:40 2016 Ludovic Petrenko
+** Last update Sat Mar 19 20:51:10 2016 Ludovic Petrenko
 */
 
 #include <lapin.h>
@@ -43,6 +43,8 @@ t_bunny_response	starLoop(t_data *data)
   t_star		*s;
 
   i = 0;
+  if (data->new && starfield(data))
+    return (EXIT_ON_ERROR);
   clearColor(data->pix, 0xFF000000);
   s = data->data;
   while (i < 100)
@@ -50,7 +52,7 @@ t_bunny_response	starLoop(t_data *data)
       drawStar(data->pix, s + i);
       moveStar(s + i);
       if (isOffscreen(s + i))
-	genStar(s + i, 10.0);
+	genStar(s + i, 20.0);
       i++;
     }
   bunny_blit(&(data->win->buffer),
@@ -83,7 +85,7 @@ int		starfield(t_data *data)
   data->data = star;
   i = -1;
   while (++i < 100)
-    genStar(star + i, 10.0);
+    genStar(star + i, 20.0);
   data->new = false;
   return (0);
 }

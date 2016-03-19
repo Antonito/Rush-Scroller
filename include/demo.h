@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sat Mar 19 20:02:54 2016 Ludovic Petrenko
+** Last update Sat Mar 19 20:26:01 2016 Ludovic Petrenko
 */
 
 #ifndef	DEMO_H_
@@ -14,7 +14,7 @@
 # define WIN_X		1920
 # define WIN_Y		1080
 # define WIN_NAME	"Rush Scroller"
-# define NB_CONTEXT	3
+# define NB_CONTEXT	4
 
 # include <lapin.h>
 
