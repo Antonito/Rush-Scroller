@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 19:40:34 2016 Antoine Baché
-** Last update Sat Mar 19 04:19:54 2016 Antoine Baché
+** Last update Sat Mar 19 17:09:57 2016 Arthur ARNAUD
 */
 
 #include <unistd.h>
@@ -43,12 +43,19 @@ t_bunny_response	mainLoop(t_data *data)
 int			demo(void)
 {
   t_data		*data;
+  t_bunny_pixelarray	*font;
+  t_ivec2		pos;
 
   srand(time(NULL));
   if (!(data = MALLOC(sizeof(t_data))) ||
       !(data->win = bunny_start(WIN_X, WIN_Y, true, WIN_NAME)) ||
       !(data->pix = bunny_new_pixelarray(WIN_X, WIN_Y)))
     return (1);
+  pos.x = 0;
+  pos.y = 0;
+  if(!(font = printText("abcdefghij klmnopqrst uvwxyz1234 567890.,:;\"-()/?+","font2")))
+    return (1);
+  myBlit(font, data->pix, 1, pos);
   data->mousePos = (t_bunny_position *)bunny_get_mouse_position();
   bunny_set_loop_main_function((t_bunny_loop)mainLoop);
   bunny_set_key_response((t_bunny_key)eventKeys);
