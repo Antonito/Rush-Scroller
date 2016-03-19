@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 18:21:55 2016 Ludovic Petrenko
-** Last update Sat Mar 19 20:51:10 2016 Ludovic Petrenko
+** Last update Sat Mar 19 21:17:27 2016 Antoine Baché
 */
 
 #include <lapin.h>
@@ -17,15 +17,6 @@ t_bunny_response	starKey(t_bunny_event_state state,
 				t_bunny_keysym key,
 				t_data *data)
 {
-  t_star		*star;
-
-  star = data->data;
-  if (state == GO_DOWN && key != BKS_ESCAPE)
-    go_down_key(key, star);
-  else if (state == GO_UP && key != BKS_ESCAPE)
-    go_up_key(key, star);
-  else if (key == BKS_ESCAPE && state == GO_DOWN)
-    return (EXIT_ON_SUCCESS);
   return (eventKeys(state, key, data));
 }
 
