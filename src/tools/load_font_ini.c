@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Fri Mar 18 22:50:54 2016 Arthur ARNAUD
-** Last update Sat Mar 19 17:16:13 2016 Arthur ARNAUD
+** Last update Sat Mar 19 17:57:18 2016 Arthur ARNAUD
 */
 
 #define _POSIX_C_SOURCE
@@ -21,7 +21,6 @@ int		loadFontIni(t_font *font, char *path)
 
   if (!(file = bunny_load_ini(path)))
     return (1);
-  printf("ok\n");
   if (!bunny_ini_get_field(file, "font", "asset", 0) ||
       !bunny_ini_get_field(file, "font", "chars", 0) ||
       !bunny_ini_get_field(file, "font", "width", 0) ||
@@ -31,7 +30,6 @@ int		loadFontIni(t_font *font, char *path)
       !(font->width = atoi(bunny_ini_get_field(file, "font", "width", 0))) ||
       !(font->height = atoi(bunny_ini_get_field(file, "font", "height", 0))))
     return (1);
-  printf("chars = %s\n", font->chars);
   return (0);
 }
 
@@ -123,10 +121,9 @@ t_bunny_pixelarray	*printText(char *str, char *fontName)
   char			*path;
 
   if (!(font = MALLOC(sizeof(t_font *))) ||
-      !(path = MALLOC(sizeof(char) * (14 + strlen(fontName)))))
+      !(path = MALLOC(sizeof(char) * (16 + strlen(fontName)))))
     return (NULL);
   sprintf(path, "assets/font/%s.ini", fontName);
-  printf("path = %s\n", path);
   if (loadFontIni(font, path))
     return (NULL);
   if (!(font->pix = bunny_load_pixelarray(font->asset)) ||
