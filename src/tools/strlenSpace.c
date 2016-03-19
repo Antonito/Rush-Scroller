@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Fri Mar 18 23:49:22 2016 Arthur ARNAUD
-** Last update Sat Mar 19 04:54:51 2016 Arthur ARNAUD
+** Last update Sat Mar 19 15:34:10 2016 Ludovic Petrenko
 */
 
 #include "tools/font.h"
@@ -20,7 +20,7 @@ int	strlenSpace(char *str)
   while (str[++i] != 0)
     {
       if (str[i] != ' ')
-	++j
+	++j;
     }
   return (j);
 }

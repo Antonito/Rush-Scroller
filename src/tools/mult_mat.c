@@ -5,10 +5,10 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 02:17:53 2016 Ludovic Petrenko
-** Last update Sat Mar 19 14:50:02 2016 Ludovic Petrenko
+** Last update Sat Mar 19 15:35:23 2016 Ludovic Petrenko
 */
 
-#include "tools/transform->h"
+#include "tools/transform.h"
 
 void		multMat2(t_mat2 *m2, t_mat2 *m)
 {
@@ -41,7 +41,7 @@ void		multMat3(t_mat3 *m2, t_mat3 *m)
   m->m22 = t.m20 * n.m02 + t.m21 * n.m12 + t.m22 * n.m22;
 }
 
-void		multMat4(t_mat4 *m2, t_mat4 m)
+void		multMat4(t_mat4 *m2, t_mat4 *m)
 {
   t_mat4	t;
   t_mat4	n;

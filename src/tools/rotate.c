@@ -5,9 +5,11 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 02:16:38 2016 Ludovic Petrenko
-** Last update Sat Mar 19 14:59:46 2016 Ludovic Petrenko
+** Last update Sat Mar 19 15:37:05 2016 Ludovic Petrenko
 */
 
+#include <math.h>
+#include "tools/common.h"
 #include "tools/transform.h"
 
 void		rotate2D(t_mat2 *m, double deg)
