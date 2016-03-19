@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 04:05:51 2016 Arthur ARNAUD
+## Last update Sat Mar 19 04:54:50 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -56,6 +56,14 @@ PLASMA_FILES=		check_args.c			\
 			set_palette.c			\
 			tekpixel.c
 
+ONDUL_PREFIX=		src/ondulation/
+
+ONDUL_FILES=		check_args.c			\
+			main.c				\
+			new_frame.c			\
+			set_palette.c			\
+			tekpixel.c
+
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 
 SRC_TOOLS=		$(addprefix $(TOOLS_PREFIX),$(TOOLS_FILES))
@@ -64,11 +72,15 @@ SRC_FIRE=		$(addprefix $(FIRE_PREFIX),$(FIRE_FILES))
 
 SRC_PLASMA=		$(addprefix $(PLASMA_PREFIX),$(PLASMA_FILES))
 
+SRC_ONDULATION=		$(addprefix $(ONDUL_PREFIX),$(ONDUL_FILES))
+
 SRC_DEMO+=		$(SRC_TOOLS)
 
 SRC_DEMO+=		$(SRC_FIRE)
 
 SRC_DEMO+=		$(SRC_PLASMA)
+
+SRC_DEMO+=		$(SRC_ONDULATION)
 
 DEMO=			bin/demoEtDesLettres
 

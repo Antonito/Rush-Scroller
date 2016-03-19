@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 03:44:45 2016 Ludovic Petrenko
-** Last update Sat Mar 19 03:55:44 2016 Antoine Baché
+** Last update Sat Mar 19 13:14:09 2016 Antoine Baché
 */
 
 #include "plasma.h"
@@ -23,11 +23,11 @@ t_bunny_response	my_event(t_bunny_event_state state,
   if (state == GO_DOWN && keysym == BKS_O)
     plasma->size += (plasma->size != 0.1 ? 0.1 : 0.2);
   if (state == GO_DOWN && keysym == BKS_L)
-    plasma->size -= (plasma->size != -0.1 ? 0.1 : 0.2);;
+    plasma->size -= (plasma->size != -0.1 ? 0.1 : 0.2);
   if (state == GO_DOWN && keysym == BKS_I)
-    plasma->coeff += (plasma->coeff != 0.1 ? 0.1 : 0.2);;
+    plasma->coeff += (plasma->coeff != 0.1 ? 0.1 : 0.2);
   if (state == GO_DOWN && keysym == BKS_K)
-    plasma->coeff -= (plasma->coeff != -0.1 ? 0.1 : 0.2);;
+    plasma->coeff -= (plasma->coeff != -0.1 ? 0.1 : 0.2);
   return (GO_ON);
 }
 

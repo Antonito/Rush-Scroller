@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 04:36:53 2016 Ludovic Petrenko
-** Last update Sat Mar 19 05:11:06 2016 Ludovic Petrenko
+** Last update Sat Mar 19 13:13:15 2016 Antoine Baché
 */
 
 #include <math.h>
@@ -24,5 +24,6 @@ double		surfaceTriangle(t_vec2 a, t_vec2 b, t_vec2 c)
 
 double		surfaceQuad(t_vec2 a, t_vec2 b, t_vec2 c, t_vec2 d)
 {
-  return (abs((a.x - c.x) * (b.y - d.y)) + abs((b.x - d.x) * (a.y - c.y))) / 2);
+  return (abs((a.x - c.x) * (b.y - d.y)) +
+	  abs((b.x - d.x) * (a.y - c.y))) / 2);
 }
