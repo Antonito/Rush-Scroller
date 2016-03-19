@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 04:54:50 2016 Antoine Baché
+## Last update Sat Mar 19 15:55:54 2016 Ludovic Petrenko
 ##
 
 DEBUG=			yes
@@ -17,26 +17,33 @@ SRC_DEMO_FILES=		main.c				\
 
 TOOLS_PREFIX=		src/tools/
 
-TOOLS_FILES=		my_malloc.c			\
-			my_free.c			\
+TOOLS_FILES=		add_vec.c			\
+			cast.c				\
+			div_vec.c			\
+			fill.c				\
+			free2D.c			\
+			interpolate.c			\
 			load_font_ini.c			\
-			strlenSpace.c			\
-			add_vec.c			\
 			mat_construct.c			\
 			mult_mat.c			\
 			mult_vec.c			\
 			mult_vec_mat.c			\
+			my_blit.c			\
+			my_free.c			\
+			my_malloc.c			\
+			perspective.c			\
 			rotate.c			\
+			rotate2.c			\
+			scale.c				\
+			strlenSpace.c			\
 			sub_vec.c			\
+			surface.c			\
+			tekpixel.c			\
 			translate.c			\
 			vec_construct.c			\
 			vec_dot.c			\
 			vec_length.c			\
-			vec_normalize.c			\
-			free2D.c			\
-			tekpixel.c			\
-			my_blit.c			\
-			fill.c
+			vec_normalize.c
 
 FIRE_PREFIX=		src/fire/
 
