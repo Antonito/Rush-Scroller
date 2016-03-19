@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 19:40:34 2016 Antoine Baché
-** Last update Sat Mar 19 04:19:54 2016 Antoine Baché
+** Last update Sat Mar 19 13:50:02 2016 Antoine Baché
 */
 
 #include <unistd.h>
@@ -47,13 +47,13 @@ int			demo(void)
   srand(time(NULL));
   if (!(data = MALLOC(sizeof(t_data))) ||
       !(data->win = bunny_start(WIN_X, WIN_Y, true, WIN_NAME)) ||
-      !(data->pix = bunny_new_pixelarray(WIN_X, WIN_Y)))
+      !(data->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) ||
+      setContext(data))
     return (1);
+  data->new = true;
   data->mousePos = (t_bunny_position *)bunny_get_mouse_position();
-  bunny_set_loop_main_function((t_bunny_loop)mainLoop);
-  bunny_set_key_response((t_bunny_key)eventKeys);
-  bunny_set_click_response((t_bunny_click)eventMouse);
-  if(bunny_loop(data->win, 60, data) == EXIT_ON_ERROR)
+  bunny_set_context(&data->context[0]);
+  if (bunny_loop(data->win, 60, data) == EXIT_ON_ERROR)
     return (freeData(data, 1));
   return (freeData(data, 0));
 }

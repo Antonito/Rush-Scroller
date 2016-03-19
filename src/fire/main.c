@@ -5,15 +5,19 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 02:06:05 2016 Antoine Baché
-** Last update Sat Mar 19 02:09:15 2016 Antoine Baché
+** Last update Sat Mar 19 13:55:40 2016 Antoine Baché
 */
 
 #include "fire.h"
+#include "tools/common.h"
 
-t_bunny_response	key(t_bunny_event_state state,
-			    t_bunny_keysym key,
-			    void *prog)
+t_bunny_response	fireKey(t_bunny_event_state state,
+				t_bunny_keysym key,
+				t_data *data)
 {
+  t_prog		*prog;
+
+  prog = data->data;
   if (state == GO_DOWN && key != BKS_ESCAPE)
     go_down_key(key, prog);
   else if (state == GO_UP && key != BKS_ESCAPE)
@@ -23,8 +27,13 @@ t_bunny_response	key(t_bunny_event_state state,
   return (GO_ON);
 }
 
-t_bunny_response	mainloop(t_prog *prog)
+t_bunny_response	fireLoop(t_data *data)
 {
+  t_prog		*prog;
+
+  if (data->new && flame(data))
+    return (EXIT_ON_ERROR);
+  prog = data->data;
   if (prog->mod[0] && prog->mod[3] < 19)
     prog->mod[3] += 1;
   else if (prog->mod[1] && prog->mod[3] > 0)
@@ -33,9 +42,9 @@ t_bunny_response	mainloop(t_prog *prog)
   random_lines(prog->colors);
   fire_calculator(prog->colors, prog->mod[3]);
   display_fire(prog->pix, prog->colors, prog->palette);
-  bunny_blit(&(prog->win->buffer),
+  bunny_blit(&(data->win->buffer),
 	     &(prog->pix->clipable), 0);
-  bunny_display(prog->win);
+  bunny_display(data->win);
   return (GO_ON);
 }
 
@@ -50,29 +59,22 @@ void	set_to_black(short *colors)
     colors[i] = 0;
 }
 
-int		flame()
+int		flame(t_data *data)
 {
   t_prog	*prog;
 
-  if ((prog = bunny_malloc(sizeof(t_prog))) == NULL)
-    return (-1);
+  data->new = false;
+  if (!(prog = MALLOC(sizeof(t_prog))))
+    return (1);
+  data->data = prog;
   palette_generator(prog->palette);
-  srand(time(NULL));
   prog->mod[0] = 0;
   prog->mod[1] = 0;
   prog->mod[3] = 14;
-  prog->win = bunny_start(WIN_X, WIN_Y, 0, "Flame");
   set_to_black(prog->colors);
-  prog->pix = bunny_new_pixelarray(WIN_X, WIN_Y);
-  bunny_set_loop_main_function((t_bunny_loop)mainloop);
-  bunny_set_key_response(key);
-  if ((prog->music = bunny_load_music("sounds/fire.ogg")) == NULL)
-    return (-1);
+  if (!(prog->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) ||
+      !(prog->music = bunny_load_music("assets/sounds/fire.ogg")))
+    return (1);
   load_music(prog->music);
-  bunny_loop(prog->win, 60, prog);
-  bunny_delete_sound(&prog->music->sound);
-  bunny_stop(prog->win);
-  bunny_delete_clipable(&prog->pix->clipable);
-  bunny_free(prog);
   return (0);
 }

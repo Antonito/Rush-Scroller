@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 04:54:50 2016 Antoine Baché
+## Last update Sat Mar 19 14:06:01 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -13,26 +13,14 @@ DEBUG=			yes
 SRC_DEMO_PREFIX=	src/
 
 SRC_DEMO_FILES=		main.c				\
+			context.c			\
+			context/fire.c			\
 			free.c
 
 TOOLS_PREFIX=		src/tools/
 
 TOOLS_FILES=		my_malloc.c			\
 			my_free.c			\
-			load_font_ini.c			\
-			strlenSpace.c			\
-			add_vec.c			\
-			mat_construct.c			\
-			mult_mat.c			\
-			mult_vec.c			\
-			mult_vec_mat.c			\
-			rotate.c			\
-			sub_vec.c			\
-			translate.c			\
-			vec_construct.c			\
-			vec_dot.c			\
-			vec_length.c			\
-			vec_normalize.c			\
 			free2D.c			\
 			tekpixel.c			\
 			my_blit.c			\
@@ -80,9 +68,7 @@ SRC_DEMO+=		$(SRC_FIRE)
 
 SRC_DEMO+=		$(SRC_PLASMA)
 
-SRC_DEMO+=		$(SRC_ONDULATION)
-
-DEMO=			bin/demoEtDesLettres
+DEMO=			demoEtDesLettres
 
 HEAD=			-Iinclude			\
 			-I/home/${USER}/.froot/include

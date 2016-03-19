@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 01:40:26 2016 Antoine Baché
-** Last update Sat Mar 19 02:12:16 2016 Antoine Baché
+** Last update Sat Mar 19 13:48:04 2016 Antoine Baché
 */
 
 #ifndef FIRE_H_
@@ -37,11 +37,10 @@ int			pos_average(int, short *, int);
 int			first_pos_average(int, short *);
 int			last_pos_average(int, short *);
 void			fire_calculator(short *, int);
-t_bunny_response	key(t_bunny_event_state, t_bunny_keysym, void *);
-t_bunny_response	key(t_bunny_event_state, t_bunny_keysym, void *);
-t_bunny_response	mainloop(t_prog *);
+t_bunny_response	fireKey(t_bunny_event_state, t_bunny_keysym, t_data *);
+t_bunny_response	fireLoop(t_data *);
 void			random_lines(short *);
-int			flame();
+int			flame(t_data *);
 int			intensity_mod(int, int);
 int			load_music(t_bunny_music *);
 void			go_up_key(t_bunny_keysym, void *);
