@@ -1,3 +1,13 @@
+/*
+** vec_construct.c for scroll in /gfx_scroller/src/tools
+**
+** Made by Ludovic Petrenko
+** Login   <petren_l@epitech.net>
+**
+** Started on  Sat Mar 19 02:20:48 2016 Ludovic Petrenko
+** Last update Sat Mar 19 02:22:08 2016 Ludovic Petrenko
+*/
+
 #include "tools/transform.h"
 
 t_vec2		vec2(double x, double y)

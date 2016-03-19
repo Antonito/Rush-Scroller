@@ -1,3 +1,13 @@
+/*
+** translate.c for scroll in /gfx_scroller/src/tools
+**
+** Made by Ludovic Petrenko
+** Login   <petren_l@epitech.net>
+**
+** Started on  Sat Mar 19 02:20:36 2016 Ludovic Petrenko
+** Last update Sat Mar 19 02:22:14 2016 Ludovic Petrenko
+*/
+
 #include "tools/transform.h"
 
 void	translate(t_mat4 *mat, t_vec3 t)

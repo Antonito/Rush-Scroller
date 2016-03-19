@@ -1,3 +1,13 @@
+/*
+** rotate.c for scroll in /gfx_scroller/src/tools
+**
+** Made by Ludovic Petrenko
+** Login   <petren_l@epitech.net>
+**
+** Started on  Sat Mar 19 02:16:38 2016 Ludovic Petrenko
+** Last update Sat Mar 19 02:16:46 2016 Ludovic Petrenko
+*/
+
 #include "tools/transform.h"
 
 void		rotate2D(t_mat2 *m, double deg)

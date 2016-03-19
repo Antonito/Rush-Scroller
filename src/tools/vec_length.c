@@ -1,3 +1,13 @@
+/*
+** vec_length.c for scroll in /gfx_scroller/src/tools
+**
+** Made by Ludovic Petrenko
+** Login   <petren_l@epitech.net>
+**
+** Started on  Sat Mar 19 02:21:53 2016 Ludovic Petrenko
+** Last update Sat Mar 19 02:22:24 2016 Ludovic Petrenko
+*/
+
 #include <math.h>
 #include "tools/common.h"
 #include "tools/transform.h"
