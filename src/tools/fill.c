@@ -5,14 +5,17 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 00:50:06 2016 Antoine Baché
-** Last update Sat Mar 19 01:02:18 2016 Antoine Baché
+** Last update Sat Mar 19 02:11:39 2016 Antoine Baché
 */
 
 #include "tools/common.h"
+#include "tools/transform.h"
 
-void		fillColor(t_bunny_pixelarray *pix, t_color color, double transp)
+void		fillColor(t_bunny_pixelarray *pix, t_color *color,
+			  double transp)
 {
   int		i;
+  int		j;
   t_ivec2	pos;
 
   i = 0;

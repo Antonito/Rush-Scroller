@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 00:54:45 2016 Antoine Baché
+## Last update Sat Mar 19 02:09:02 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -24,11 +24,25 @@ TOOLS_FILES=		my_malloc.c			\
 			my_blit.c			\
 			fill.c
 
+FIRE_PREFIX=		src/fire/
+
+FIRE_FILES=		display_fire.c			\
+			fire_calcul.c			\
+			key_mod.c			\
+			main.c				\
+			music_settings.c		\
+			palette.c			\
+			random_lines.c
+
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 
 SRC_TOOLS=		$(addprefix $(TOOLS_PREFIX),$(TOOLS_FILES))
 
+SRC_FIRE=		$(addprefix $(FIRE_PREFIX),$(FIRE_FILES))
+
 SRC_DEMO+=		$(SRC_TOOLS)
+
+SRC_DEMO+=		$(SRC_FIRE)
 
 DEMO=			bin/demoEtDesLettres
 
