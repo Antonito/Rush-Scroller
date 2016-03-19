@@ -5,10 +5,10 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Fri Mar 18 22:50:54 2016 Arthur ARNAUD
-** Last update Sat Mar 19 03:49:53 2016 Arthur ARNAUD
+** Last update Sat Mar 19 04:19:24 2016 Antoine Baché
 */
 
-#include "font.h"
+#include "tools/font.h"
 
 int		loadFontIni(t_font *font, char *path)
 {
@@ -43,7 +43,7 @@ void		addCharFont(t_font *font, int j, int i)
 	{
 	  res = addiVec2(origin, incr);
 	  font->tab[j] = font->pix[res.x + res.y *
-				   font->pix->clipable.clip_with];
+				   font->pix->clipable.clip_width];
 	}
     }
 
@@ -101,8 +101,8 @@ t_bunny_pixelarray	*printText(char *str, char *font)
     return (NULL);
   font->tab[strlen(font->chars)] = NULL;
   if (fillFontTab(font) ||
-      res = bunny_new_pixelarray
-      (font->witdh * strlenSpace(font->chars), font->height))
+      !(res = bunny_new_pixelarray) ||
+      (font->width * strlenSpace(font->chars), font->height))
     return (NULL);
   i  = -1;
   make_text_pix(res, font);

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:40:48 2016 Antoine Baché
-** Last update Sat Mar 19 03:12:28 2016 Arthur ARNAUD
+** Last update Sat Mar 19 04:13:11 2016 Antoine Baché
 */
 
 #ifndef	COMMON_H_
@@ -14,6 +14,7 @@
 
 # include <stdlib.h>
 # include <lapin.h>
+# include "transform.h"
 
 /*
 ** Maths macros
