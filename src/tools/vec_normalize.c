@@ -5,12 +5,12 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 02:23:31 2016 Ludovic Petrenko
-** Last update Sat Mar 19 02:23:38 2016 Ludovic Petrenko
+** Last update Sat Mar 19 05:30:58 2016 Ludovic Petrenko
 */
 
 #include "tools/transform.h"
 
-t_vec2		normalizeVec2(t_vec2 v)
+t_vec2		vec2Normalize(t_vec2 v)
 {
   double	len;
 
@@ -22,7 +22,7 @@ t_vec2		normalizeVec2(t_vec2 v)
   return (v);
 }
 
-t_vec3		normalizeVec2(t_vec3 v)
+t_vec3		vec3Normalize(t_vec3 v)
 {
   double	len;
 
@@ -35,7 +35,7 @@ t_vec3		normalizeVec2(t_vec3 v)
   return (v);
 }
 
-t_vec4		normalizeVec4(t_vec4 v)
+t_vec4		vec4Normalize(t_vec4 v)
 {
   double	len;
 
