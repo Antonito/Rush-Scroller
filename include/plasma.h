@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Fri Dec  4 20:13:39 2015 ludovic petrenko
-** Last update Sat Mar 19 03:57:59 2016 Antoine Baché
+** Last update Sat Mar 19 18:05:42 2016 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -15,10 +15,8 @@
 # include <math.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include "demo.h"
 
-# define WIN_NAME	("Ziçe gueurle ise haunne Phailleur!")
-# define WIN_WIDTH	1920
-# define WIN_HEIGHT	1080
 # define OCTET		sizeof(char)
 # define RAD(DEG)	((double)(DEG * M_PI / 180))
 # define ROUND(A)	(A - (int)A < 0.5 ? (int)A : (int)A + 1)
@@ -26,7 +24,6 @@
 
 typedef struct		s_plasma
 {
-  t_bunny_window	*win;
   t_bunny_pixelarray	*pix;
   int			origin;
   double		size;
@@ -36,15 +33,16 @@ typedef struct		s_plasma
 }			t_plasma;
 
 void			free_all(t_plasma *plasma);
-t_bunny_response	my_event(t_bunny_event_state state,
+t_bunny_response	plasmaKey(t_bunny_event_state state,
 				 t_bunny_keysym keysym,
-				 t_plasma *plasma);
-t_bunny_response	my_loop(t_plasma *plasma);
+				 t_data *plasma);
+t_bunny_response	plasmaLoop(t_data *plasma);
 void			new_frame(t_plasma *plasma);
 void			set_palette(unsigned int *palette);
 void			tekpixel2(t_bunny_pixelarray *pix,
 				 int x, int y,
 				 unsigned int color);
 int			check_args(char **av);
+int			plasmaMain(t_data *);
 
 #endif /* !MY_H_ */

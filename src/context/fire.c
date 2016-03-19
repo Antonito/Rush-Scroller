@@ -5,14 +5,14 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 13:24:19 2016 Antoine Baché
-** Last update Sat Mar 19 13:33:48 2016 Antoine Baché
+** Last update Sat Mar 19 15:52:28 2016 Antoine Baché
 */
 
 #include "fire.h"
 
-int	setFireContext(t_bunny_context *context)
+void	setFireContext(t_bunny_context *context)
 {
-  context->key = fireKey;
-  context->loop = fireLoop;
-  return (0);
+  context->key = (t_bunny_key)fireKey;
+  context->loop = (t_bunny_loop)fireLoop;
+  context->close = (t_bunny_close)fireClose;
 }

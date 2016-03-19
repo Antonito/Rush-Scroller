@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 14:06:01 2016 Antoine Baché
+## Last update Sat Mar 19 17:45:40 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -15,6 +15,8 @@ SRC_DEMO_PREFIX=	src/
 SRC_DEMO_FILES=		main.c				\
 			context.c			\
 			context/fire.c			\
+			context/plasma.c		\
+			select.c			\
 			free.c
 
 TOOLS_PREFIX=		src/tools/

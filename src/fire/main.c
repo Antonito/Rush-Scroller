@@ -5,9 +5,10 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 02:06:05 2016 Antoine Baché
-** Last update Sat Mar 19 13:55:40 2016 Antoine Baché
+** Last update Sat Mar 19 17:44:58 2016 Antoine Baché
 */
 
+#include "demo.h"
 #include "fire.h"
 #include "tools/common.h"
 
@@ -24,7 +25,7 @@ t_bunny_response	fireKey(t_bunny_event_state state,
     go_up_key(key, prog);
   else if (key == BKS_ESCAPE && state == GO_DOWN)
     return (EXIT_ON_SUCCESS);
-  return (GO_ON);
+  return (eventKeys(state, key, data));
 }
 
 t_bunny_response	fireLoop(t_data *data)
@@ -57,6 +58,19 @@ void	set_to_black(short *colors)
   size = WIN_X * (WIN_Y + 2);
   while (++i < size)
     colors[i] = 0;
+}
+
+int		fireClose(t_data *data)
+{
+  t_prog	*prog;
+
+  prog = data->data;
+  bunny_delete_sound(&prog->music->sound);
+  bunny_delete_clipable(&prog->pix->clipable);
+  my_free(prog);
+  data->data = NULL;
+  data->new = true;
+  return (0);
 }
 
 int		flame(t_data *data)
