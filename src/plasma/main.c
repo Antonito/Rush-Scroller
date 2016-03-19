@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 03:44:45 2016 Ludovic Petrenko
-** Last update Sat Mar 19 17:44:27 2016 Antoine Baché
+** Last update Sat Mar 19 19:29:38 2016 Antoine Baché
 */
 
 #include "plasma.h"
@@ -50,13 +50,16 @@ t_bunny_response	plasmaLoop(t_data *data)
   return (GO_ON);
 }
 
-int	plasmaClose(t_data *data)
+int			plasmaClose(t_data *data)
 {
   t_plasma		*plasma;
 
   plasma = data->data;
-  bunny_delete_clipable(&plasma->pix->clipable);;
-  my_free(plasma);
+  if (!data->new)
+    {
+      bunny_delete_clipable(&plasma->pix->clipable);;
+      my_free(plasma);
+    }
   data->data = NULL;
   data->new = true;
   return (0);
@@ -66,7 +69,6 @@ int			plasmaMain(t_data *data)
 {
   t_plasma		*plasma;
 
-  data->new = false;
   if (!(plasma = MALLOC(sizeof(t_plasma))) ||
       !(plasma->pix = bunny_new_pixelarray(WIN_X, WIN_Y)))
     return (1);
@@ -76,5 +78,6 @@ int			plasmaMain(t_data *data)
   plasma->coeff = 0.1;
   plasma->origin = 0;
   data->data = plasma;
+  data->new = false;
   return (0);
 }

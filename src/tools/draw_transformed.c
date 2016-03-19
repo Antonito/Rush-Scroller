@@ -5,11 +5,12 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 16:03:21 2016 Ludovic Petrenko
-** Last update Sat Mar 19 17:52:39 2016 Ludovic Petrenko
+** Last update Sat Mar 19 18:40:44 2016 Antoine Baché
 */
 
 #include <stdbool.h>
 #include "tools/transform.h"
+#include "tools/common.h"
 
 static	int sign(t_ivec2 pt1, t_ivec2 pt2, t_ivec2 pt3)
 {

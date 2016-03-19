@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 19:58:39 2016 Ludovic Petrenko
+## Last update Sat Mar 19 20:04:15 2016 Ludovic Petrenko
 ##
 
 DEBUG=			yes
@@ -16,6 +16,7 @@ SRC_DEMO_FILES=		main.c				\
 			context.c			\
 			context/fire.c			\
 			context/plasma.c		\
+			context/sprite.c		\
 			context/starfield.c		\
 			select.c			\
 			free.c
@@ -67,6 +68,7 @@ PLASMA_FILES=		check_args.c			\
 			main.c				\
 			new_frame.c			\
 			set_palette.c			\
+			trigo.c				\
 			tekpixel.c
 
 ONDUL_PREFIX=		src/ondulation/
@@ -76,6 +78,11 @@ ONDUL_FILES=		check_args.c			\
 			new_frame.c			\
 			set_palette.c			\
 			tekpixel.c
+
+SPRITE_PREFIX=		src/sprite/
+
+SPRITE_FILES=		main.c				\
+			sprite.c
 
 STARFIELD_PREFIX=	src/starfield
 
@@ -92,6 +99,8 @@ SRC_PLASMA=		$(addprefix $(PLASMA_PREFIX),$(PLASMA_FILES))
 
 SRC_ONDULATION=		$(addprefix $(ONDUL_PREFIX),$(ONDUL_FILES))
 
+SRC_SPRITE=		$(addprefix $(SPRITE_PREFIX),$(SPRITE_FILES))
+
 SRC_STARFIELD=		$(addprefix $(STARFIELD_PREFIX),$(STARFIELD_FILES))
 
 SRC_DEMO+=		$(SRC_TOOLS)
@@ -99,6 +108,8 @@ SRC_DEMO+=		$(SRC_TOOLS)
 SRC_DEMO+=		$(SRC_FIRE)
 
 SRC_DEMO+=		$(SRC_PLASMA)
+
+SRC_DEMO+=		$(SRC_SPRITE)
 
 SRC_DEMO+=		$(SRC_STARFIELD)
 

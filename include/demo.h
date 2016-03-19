@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sat Mar 19 19:59:49 2016 Ludovic Petrenko
+** Last update Sat Mar 19 20:02:54 2016 Ludovic Petrenko
 */
 
 #ifndef	DEMO_H_
@@ -51,12 +51,14 @@ int			freeData(t_data *, int);
 int			setContext(t_data *);
 void			setFireContext(t_bunny_context *);
 void			setPlasmaContext(t_bunny_context *);
+void			setSpriteContext(t_bunny_context *);
 
 /*
 ** Free
 */
 int			fireClose(t_data *);
 int			plasmaClose(t_data *);
+int			spriteClose(t_data *);
 int			starClose(t_data *data);
 
 #endif /* !DEMO_H_ */

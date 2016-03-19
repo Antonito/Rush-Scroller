@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 19:40:34 2016 Antoine Baché
-** Last update Sat Mar 19 18:11:01 2016 Antoine Baché
+** Last update Sat Mar 19 19:27:12 2016 Antoine Baché
 */
 
 #include <unistd.h>
@@ -25,17 +25,17 @@ t_bunny_response	eventMouse(t_bunny_event_state state,
 t_bunny_response	eventKeys(t_bunny_event_state state,
 				  t_bunny_keysym key, t_data *data)
 {
-  if (state == GO_DOWN)
+  if (state == GO_DOWN && (data->contextPrev = data->contextId) > -1)
     {
-      if (key == BKS_ESCAPE)
+      if (!data->new && key == BKS_ESCAPE)
 	return (EXIT_ON_SUCCESS);
-      if (key == BKS_P && (data->contextPrev = data->contextId) > -1)
+      if (!data->new && key == BKS_P)
 	{
 	  (!data->contextId) ?
 	    (data->contextId = NB_CONTEXT - 1) : (--data->contextId);
 	  return (SWITCH_CONTEXT);
 	}
-      if (key == BKS_N && (data->contextPrev = data->contextId) > -1)
+      if (!data->new && key == BKS_N)
 	{
 	  (data->contextId == NB_CONTEXT - 1) ?
 	    (data->contextId = 0) : (++data->contextId);
@@ -48,7 +48,7 @@ t_bunny_response	eventKeys(t_bunny_event_state state,
 int			demo(void)
 {
   t_data		*data;
-  int			ret;
+  t_bunny_response	ret;
   closeEvent   		closeIt;
 
   srand(time(NULL));
@@ -59,6 +59,7 @@ int			demo(void)
     return (1);
   data->new = true;
   data->contextId = 1;
+  data->contextPrev = 1;
   data->mousePos = (t_bunny_position *)bunny_get_mouse_position();
   ret = GO_ON;
   while (ret != EXIT_ON_SUCCESS)
