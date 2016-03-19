@@ -1,3 +1,13 @@
+/*
+** mult_vec_mat.c for scroll in /gfx_scroller/src/tools
+**
+** Made by Ludovic Petrenko
+** Login   <petren_l@epitech.net>
+**
+** Started on  Sat Mar 19 02:18:31 2016 Ludovic Petrenko
+** Last update Sat Mar 19 02:18:38 2016 Ludovic Petrenko
+*/
+
 #include "tools/transfort.h"
 
 t_vec2		multMatVec2(t_mat2 *m, t_vec2 v)

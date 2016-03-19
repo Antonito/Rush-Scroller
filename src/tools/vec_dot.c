@@ -1,3 +1,13 @@
+/*
+** vec_dot.c for scroll in /gfx_scroller/src/tools
+**
+** Made by Ludovic Petrenko
+** Login   <petren_l@epitech.net>
+**
+** Started on  Sat Mar 19 02:21:20 2016 Ludovic Petrenko
+** Last update Sat Mar 19 02:22:05 2016 Ludovic Petrenko
+*/
+
 #include "tools/transform.h"
 
 double	dotVec2(t_vec2 u, t_vec2 v)
