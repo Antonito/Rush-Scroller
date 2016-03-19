@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 01:40:26 2016 Antoine Baché
-** Last update Sat Mar 19 02:04:18 2016 Antoine Baché
+** Last update Sat Mar 19 02:12:16 2016 Antoine Baché
 */
 
 #ifndef FIRE_H_
@@ -14,6 +14,7 @@
 # define WHITE_COLOR 0xFFFFFF
 # define BLACK_COLOR 0x000000
 
+# include "demo.h"
 # include <stdlib.h>
 # include <lapin.h>
 # include <time.h>
