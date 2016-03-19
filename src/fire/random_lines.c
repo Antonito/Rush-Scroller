@@ -5,9 +5,8 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 02:04:47 2016 Antoine Baché
-** Last update Sat Mar 19 02:04:53 2016 Antoine Baché
+** Last update Sat Mar 19 02:14:14 2016 Antoine Baché
 */
-
 
 #include "fire.h"
 

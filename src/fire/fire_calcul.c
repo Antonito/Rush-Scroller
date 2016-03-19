@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 02:06:50 2016 Antoine Baché
-** Last update Sat Mar 19 02:06:56 2016 Antoine Baché
+** Last update Sat Mar 19 02:44:48 2016 Antoine Baché
 */
 
 #include "fire.h"
@@ -23,7 +23,7 @@ int	pos_average(int i, short *colors, int mod)
     p_l = colors[i - WIN_X];
   else
     p_l = BLACK_COLOR;
-  p_r = colors[i + WIN_X + 1];
+  p_r = colors[i + WIN_X + 2];
   p_u = colors[i + (WIN_X << 1)];
   average = (p + p_l + p_r + p_u) / 4;
   if (average > 70 && average < 120 && rand() % 100 > 95)
