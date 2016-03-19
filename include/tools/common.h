@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:40:48 2016 Antoine Baché
-** Last update Sat Mar 19 00:57:53 2016 Antoine Baché
+** Last update Sat Mar 19 04:13:11 2016 Antoine Baché
 */
 
 #ifndef	COMMON_H_
@@ -14,6 +14,7 @@
 
 # include <stdlib.h>
 # include <lapin.h>
+# include "transform.h"
 
 /*
 ** Maths macros
@@ -41,5 +42,9 @@ void			tekpixelTransp(t_bunny_pixelarray *,
 				       t_color *, double);
 void			clearColor(t_bunny_pixelarray *, unsigned int);
 void			fillColor(t_bunny_pixelarray *, t_color *, double);
+void			myBlit(const t_bunny_pixelarray *,
+			       t_bunny_pixelarray *,
+			       double,
+			       t_ivec2);
 
 #endif	/* !COMMON_H_ */

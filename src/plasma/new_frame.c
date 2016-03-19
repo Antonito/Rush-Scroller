@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 03:44:13 2016 Ludovic Petrenko
-** Last update Sat Mar 19 03:44:28 2016 Ludovic Petrenko
+** Last update Sat Mar 19 03:57:47 2016 Antoine Baché
 */
 
 #include "plasma.h"
@@ -31,7 +31,7 @@ void		new_frame(t_plasma *plasma)
 	  	       plasma->origin +
 	  	       cos(i / 10.0f + j / 100.0f))) % 128;
 	  color = plasma->palette[pal < 0 ? pal + 128 : pal];
-	  tekpixel(plasma->pix, j, i, color);
+	  tekpixel2(plasma->pix, j, i, color);
 	  j++;
 	}
       i++;

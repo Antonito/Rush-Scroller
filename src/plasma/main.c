@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 03:44:45 2016 Ludovic Petrenko
-** Last update Sat Mar 19 03:44:49 2016 Ludovic Petrenko
+** Last update Sat Mar 19 03:55:44 2016 Antoine Baché
 */
 
 #include "plasma.h"
@@ -58,7 +58,7 @@ int		main__(int ac, char **av)
   bunny_set_loop_main_function((t_bunny_loop)&my_loop);
   bunny_set_key_response((t_bunny_key)&my_event);
   set_palette(plasma.palette);
-  if ((plasma.win = bunny_start(WIN_WIDTH, WIN_HEIGHT, false, WIN_NAME)) == NULL
+  if (!(plasma.win = bunny_start(WIN_WIDTH, WIN_HEIGHT, false, WIN_NAME))
       || (plasma.pix = bunny_new_pixelarray(WIN_WIDTH, WIN_HEIGHT)) == NULL)
     return (1);
   plasma.size = 0.5;
@@ -68,11 +68,4 @@ int		main__(int ac, char **av)
   bunny_loop(plasma.win, 30, &plasma);
   free_all(&plasma);
   return (0);
-
-}
-int	main(int ac, char **av, char **env)
-{
-  if (*env == NULL || env == NULL)
-    return (1);
-  return (main__(ac, av));
 }
