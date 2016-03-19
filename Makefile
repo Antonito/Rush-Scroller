@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 18:13:06 2016 Antoine Baché
+## Last update Sat Mar 19 18:56:55 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -66,6 +66,7 @@ PLASMA_FILES=		check_args.c			\
 			main.c				\
 			new_frame.c			\
 			set_palette.c			\
+			trigo.c				\
 			tekpixel.c
 
 ONDUL_PREFIX=		src/ondulation/

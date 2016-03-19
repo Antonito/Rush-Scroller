@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 02:06:05 2016 Antoine Baché
-** Last update Sat Mar 19 17:44:58 2016 Antoine Baché
+** Last update Sat Mar 19 19:30:42 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -65,9 +65,12 @@ int		fireClose(t_data *data)
   t_prog	*prog;
 
   prog = data->data;
-  bunny_delete_sound(&prog->music->sound);
-  bunny_delete_clipable(&prog->pix->clipable);
-  my_free(prog);
+  if (!data->new)
+    {
+      bunny_delete_sound(&prog->music->sound);
+      bunny_delete_clipable(&prog->pix->clipable);
+      my_free(prog);
+    }
   data->data = NULL;
   data->new = true;
   return (0);
@@ -77,7 +80,6 @@ int		flame(t_data *data)
 {
   t_prog	*prog;
 
-  data->new = false;
   if (!(prog = MALLOC(sizeof(t_prog))))
     return (1);
   data->data = prog;
@@ -90,5 +92,6 @@ int		flame(t_data *data)
       !(prog->music = bunny_load_music("assets/sounds/fire.ogg")))
     return (1);
   load_music(prog->music);
+  data->new = false;
   return (0);
 }

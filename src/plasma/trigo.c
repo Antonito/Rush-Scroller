@@ -1,16 +1,17 @@
 /*
-** trigo.c for wolf in /home/asphahyre/rendu/gfx_wolf3d/src
+** trigo.c for gfx_scroller in /gfx_scroller
 **
-** Made by Luka Boulagnon
-** Login   <boulag_l@epitech.net>
+** Made by Antoine Baché
+** Login   <bache_a@epitech.net>
 **
-** Started on  Wed Dec 23 14:59:40 2015 Luka Boulagnon
-** Last update Sat Mar 19 18:53:52 2016 Ludovic Petrenko
+** Started on  Sat Mar 19 18:57:32 2016 Antoine Baché
+** Last update Sat Mar 19 19:07:25 2016 Antoine Baché
 */
 
-#include "tekdoom.h"
+#include <lapin.h>
+#include <math.h>
 
-void		init_sinuses(double **values)
+void		init_sinuses(double *values)
 {
   int		i;
   double	angle;
@@ -57,7 +58,10 @@ double		my_sin(double nb)
   static bool	isSet = false;
 
   if (!isSet)
-    init_sinuses(sinuses);
+    {
+      init_sinuses(sinuses);
+      isSet = true;
+    }
   return (sinuses[get_val(nb)]);
 }
 
@@ -67,6 +71,9 @@ double		my_cos(double nb)
   static bool	isSet = false;
 
   if (!isSet)
-    init_cosinuses(cosinuses);
+    {
+      init_cosinuses(cosinuses);
+      isSet = true;
+    }
   return (cosinuses[get_val(nb)]);
 }
