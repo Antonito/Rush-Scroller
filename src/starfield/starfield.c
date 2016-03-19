@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 19:31:12 2016 Ludovic Petrenko
-** Last update Sat Mar 19 20:18:05 2016 Ludovic Petrenko
+** Last update Sat Mar 19 20:21:57 2016 Ludovic Petrenko
 */
 
 #include <lapin.h>
@@ -30,7 +30,9 @@ void			drawStar(t_bunny_pixelarray *pix, t_star *s)
 void	moveStar(t_star *s)
 {
   double	dist;
+  t_ivec2		screenCenter;
 
+  screenCenter = ivec2(WIN_X / 2, WIN_Y / 2);
   dist = ivec2Len(subiVec2(s->pos, screenCenter)) / 100.0;
   s->pos = addiVec2(s->pos, multiVec2(s->dir, dist));
 }

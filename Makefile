@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 20:04:15 2016 Ludovic Petrenko
+## Last update Sat Mar 19 20:10:30 2016 Ludovic Petrenko
 ##
 
 DEBUG=			yes
@@ -84,10 +84,11 @@ SPRITE_PREFIX=		src/sprite/
 SPRITE_FILES=		main.c				\
 			sprite.c
 
-STARFIELD_PREFIX=	src/starfield
+STARFIELD_PREFIX=	src/starfield/
 
 STARFIELD_FILES=	gen_star.c			\
-			main.c
+			main.c				\
+			starfield.c
 
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 
