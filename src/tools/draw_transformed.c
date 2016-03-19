@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 16:03:21 2016 Ludovic Petrenko
-** Last update Sat Mar 19 18:40:44 2016 Antoine Baché
+** Last update Sat Mar 19 23:17:55 2016 Ludovic Petrenko
 */
 
 #include <stdbool.h>
@@ -75,4 +75,27 @@ void	drawTransformed(t_bunny_pixelarray *src, t_bunny_pixelarray *dest,
   t2[2] = multMatiVec2(transform, texCoords2[2]);
   drawTransformedTriangle(src, dest, t1, texCoords1);
   drawTransformedTriangle(src, dest, t2, texCoords2);
+}
+
+void	drawResized(t_bunny_pixelarray *src, t_bunny_pixelarray *dest,
+		    t_vec2 scale, t_ivec2 pos)
+{
+  t_ivec2	incr;
+  t_ivec2	tmp;
+  t_color	color;
+  t_ivec2	finalPos;
+
+  incr.y = -1;
+  while (++incr.y < dest->clipable.clip_height)
+    {
+      incr.x = -1;
+      while (++incr.x < dest->clipable.clip_width)
+	{
+	  tmp.x = incr.x / scale.x;
+	  tmp.y = incr.y / scale.y;
+	  color.full = getPixel(src, tmp);
+	  finalPos = addiVec2(incr, pos);
+	  tekpixel(dest, &finalPos, &color);
+	}
+    }
 }
