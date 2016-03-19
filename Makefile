@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 03:50:02 2016 Antoine Baché
+## Last update Sat Mar 19 04:05:51 2016 Arthur ARNAUD
 ##
 
 DEBUG=			yes
@@ -19,6 +19,20 @@ TOOLS_PREFIX=		src/tools/
 
 TOOLS_FILES=		my_malloc.c			\
 			my_free.c			\
+			load_font_ini.c			\
+			strlenSpace.c			\
+			add_vec.c			\
+			mat_construct.c			\
+			mult_mat.c			\
+			mult_vec.c			\
+			mult_vec_mat.c			\
+			rotate.c			\
+			sub_vec.c			\
+			translate.c			\
+			vec_construct.c			\
+			vec_dot.c			\
+			vec_length.c			\
+			vec_normalize.c			\
 			free2D.c			\
 			tekpixel.c			\
 			my_blit.c			\
