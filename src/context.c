@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 13:16:50 2016 Antoine Baché
-** Last update Sat Mar 19 19:17:15 2016 Arthur ARNAUD
+** Last update Sat Mar 19 20:15:58 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -17,6 +17,6 @@ int	setContext(t_data *data)
     return (1);
   setFireContext(&data->context[0]);
   setPlasmaContext(&data->context[1]);
-  setSpriteContext(&data->context[2]);
+  setFireContext(&data->context[2]);
   return (0);
 }
