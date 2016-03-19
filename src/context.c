@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 13:16:50 2016 Antoine Baché
-** Last update Sat Mar 19 21:16:01 2016 Antoine Baché
+** Last update Sat Mar 19 23:13:12 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -19,5 +19,6 @@ int	setContext(t_data *data)
   setPlasmaContext(&data->context[1]);
   setSpriteContext(&data->context[2]);
   setStarfieldContext(&data->context[3]);
+  setOndulationContext(&data->context[4]);
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sat Mar 19 21:16:30 2016 Antoine Baché
+** Last update Sat Mar 19 23:12:19 2016 Antoine Baché
 */
 
 #ifndef	DEMO_H_
@@ -14,7 +14,7 @@
 # define WIN_X		1920
 # define WIN_Y		1080
 # define WIN_NAME	"Rush Scroller"
-# define NB_CONTEXT	4
+# define NB_CONTEXT	5
 
 # include <lapin.h>
 
@@ -61,6 +61,7 @@ void			setOndulationContext(t_bunny_context *);
 int			fireClose(t_data *);
 int			plasmaClose(t_data *);
 int			spriteClose(t_data *);
-int			starClose(t_data *data);
+int			starClose(t_data *);
+int			ondulationClose(t_data *);
 
 #endif /* !DEMO_H_ */

@@ -5,15 +5,22 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Wed Jan 13 19:00:36 2016 Antoine Baché
-** Last update Sat Mar 19 20:31:16 2016 Antoine Baché
+** Last update Sat Mar 19 23:33:47 2016 Antoine Baché
 */
 
-#include "ondulaton.h"
+#include "ondulation.h"
+#include "demo.h"
+#include "tools/common.h"
 
 t_bunny_response	ondulationLoop(t_data *data)
 {
-  move_flag(data);
-  bunny_blit(&data->win->buffer, &data->pix->clipable, 0);
+  t_ondulation		*ondulation;
+
+  if (data->new && ondulationMain(data))
+    return (EXIT_ON_ERROR);
+  ondulation = data->data;
+  move_flag(ondulation);
+  bunny_blit(&data->win->buffer, &ondulation->pix->clipable, 0);
   bunny_display(data->win);
   return (GO_ON);
 }
@@ -22,36 +29,51 @@ t_bunny_response	ondulationKey(t_bunny_event_state	state,
 				      t_bunny_keysym		key,
 				      t_data			*data)
 {
-  if (state == GO_UP && key == BKS_ESCAPE)
-    return (my_fct_free(data, 0));
+  t_ondulation		*ondulation;
+
+  ondulation = data->data;
   if (state == GO_UP && key == BKS_SPACE)
-    data->inv = 1 - data->inv;
-  if (state == GO_DOWN && key == BKS_LEFT && data->wind < 100)
-    data->wind = data->wind + 2;
-  if (state == GO_DOWN && key == BKS_RIGHT && data->wind > 26)
-    data->wind = data->wind - 2;
-  if (state == GO_DOWN && key == BKS_DOWN && data->speed < 20)
-    data->speed = data->speed + 1;
-  if (state == GO_DOWN && key == BKS_UP && data->speed > 4)
-    data->speed = data->speed - 1;
-  return (GO_ON);
+    ondulation->inv = 1 - ondulation->inv;
+  if (state == GO_DOWN && key == BKS_LEFT && ondulation->wind < 100)
+    ondulation->wind = ondulation->wind + 2;
+  if (state == GO_DOWN && key == BKS_RIGHT && ondulation->wind > 26)
+    ondulation->wind = ondulation->wind - 2;
+  if (state == GO_DOWN && key == BKS_DOWN && ondulation->speed < 20)
+    ondulation->speed = ondulation->speed + 1;
+  if (state == GO_DOWN && key == BKS_UP && ondulation->speed > 4)
+    ondulation->speed = ondulation->speed - 1;
+  return (eventKeys(state, key, data));
 }
 
-int	       	rohan(char *path)
+int			ondulationClose(t_data *data)
 {
-  t_data	*data;
+  t_ondulation		*ondulation;
 
-  if ((data = bunny_malloc(sizeof(t_data))) == NULL ||
-      cpy_pix(data, path, RATIO) == 1)
+  ondulation = data->data;
+  if (!data->new)
+    {
+      bunny_delete_clipable(&ondulation->pix->clipable);
+      bunny_delete_clipable(&ondulation->flag->clipable);
+      my_free(ondulation);
+    }
+  data->data = NULL;
+  data->new = true;
+  return (0);
+}
+
+int	       	ondulationMain(t_data *data)
+{
+  t_ondulation	*ondulation;
+
+  if ((ondulation = MALLOC(sizeof(t_ondulation))) == NULL ||
+      cpy_pix(ondulation, FLAG_NAME, RATIO))
     return (1);
-  data->dir = 1;
-  data->var = 1;
-  data->wind = 60;
-  data->speed = 10;
-  data->inv = 0;
-  bunny_set_loop_main_function((t_bunny_loop)mainloop);
-  bunny_set_key_response((t_bunny_key)escape);
-  if (bunny_loop(data->win, 60, data) == EXIT_ON_ERROR)
-    return (1);
+  ondulation->dir = 1;
+  ondulation->var = 1;
+  ondulation->wind = 60;
+  ondulation->speed = 10;
+  ondulation->inv = 0;
+  data->data = ondulation;
+  data->new = false;
   return (0);
 }
