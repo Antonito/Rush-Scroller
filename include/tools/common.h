@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:40:48 2016 Antoine Baché
-** Last update Sat Mar 19 00:57:53 2016 Antoine Baché
+** Last update Sat Mar 19 03:12:28 2016 Arthur ARNAUD
 */
 
 #ifndef	COMMON_H_
@@ -41,5 +41,9 @@ void			tekpixelTransp(t_bunny_pixelarray *,
 				       t_color *, double);
 void			clearColor(t_bunny_pixelarray *, unsigned int);
 void			fillColor(t_bunny_pixelarray *, t_color *, double);
+void			myBlit(const t_bunny_pixelarray *,
+			       t_bunny_pixelarray *,
+			       double,
+			       t_ivec2);
 
 #endif	/* !COMMON_H_ */
