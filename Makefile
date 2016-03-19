@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 02:09:02 2016 Antoine Baché
+## Last update Sat Mar 19 03:50:02 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -34,15 +34,27 @@ FIRE_FILES=		display_fire.c			\
 			palette.c			\
 			random_lines.c
 
+PLASMA_PREFIX=		src/plasma/
+
+PLASMA_FILES=		check_args.c			\
+			main.c				\
+			new_frame.c			\
+			set_palette.c			\
+			tekpixel.c
+
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 
 SRC_TOOLS=		$(addprefix $(TOOLS_PREFIX),$(TOOLS_FILES))
 
 SRC_FIRE=		$(addprefix $(FIRE_PREFIX),$(FIRE_FILES))
 
+SRC_PLASMA=		$(addprefix $(PLASMA_PREFIX),$(PLASMA_FILES))
+
 SRC_DEMO+=		$(SRC_TOOLS)
 
 SRC_DEMO+=		$(SRC_FIRE)
+
+SRC_DEMO+=		$(SRC_PLASMA)
 
 DEMO=			bin/demoEtDesLettres
 
