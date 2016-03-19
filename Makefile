@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 16:14:18 2016 Ludovic Petrenko
+## Last update Sat Mar 19 16:17:34 2016 Arthur ARNAUD
 ##
 
 DEBUG=			yes
@@ -86,8 +86,6 @@ SRC_DEMO+=		$(SRC_TOOLS)
 SRC_DEMO+=		$(SRC_FIRE)
 
 SRC_DEMO+=		$(SRC_PLASMA)
-
-SRC_DEMO+=		$(SRC_ONDULATION)
 
 DEMO=			bin/demoEtDesLettres
 
