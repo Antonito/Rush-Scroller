@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 02:33:51 2016 Arthur ARNAUD
-** Last update Sat Mar 19 04:54:19 2016 Arthur ARNAUD
+** Last update Sat Mar 19 15:26:00 2016 Arthur ARNAUD
 */
 
 #ifndef FONT_H
@@ -30,7 +30,7 @@ typedef struct		s_font
 int	loadFontIni(t_font *, char *);
 int	fillFontTab(t_font *);
 void	addCharFont(t_font *, int, int);
-void	make_text_pix(t_bunny_pixelarray *, t_font *);
+int	make_text_pix(t_bunny_pixelarray *, t_font *, char *);
 int	strlenSpace(char *);
 
 #endif /* !FONT_H_ */

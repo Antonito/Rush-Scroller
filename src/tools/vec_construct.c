@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 02:20:48 2016 Ludovic Petrenko
-** Last update Sat Mar 19 02:22:08 2016 Ludovic Petrenko
+** Last update Sat Mar 19 15:25:14 2016 Ludovic Petrenko
 */
 
 #include "tools/transform.h"
@@ -47,13 +47,4 @@ t_ivec2		ivec2(int x, int y)
   new.x = x;
   new.y = y;
   return (new);
-}
-
-t_ivec2		to_ivec2(t_vec2 v)
-{
-  t_ivec2	i;
-
-  i.x = (int)v.x;
-  i.y = (int)v.y;
-  return (i);
 }

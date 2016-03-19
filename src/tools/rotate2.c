@@ -1,43 +1,25 @@
 /*
-** rotate.c for scroll in /gfx_scroller/src/tools
+** rotate2.c for scroll in /gfx_scroller/src/tools
 **
 ** Made by Ludovic Petrenko
 ** Login   <petren_l@epitech.net>
 **
-** Started on  Sat Mar 19 02:16:38 2016 Ludovic Petrenko
-** Last update Sat Mar 19 15:37:05 2016 Ludovic Petrenko
+** Started on  Sat Mar 19 15:00:02 2016 Ludovic Petrenko
+** Last update Sat Mar 19 15:58:59 2016 Ludovic Petrenko
 */
 
 #include <math.h>
 #include "tools/common.h"
 #include "tools/transform.h"
 
-void		rotate2D(t_mat2 *m, double deg)
+static void	rotateX(t_mat4 *m, double deg)
 {
-  t_mat2	rot;
+  t_mat4	rot;
   double	rad;
   double	s;
   double	c;
 
-  rot = mat2();
-  rad = RADIAN(deg);
-  s = sin(rad);
-  c = cos(rad);
-  rot.m00 = c;
-  rot.m10 = s;
-  rot.m01 = -s;
-  rot.m11 = c;
-  multMat2(&rot, m);
-}
-
-static void	rotateX(t_mat3 *m, double deg)
-{
-  t_mat3	rot;
-  double	rad;
-  double	s;
-  double	c;
-
-  rot = mat3();
+  rot = mat4();
   rad = RADIAN(deg);
   s = sin(rad);
   c = cos(rad);
@@ -45,17 +27,17 @@ static void	rotateX(t_mat3 *m, double deg)
   rot.m21 = s;
   rot.m12 = -s;
   rot.m22 = c;
-  multMat3(&rot, m);
+  multMat4(&rot, m);
 }
 
-static void	rotateY(t_mat3 *m, double deg)
+static void	rotateY(t_mat4 *m, double deg)
 {
-  t_mat3	rot;
+  t_mat4	rot;
   double	rad;
   double	s;
   double	c;
 
-  rot = mat3();
+  rot = mat4();
   rad = RADIAN(deg);
   s = sin(rad);
   c = cos(rad);
@@ -63,17 +45,17 @@ static void	rotateY(t_mat3 *m, double deg)
   rot.m02 = s;
   rot.m20 = -s;
   rot.m22 = c;
-  multMat3(&rot, m);
+  multMat4(&rot, m);
 }
 
-static void	rotateZ(t_mat3 *m, double deg)
+static void	rotateZ(t_mat4 *m, double deg)
 {
-  t_mat3	rot;
+  t_mat4	rot;
   double	rad;
   double	s;
   double	c;
 
-  rot = mat3();
+  rot = mat4();
   rad = RADIAN(deg);
   s = sin(rad);
   c = cos(rad);
@@ -81,9 +63,9 @@ static void	rotateZ(t_mat3 *m, double deg)
   rot.m10 = s;
   rot.m01 = -s;
   rot.m11 = c;
-  multMat3(&rot, m);
+  multMat4(&rot, m);
 }
-void		rotate3D(t_mat3 *m, t_vec3 deg)
+void		rotate4D(t_mat4 *m, t_vec3 deg)
 {
   if (deg.z != 0.0)
     rotateZ(m, deg.z);

@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Fri Mar 18 22:50:54 2016 Arthur ARNAUD
-** Last update Sat Mar 19 05:13:48 2016 Arthur ARNAUD
+** Last update Sat Mar 19 17:16:13 2016 Arthur ARNAUD
 */
 
 #define _POSIX_C_SOURCE
@@ -19,8 +19,10 @@ int		loadFontIni(t_font *font, char *path)
 {
   t_bunny_ini	*file;
 
-  if (!(file = bunny_load_ini(path)) ||
-      !bunny_ini_get_field(file, "font", "asset", 0) ||
+  if (!(file = bunny_load_ini(path)))
+    return (1);
+  printf("ok\n");
+  if (!bunny_ini_get_field(file, "font", "asset", 0) ||
       !bunny_ini_get_field(file, "font", "chars", 0) ||
       !bunny_ini_get_field(file, "font", "width", 0) ||
       !bunny_ini_get_field(file, "font", "height", 0) ||
@@ -29,6 +31,7 @@ int		loadFontIni(t_font *font, char *path)
       !(font->width = atoi(bunny_ini_get_field(file, "font", "width", 0))) ||
       !(font->height = atoi(bunny_ini_get_field(file, "font", "height", 0))))
     return (1);
+  printf("chars = %s\n", font->chars);
   return (0);
 }
 
@@ -43,8 +46,9 @@ void		addCharFont(t_font *font, int j, int i)
   colors_src = font->pix->pixels;
   colors_dest = font->tab[j]->pixels;
   incr = ivec2(-1, -1);
-  origin = ivec2(i * font->width % font->pix->clipable.clip_width ,
-		 i * font->width / font->pix->clipable.clip_width);
+  origin = ivec2(i * (font->width + 1) % font->pix->clipable.clip_width,
+		 (i * (font->width + 1) / font->pix->clipable.clip_width) *
+		 (font->height + 1));
   while (++incr.y < font->height)
     {
       incr.x = -1;
@@ -75,22 +79,41 @@ int	fillFontTab(t_font *font)
 	  addCharFont(font, j, i);
 	}
     }
+  if (!(font->tab[++j] =
+	bunny_new_pixelarray(font->width, font->height)))
+    return (1);
+  clearColor(font->tab[j], BLACK);
   return (0);
 }
 
-void		make_text_pix(t_bunny_pixelarray *res, t_font *font)
+int		make_text_pix(t_bunny_pixelarray *res, t_font *font,
+			      char * str)
 {
   int		i;
+  int		j;
+  int		k;
   t_ivec2	pos;
 
   pos.y = 0;
   pos.x = 0;
   i = -1;
-  while (font->tab[++i] != NULL)
+  while (str[++i] != 0)
     {
-      myBlit(font->tab[i], res, 1, pos);
-      pos.x += font->width;
+      j = -1;
+      k = -1;
+      while (font->tab[++j] != NULL && font->chars[++k] != 0 &&
+	     font->chars[k] != str[i])
+      	if (font->chars[k] == ' ')
+      	  k++;
+      if (font->tab[j] == NULL)
+      	j = strlenSpace(font->chars);
+      else
+      	{
+	  myBlit(font->tab[j], res, 1, pos);
+	  pos.x += font->width;
+	}
     }
+  return (0);
 }
 
 t_bunny_pixelarray	*printText(char *str, char *fontName)
@@ -102,17 +125,18 @@ t_bunny_pixelarray	*printText(char *str, char *fontName)
   if (!(font = MALLOC(sizeof(t_font *))) ||
       !(path = MALLOC(sizeof(char) * (14 + strlen(fontName)))))
     return (NULL);
-  sprintf(path, "assets/fonts/%s", fontName);
-  loadFontIni(font, path);
+  sprintf(path, "assets/font/%s.ini", fontName);
+  printf("path = %s\n", path);
+  if (loadFontIni(font, path))
+    return (NULL);
   if (!(font->pix = bunny_load_pixelarray(font->asset)) ||
       !(font->tab =
-	MALLOC(sizeof(t_bunny_pixelarray *) * strlenSpace(font->chars) + 1)))
+	MALLOC(sizeof(t_bunny_pixelarray *) * (strlenSpace(font->chars) + 2))))
     return (NULL);
-  font->tab[strlenSpace(font->chars)] = NULL;
+  font->tab[strlenSpace(font->chars) + 1] = NULL;
   if (fillFontTab(font) ||
-      !(res = bunny_new_pixelarray(font->width *
-				   strlenSpace(font->chars), font->height)))
+      !(res = bunny_new_pixelarray(font->width * strlen(str), font->height)) ||
+      make_text_pix(res, font, str))
     return (NULL);
-  make_text_pix(res, font);
   return (res);
 }
