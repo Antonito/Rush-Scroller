@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 17:30:03 2016 Arthur ARNAUD
-** Last update Sat Mar 19 20:10:05 2016 Arthur ARNAUD
+** Last update Sat Mar 19 20:34:19 2016 Arthur ARNAUD
 */
 
 #define _POSIX_C_SOURCE
@@ -87,7 +87,7 @@ t_bunny_pixelarray	**loadSprite(char *spriteName)
   char			*path;
 
   if (!(sprite = MALLOC(sizeof(t_sprite *))) ||
-      !(path = MALLOC(sizeof(char) * (19 + strlen(spriteName)))) ||
+      !(path = malloc(sizeof(char) * (19 + strlen(spriteName)))) ||
       !(sprintf(path, "assets/sprite/%s.ini", spriteName)))
     return (NULL);
   if (loadSpriteIni(sprite, path) ||
@@ -98,8 +98,8 @@ t_bunny_pixelarray	**loadSprite(char *spriteName)
   sprite->spritePix[sprite->nb] = NULL;
   if (fillSprite(sprite))
     return (NULL);
-  my_free(path);
-  my_free(sprite->picPath);
+  free(path);
+  free(sprite->picPath);
   bunny_delete_clipable(&sprite->pix->clipable);
   return (sprite->spritePix);
 }
