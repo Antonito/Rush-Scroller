@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 02:25:35 2016 Ludovic Petrenko
-** Last update Sat Mar 19 05:39:48 2016 Ludovic Petrenko
+** Last update Sat Mar 19 15:31:33 2016 Ludovic Petrenko
 */
 
 #ifndef TRANSFORM_H_
@@ -143,12 +143,32 @@ t_vec3		multMatVec3(t_mat3 *, t_vec3);
 t_vec4		multMatVec4(t_mat4 *, t_vec4);
 
 /*
-** Transformation applyed on matrix [IN PROGRESS]
+** Transformation applyed on matrix
 */
 
 void		translate(t_mat4 *, t_vec3);
 
 void		rotate2D(t_mat2 *m, double deg);
-void		rotate3D(t_mat3 *m, double deg);
+void		rotate3D(t_mat3 *m, t_vec3 deg);
+void		rotate4D(t_mat4 *m, t_vec3 deg);
+
+void		scale2D(t_mat2 *m, t_vec2 deg);
+void		scale3D(t_mat3 *m, t_vec3 deg);
+void		scale4D(t_mat4 *m, t_vec3 deg);
+
+/*
+** 3D special
+*/
+
+t_mat4		perspective(double, double, double, double);
+
+/*
+** Cast
+*/
+
+t_ivec2		to_ivec2(t_vec2);
+t_vec2		to_vec2(t_ivec2);
+t_vec4		to_vec4(t_vec3, double);
+t_mat4		to_mat4(t_mat3);
 
 #endif /* !TRANSFORM_H_ */

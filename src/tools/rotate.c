@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 02:16:38 2016 Ludovic Petrenko
-** Last update Sat Mar 19 02:16:46 2016 Ludovic Petrenko
+** Last update Sat Mar 19 14:59:46 2016 Ludovic Petrenko
 */
 
 #include "tools/transform.h"
@@ -14,26 +14,79 @@ void		rotate2D(t_mat2 *m, double deg)
 {
   t_mat2	rot;
   double	rad;
+  double	s;
+  double	c;
 
+  rot = mat2();
   rad = RADIAN(deg);
-  rot.m00 = cos(rad);
-  rot.m10 = sin(rad);
-  rot.m01 = -rot.m10;
-  rot.m11 = rot.m00;
+  s = sin(rad);
+  c = cos(rad);
+  rot.m00 = c;
+  rot.m10 = s;
+  rot.m01 = -s;
+  rot.m11 = c;
   multMat2(&rot, m);
 }
 
-void		rotate3D(t_mat2 *m, t_vec3 deg)
+static void	rotateX(t_mat3 *m, double deg)
 {
-  t_mat3	rotX;
-  t_mat3	rotY;
-  t_mat3	rotZ;
+  t_mat3	rot;
   double	rad;
+  double	s;
+  double	c;
 
+  rot = mat3();
   rad = RADIAN(deg);
-  rot.m00 = cos(rad);
-  rot.m10 = sin(rad);
-  rot.m01 = -rot.m10;
-  rot.m11 = rot.m00;
-  multMat2(&rot, m);
+  s = sin(rad);
+  c = cos(rad);
+  rot.m11 = c;
+  rot.m21 = s;
+  rot.m12 = -s;
+  rot.m22 = c;
+  multMat3(&rot, m);
+}
+
+static void	rotateY(t_mat3 *m, double deg)
+{
+  t_mat3	rot;
+  double	rad;
+  double	s;
+  double	c;
+
+  rot = mat3();
+  rad = RADIAN(deg);
+  s = sin(rad);
+  c = cos(rad);
+  rot.m00 = c;
+  rot.m02 = s;
+  rot.m20 = -s;
+  rot.m22 = c;
+  multMat3(&rot, m);
+}
+
+static void	rotateZ(t_mat3 *m, double deg)
+{
+  t_mat3	rot;
+  double	rad;
+  double	s;
+  double	c;
+
+  rot = mat3();
+  rad = RADIAN(deg);
+  s = sin(rad);
+  c = cos(rad);
+  rot.m00 = c;
+  rot.m10 = s;
+  rot.m01 = -s;
+  rot.m11 = c;
+  multMat3(&rot, m);
+}
+void		rotate3D(t_mat3 *m, t_vec3 deg)
+{
+  if (deg.z != 0.0)
+    rotateZ(m, deg.z);
+  if (deg.y != 0.0)
+    rotateY(m, deg.y);
+  if (deg.x != 0.0)
+    rotateX(m, deg.x);
 }
