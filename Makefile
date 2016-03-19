@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 18:13:06 2016 Antoine Baché
+## Last update Sat Mar 19 19:58:39 2016 Ludovic Petrenko
 ##
 
 DEBUG=			yes
@@ -16,6 +16,7 @@ SRC_DEMO_FILES=		main.c				\
 			context.c			\
 			context/fire.c			\
 			context/plasma.c		\
+			context/starfield.c		\
 			select.c			\
 			free.c
 
@@ -76,6 +77,11 @@ ONDUL_FILES=		check_args.c			\
 			set_palette.c			\
 			tekpixel.c
 
+STARFIELD_PREFIX=	src/starfield
+
+STARFIELD_FILES=	gen_star.c			\
+			main.c
+
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 
 SRC_TOOLS=		$(addprefix $(TOOLS_PREFIX),$(TOOLS_FILES))
@@ -86,11 +92,15 @@ SRC_PLASMA=		$(addprefix $(PLASMA_PREFIX),$(PLASMA_FILES))
 
 SRC_ONDULATION=		$(addprefix $(ONDUL_PREFIX),$(ONDUL_FILES))
 
+SRC_STARFIELD=		$(addprefix $(STARFIELD_PREFIX),$(STARFIELD_FILES))
+
 SRC_DEMO+=		$(SRC_TOOLS)
 
 SRC_DEMO+=		$(SRC_FIRE)
 
 SRC_DEMO+=		$(SRC_PLASMA)
+
+SRC_DEMO+=		$(SRC_STARFIELD)
 
 DEMO=			demoEtDesLettres
 

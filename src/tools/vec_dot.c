@@ -5,10 +5,15 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 02:21:20 2016 Ludovic Petrenko
-** Last update Sat Mar 19 02:22:05 2016 Ludovic Petrenko
+** Last update Sat Mar 19 19:00:10 2016 Ludovic Petrenko
 */
 
 #include "tools/transform.h"
+
+int	dotiVec2(t_ivec2 u, t_ivec2 v)
+{
+  return (u.x * v.x + u.y * v.y);
+}
 
 double	dotVec2(t_vec2 u, t_vec2 v)
 {

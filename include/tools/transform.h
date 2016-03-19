@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 02:25:35 2016 Ludovic Petrenko
-** Last update Sat Mar 19 17:58:46 2016 Ludovic Petrenko
+** Last update Sat Mar 19 20:00:16 2016 Ludovic Petrenko
 */
 
 #ifndef TRANSFORM_H_
@@ -103,6 +103,7 @@ t_vec3		subVec3(t_vec3, t_vec3);
 t_vec4		subVec4(t_vec4, t_vec4);
 t_ivec2		subiVec2(t_ivec2, t_ivec2);
 
+t_ivec2		multiVec2(t_ivec2, double);
 t_vec2		multVec2(t_vec2, double);
 t_vec3		multVec3(t_vec3, double);
 t_vec4		multVec4(t_vec4, double);
@@ -115,12 +116,14 @@ t_vec4		divVec4(t_vec4, double);
 ** Vectorial operation
 */
 
+int		dotiVec2(t_ivec2, t_ivec2);
 double		dotVec2(t_vec2, t_vec2);
 double		dotVec3(t_vec3, t_vec3);
 double		dotVec4(t_vec4, t_vec4);
 
 t_vec3		cross(t_vec3, t_vec3);
 
+double		ivec2Len(t_ivec2);
 double		vec2Len(t_vec2);
 double		vec3Len(t_vec3);
 double		vec4Len(t_vec4);
