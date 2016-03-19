@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 02:06:05 2016 Antoine Baché
-** Last update Sat Mar 19 19:30:42 2016 Antoine Baché
+** Last update Sat Mar 19 20:40:31 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -69,6 +69,7 @@ int		fireClose(t_data *data)
     {
       bunny_delete_sound(&prog->music->sound);
       bunny_delete_clipable(&prog->pix->clipable);
+      my_free(prog->colors);
       my_free(prog);
     }
   data->data = NULL;
@@ -80,7 +81,8 @@ int		flame(t_data *data)
 {
   t_prog	*prog;
 
-  if (!(prog = MALLOC(sizeof(t_prog))))
+  if (!(prog = MALLOC(sizeof(t_prog))) ||
+      !(prog->colors = MALLOC(sizeof(short) * (WIN_X * (WIN_Y + 2)))))
     return (1);
   data->data = prog;
   palette_generator(prog->palette);

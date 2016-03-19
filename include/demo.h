@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sat Mar 19 19:17:33 2016 Arthur ARNAUD
+** Last update Sat Mar 19 20:31:43 2016 Antoine Baché
 */
 
 #ifndef	DEMO_H_
@@ -52,6 +52,7 @@ int			setContext(t_data *);
 void			setFireContext(t_bunny_context *);
 void			setPlasmaContext(t_bunny_context *);
 void			setSpriteContext(t_bunny_context *);
+void			setOndulationContext(t_bunny_context *);
 
 /*
 ** Free

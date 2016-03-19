@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 01:40:26 2016 Antoine Baché
-** Last update Sat Mar 19 18:05:37 2016 Antoine Baché
+** Last update Sat Mar 19 20:39:40 2016 Antoine Baché
 */
 
 #ifndef FIRE_H_
@@ -23,7 +23,7 @@ typedef struct		s_prog
 {
   t_bunny_pixelarray	*pix;
   t_bunny_music		*music;
-  short			colors[1920 * (1080 + 2)];
+  short			*colors;
   int			mod[3];
   unsigned int		palette[PALETTE_SIZE];
 }			t_prog;

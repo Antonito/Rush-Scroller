@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 19:40:34 2016 Antoine Baché
-** Last update Sat Mar 19 19:27:12 2016 Antoine Baché
+** Last update Sat Mar 19 20:43:06 2016 Antoine Baché
 */
 
 #include <unistd.h>
@@ -66,9 +66,10 @@ int			demo(void)
     {
       bunny_set_context(&data->context[data->contextId]);
       if ((ret = bunny_loop(data->win, 60, data)) == EXIT_ON_ERROR)
-	return (freeData(data, 1));
+	return (my_free(closeIt), freeData(data, 1));
       closeIt[data->contextPrev](data);
     }
+  my_free(closeIt);
   return (freeData(data, 0));
 }
 
