@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sat Mar 19 22:47:17 2016 Arthur ARNAUD
+** Last update Sat Mar 19 20:01:34 2016 Arthur ARNAUD
 */
 
 #include "demo.h"
@@ -70,7 +70,6 @@ int		spriteDisplay(t_data *data)
     return (1);
   if (!(prog->spritePix = loadSprite("wolf")))
     return (1);
-  prog->i = 0;
   prog->index = 0;
   prog->pos.y = 10;
   prog->pos.x = 10;
