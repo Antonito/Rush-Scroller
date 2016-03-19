@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 16:14:18 2016 Ludovic Petrenko
+## Last update Sat Mar 19 17:34:26 2016 Ludovic Petrenko
 ##
 
 DEBUG=			yes
@@ -20,6 +20,7 @@ TOOLS_PREFIX=		src/tools/
 TOOLS_FILES=		add_vec.c			\
 			cast.c				\
 			div_vec.c			\
+			draw_transformed.c		\
 			fill.c				\
 			free2D.c			\
 			interpolate.c			\

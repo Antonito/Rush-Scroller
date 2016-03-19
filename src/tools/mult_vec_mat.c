@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 02:18:31 2016 Ludovic Petrenko
-** Last update Sat Mar 19 15:35:41 2016 Ludovic Petrenko
+** Last update Sat Mar 19 17:55:24 2016 Ludovic Petrenko
 */
 
 #include "tools/transform.h"
@@ -13,6 +13,17 @@
 t_vec2		multMatVec2(t_mat2 *m, t_vec2 v)
 {
   t_vec2	res;
+  t_mat2	t;
+
+  t = *m;
+  res.x = v.x * t.m00 + v.y * t.m01;
+  res.y = v.x * t.m10 + v.y * t.m11;
+  return (res);
+}
+
+t_ivec2		multMatiVec2(t_mat2 *m, t_ivec2 v)
+{
+  t_ivec2	res;
   t_mat2	t;
 
   t = *m;

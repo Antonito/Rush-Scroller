@@ -5,13 +5,13 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 03:54:34 2016 Ludovic Petrenko
-** Last update Sat Mar 19 15:45:41 2016 Ludovic Petrenko
+** Last update Sat Mar 19 17:50:12 2016 Ludovic Petrenko
 */
 
 #include <lapin.h>
 #include "tools/transform.h"
 
-double		interpolate3f(t_vec2 corners[3], t_vec2 pos, double val[3])
+double		interpolate3f(t_ivec2 corners[3], t_ivec2 pos, double val[3])
 {
   double	a[3];
   double	res;
@@ -24,7 +24,7 @@ double		interpolate3f(t_vec2 corners[3], t_vec2 pos, double val[3])
   return (res);
 }
 
-t_vec2		interpolate3Vec2(t_vec2 corners[3], t_vec2 pos, t_vec2 data[3])
+t_vec2		interpolate3Vec2(t_ivec2 corners[3], t_ivec2 pos, t_vec2 data[3])
 {
   double	a[3];
   t_vec2	res;
@@ -39,7 +39,7 @@ t_vec2		interpolate3Vec2(t_vec2 corners[3], t_vec2 pos, t_vec2 data[3])
   return (res);
 }
 
-t_vec3		interpolate3Vec3(t_vec2 corners[3], t_vec2 pos, t_vec3 data[3])
+t_vec3		interpolate3Vec3(t_ivec2 corners[3], t_ivec2 pos, t_vec3 data[3])
 {
   double	a[3];
   t_vec3	res;
@@ -56,7 +56,7 @@ t_vec3		interpolate3Vec3(t_vec2 corners[3], t_vec2 pos, t_vec3 data[3])
   return (res);
 }
 
-t_ivec2		interpolate3iVec2(t_vec2 corners[3], t_vec2 pos, t_ivec2 data[3])
+t_ivec2		interpolate3iVec2(t_ivec2 corners[3], t_ivec2 pos, t_ivec2 data[3])
 {
   double	a[3];
   t_ivec2	res;
