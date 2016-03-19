@@ -5,12 +5,32 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 00:50:06 2016 Antoine Baché
-** Last update Sat Mar 19 00:53:20 2016 Antoine Baché
+** Last update Sat Mar 19 01:02:18 2016 Antoine Baché
 */
 
-#include <lapin.h>
+#include "tools/common.h"
 
-void		fillColor(t_bunny_pixelarray *pix, unsigned int color)
+void		fillColor(t_bunny_pixelarray *pix, t_color color, double transp)
+{
+  int		i;
+  t_ivec2	pos;
+
+  i = 0;
+  while (i < pix->clipable.clip_height)
+    {
+      j = 0;
+      while (j < pix->clipable.clip_width)
+	{
+	  pos.x = j;
+	  pos.y = i;
+	  tekpixelTransp(pix, &pos, color, transp);
+	  ++j;
+	}
+      ++i;
+    }
+}
+
+void		clearColor(t_bunny_pixelarray *pix, unsigned int color)
 {
   int		i;
   int		size;
