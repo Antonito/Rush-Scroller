@@ -5,12 +5,12 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Wed Jan 13 19:00:36 2016 Antoine Baché
-** Last update Sat Mar 19 04:51:03 2016 Antoine Baché
+** Last update Sat Mar 19 20:31:16 2016 Antoine Baché
 */
 
 #include "ondulaton.h"
 
-t_bunny_response	mainloop(t_data *data)
+t_bunny_response	ondulationLoop(t_data *data)
 {
   move_flag(data);
   bunny_blit(&data->win->buffer, &data->pix->clipable, 0);
@@ -18,9 +18,9 @@ t_bunny_response	mainloop(t_data *data)
   return (GO_ON);
 }
 
-t_bunny_response	escape(t_bunny_event_state	state,
-			       t_bunny_keysym		key,
-			       t_data			*data)
+t_bunny_response	ondulationKey(t_bunny_event_state	state,
+				      t_bunny_keysym		key,
+				      t_data			*data)
 {
   if (state == GO_UP && key == BKS_ESCAPE)
     return (my_fct_free(data, 0));

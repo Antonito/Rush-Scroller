@@ -5,20 +5,20 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 17:41:57 2016 Antoine Baché
-** Last update Sat Mar 19 20:28:23 2016 Ludovic Petrenko
+** Last update Sat Mar 19 21:12:30 2016 Ludovic Petrenko
 */
 
 #include "demo.h"
+#include "tools/common.h"
 
 closeEvent     	selector(void)
 {
   closeEvent	array;
 
-  if ((array = malloc(sizeof(int *) * NB_CONTEXT)) == NULL)
+  if ((array = MALLOC(sizeof(int *) * NB_CONTEXT)) == NULL)
     return (NULL);
   array[0] = &fireClose;
   array[1] = &plasmaClose;
-  array[2] = &plasmaClose;
-  array[3] = &starClose;
+  array[2] = &spriteClose;
   return (array);
 }

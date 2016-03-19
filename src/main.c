@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 19:40:34 2016 Antoine Baché
-** Last update Sat Mar 19 20:32:17 2016 Ludovic Petrenko
+** Last update Sat Mar 19 21:12:53 2016 Ludovic Petrenko
 */
 
 #include <unistd.h>
@@ -52,23 +52,25 @@ int			demo(void)
   closeEvent   		closeIt;
 
   srand(time(NULL));
+  set_max_heap_size(100);
   if (!(data = MALLOC(sizeof(t_data))) ||
       !(data->win = bunny_start(WIN_X, WIN_Y, true, WIN_NAME)) ||
       !(data->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) ||
       setContext(data) || !(closeIt = selector()))
     return (1);
   data->new = true;
-  data->contextId = 3;
-  data->contextPrev = 3;
+  data->contextId = 1;
+  data->contextPrev = 1;
   data->mousePos = (t_bunny_position *)bunny_get_mouse_position();
   ret = GO_ON;
   while (ret != EXIT_ON_SUCCESS)
     {
       bunny_set_context(&data->context[data->contextId]);
       if ((ret = bunny_loop(data->win, 60, data)) == EXIT_ON_ERROR)
-	return (freeData(data, 1));
+	return (my_free(closeIt), freeData(data, 1));
       closeIt[data->contextPrev](data);
     }
+  my_free(closeIt);
   return (freeData(data, 0));
 }
 
