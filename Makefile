@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 20:42:14 2016 Ludovic Petrenko
+## Last update Sat Mar 19 23:16:32 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -18,6 +18,7 @@ SRC_DEMO_FILES=		main.c				\
 			context/plasma.c		\
 			context/sprite.c		\
 			context/starfield.c		\
+			context/ondulation.c		\
 			select.c			\
 			free.c
 
@@ -73,11 +74,9 @@ PLASMA_FILES=		check_args.c			\
 
 ONDUL_PREFIX=		src/ondulation/
 
-ONDUL_FILES=		check_args.c			\
+ONDUL_FILES=		cpy_pix.c			\
 			main.c				\
-			new_frame.c			\
-			set_palette.c			\
-			tekpixel.c
+			move_flag.c
 
 SPRITE_PREFIX=		src/sprite/
 
@@ -114,6 +113,8 @@ SRC_DEMO+=		$(SRC_PLASMA)
 SRC_DEMO+=		$(SRC_SPRITE)
 
 SRC_DEMO+=		$(SRC_STARFIELD)
+
+SRC_DEMO+=		$(SRC_ONDULATION)
 
 DEMO=			demoEtDesLettres
 

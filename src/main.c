@@ -5,22 +5,13 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 19:40:34 2016 Antoine Baché
-** Last update Sat Mar 19 21:12:53 2016 Ludovic Petrenko
+** Last update Sat Mar 19 22:59:14 2016 Antoine Baché
 */
 
 #include <unistd.h>
 #include <time.h>
 #include "tools/common.h"
 #include "demo.h"
-
-t_bunny_response	eventMouse(t_bunny_event_state state,
-				   t_bunny_mousebutton key, t_data *data)
-{
-  const bool		*mouseClick;
-
-  mouseClick = bunny_get_mouse_button();
-  return (GO_ON);
-}
 
 t_bunny_response	eventKeys(t_bunny_event_state state,
 				  t_bunny_keysym key, t_data *data)
@@ -61,7 +52,6 @@ int			demo(void)
   data->new = true;
   data->contextId = 1;
   data->contextPrev = 1;
-  data->mousePos = (t_bunny_position *)bunny_get_mouse_position();
   ret = GO_ON;
   while (ret != EXIT_ON_SUCCESS)
     {
