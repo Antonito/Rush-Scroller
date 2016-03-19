@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 23:13:30 2016 Antoine Baché
-** Last update Fri Mar 18 23:15:13 2016 Antoine Baché
+** Last update Sat Mar 19 20:09:04 2016 Arthur ARNAUD
 */
 
 #include <stdlib.h>
@@ -13,5 +13,5 @@
 
 void	my_free(void *ptr)
 {
-  bunny_free(ptr);
+  free(ptr);
 }

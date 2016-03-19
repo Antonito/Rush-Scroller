@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sat Mar 19 19:33:32 2016 Arthur ARNAUD
+** Last update Sat Mar 19 20:01:34 2016 Arthur ARNAUD
 */
 
 #include "demo.h"
@@ -26,7 +26,7 @@ t_bunny_response	spriteLoop(t_data *data)
   if (data->new && spriteDisplay(data))
     return (EXIT_ON_ERROR);
   prog = data->data;
-  if (prog->i++ > 60)
+  if (prog->i++ > 6)
     {
       prog->i = 0;
       prog->index++;
