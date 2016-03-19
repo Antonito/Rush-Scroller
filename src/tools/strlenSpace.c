@@ -5,12 +5,12 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Fri Mar 18 23:49:22 2016 Arthur ARNAUD
-** Last update Sat Mar 19 00:09:58 2016 Arthur ARNAUD
+** Last update Sat Mar 19 04:54:51 2016 Arthur ARNAUD
 */
 
-#include ""
+#include "tools/font.h"
 
-char	*strlenSpace(char *str)
+int	strlenSpace(char *str)
 {
   int	i;
   int	j;
