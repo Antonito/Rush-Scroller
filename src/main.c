@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 19:40:34 2016 Antoine Baché
-** Last update Sat Mar 19 20:43:06 2016 Antoine Baché
+** Last update Sat Mar 19 20:48:41 2016 Antoine Baché
 */
 
 #include <unistd.h>
@@ -52,6 +52,7 @@ int			demo(void)
   closeEvent   		closeIt;
 
   srand(time(NULL));
+  set_max_heap_size(100);
   if (!(data = MALLOC(sizeof(t_data))) ||
       !(data->win = bunny_start(WIN_X, WIN_Y, true, WIN_NAME)) ||
       !(data->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) ||
