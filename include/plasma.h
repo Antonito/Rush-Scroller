@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Fri Dec  4 20:13:39 2015 ludovic petrenko
-** Last update Sat Mar 19 18:05:42 2016 Antoine Baché
+** Last update Sat Mar 19 18:45:16 2016 Antoine Baché
 */
 
 #ifndef MY_H_
@@ -29,6 +29,7 @@ typedef struct		s_plasma
   double		size;
   double		speed;
   double		coeff;
+  double		**preCos;
   unsigned int		palette[128];
 }			t_plasma;
 
