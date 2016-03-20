@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 03:44:45 2016 Ludovic Petrenko
-** Last update Sun Mar 20 18:36:03 2016 Antoine Baché
+** Last update Sun Mar 20 23:18:35 2016 Antoine Baché
 */
 
 #include <time.h>
@@ -60,11 +60,9 @@ int			plasmaClose(t_data *data)
 {
   t_plasma		*plasma;
 
-  plasma = data->data;
   if (!data->new)
     {
-      bunny_sound_stop(&plasma->music->sound);
-      bunny_delete_sound(&plasma->music->sound);
+      plasma = data->data;
       myBlit(data->trans, plasma->pix, ivec2(0, 0));
       bunny_delete_clipable(&plasma->pix->clipable);
       my_free(plasma);
@@ -79,10 +77,8 @@ int			plasmaMain(t_data *data)
   t_plasma		*plasma;
 
   if (!(plasma = MALLOC(sizeof(t_plasma))) ||
-      !(plasma->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) ||
-      !(plasma->music = bunny_load_music(PLASMA_MUSIC)))
+      !(plasma->pix = bunny_new_pixelarray(WIN_X, WIN_Y)))
     return (1);
-  startMusic(&plasma->music->sound);
   set_palette(plasma->palette);
   plasma->size = 0.5;
   plasma->speed = 2;

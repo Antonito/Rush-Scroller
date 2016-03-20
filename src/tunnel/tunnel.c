@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 00:36:41 2016 Ludovic Petrenko
-** Last update Sun Mar 20 06:39:01 2016 Antoine Baché
+** Last update Sun Mar 20 23:07:46 2016 Antoine Baché
 */
 
 #include <lapin.h>
@@ -15,13 +15,17 @@
 void			drawCircle(t_bunny_pixelarray *pix, t_circle *c,
 				   int n, t_ivec2 *pos)
 {
-  static t_color	pal[510] = {0};
+  static t_color	pal[510];
+  static bool		check = true;
   int			i;
   t_vec2		tmp;
   t_ivec2		p;
 
-  if (pal[0].full == 0)
-    setRainbowPal(pal);
+  if (check)
+    {
+      setRainbowPal(pal);
+      check = false;
+    }
   i = -1;
   *pos = addiVec2(*pos, c[n].pos);
   while (++i < 36)

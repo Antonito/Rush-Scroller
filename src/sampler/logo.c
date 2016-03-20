@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 12:39:48 2016 Ludovic Petrenko
-** Last update Sun Mar 20 12:51:41 2016 Ludovic Petrenko
+** Last update Sun Mar 20 23:08:38 2016 Antoine Baché
 */
 
 #include "sampler.h"
@@ -15,13 +15,17 @@ void			drawCircle_(t_bunny_pixelarray *pix,
 				    t_circle *c, int n,
 				    t_ivec2 *pos)
 {
-  static t_color	pal[510] = {0};
+  static t_color	pal[510];
+  static bool		check = true;
   int			i;
   t_vec2		tmp;
   t_ivec2		p[4];
 
-  if (pal[0].full == 0)
-    setRainbowPal(pal);
+  if (check)
+    {
+      setRainbowPal(pal);
+      check = false;
+    }
   i = -1;
   *pos = addiVec2(*pos, c[i].pos);
   while (++i < 36)

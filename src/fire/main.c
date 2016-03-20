@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 02:06:05 2016 Antoine Baché
-** Last update Sun Mar 20 19:13:30 2016 Antoine Baché
+** Last update Sun Mar 20 23:19:27 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -67,9 +67,9 @@ int		fireClose(t_data *data)
 {
   t_prog	*prog;
 
-  prog = data->data;
   if (!data->new)
     {
+      prog = data->data;
       bunny_delete_sound(&prog->music->sound);
       bunny_delete_clipable(&prog->pix->clipable);
       my_free(prog->colors);
