@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:40:48 2016 Antoine Baché
-** Last update Sun Mar 20 04:59:34 2016 Arthur ARNAUD
+** Last update Sun Mar 20 05:09:34 2016 Arthur ARNAUD
 */
 
 #ifndef	COMMON_H_
@@ -47,5 +47,9 @@ void			myBlit(const t_bunny_pixelarray *,
 			       t_bunny_pixelarray *,
 			       t_ivec2);
 unsigned int		getPixel(t_bunny_pixelarray *, t_ivec2);
+void			tekcircle(t_bunny_pixelarray *pix,
+				  t_bunny_position pos, t_color *c, int size);
+double			my_sin(double);
+double			my_cos(double);
 
 #endif	/* !COMMON_H_ */
