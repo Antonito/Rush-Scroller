@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 05:26:50 2016 Arthur ARNAUD
-** Last update Sun Mar 20 21:51:55 2016 Arthur ARNAUD
+** Last update Sun Mar 20 21:54:36 2016 Antoine Baché
 */
 
 #include <time.h>
@@ -13,8 +13,8 @@
 #include "scrollingText.h"
 
 t_bunny_response	scrollingTextKey(t_bunny_event_state state,
-				t_bunny_keysym key,
-				t_data *data)
+					 t_bunny_keysym key,
+					 t_data *data)
 {
   return (eventKeys(state, key, data));
 }
@@ -70,8 +70,8 @@ int		scrollingTextClose(t_data *data)
       bunny_delete_sound(&prog->music->sound);
       bunny_delete_clipable(&prog->pix->clipable);
       bunny_delete_clipable(&prog->lyrics->clipable);
-       bunny_delete_clipable(&prog->rhum->clipable);
-        bunny_delete_clipable(&prog->rhum_sin->clipable);
+      bunny_delete_clipable(&prog->rhum->clipable);
+      bunny_delete_clipable(&prog->rhum_sin->clipable);
       my_free(prog);
     }
   data->data = NULL;
