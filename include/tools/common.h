@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:40:48 2016 Antoine Baché
-** Last update Sun Mar 20 01:13:57 2016 Ludovic Petrenko
+** Last update Sun Mar 20 04:59:34 2016 Arthur ARNAUD
 */
 
 #ifndef	COMMON_H_
@@ -23,6 +23,7 @@
 # define DEGREE(X)	(((X) * 180) / M_PI)
 # define POW2(X)	((X) * (X))
 # define POW3(X)	(POW2(X) * (X))
+# define ABS(X)		((X < 0) ? (-X) : (X))
 
 # ifndef DEBUG
 void			*my_malloc(size_t);

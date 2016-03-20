@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 01:23:58 2016 Antoine Baché
+## Last update Sun Mar 20 04:28:23 2016 Arthur ARNAUD
 ##
 
 DEBUG=			yes
@@ -98,7 +98,9 @@ DAMIER_FILES=		damier.c
 
 SCROLLER_PREFIX=	src/scroller/
 
-SCROLLER_FILES=		main.c
+SCROLLER_FILES=		main.c				\
+			setProg.c			\
+			clearPix.c
 
 
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))

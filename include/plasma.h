@@ -5,12 +5,13 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Fri Dec  4 20:13:39 2015 ludovic petrenko
-** Last update Sat Mar 19 18:59:02 2016 Antoine Baché
+** Last update Sun Mar 20 05:01:03 2016 Arthur ARNAUD
 */
 
 #ifndef MY_H_
 # define MY_H_
 
+# include "tools/common.h"
 # include <lapin.h>
 # include <math.h>
 # include <unistd.h>
@@ -20,7 +21,6 @@
 # define OCTET		sizeof(char)
 # define RAD(DEG)	((double)(DEG * M_PI / 180))
 # define ROUND(A)	(A - (int)A < 0.5 ? (int)A : (int)A + 1)
-# define ABS(VAL)	(VAL >= 0 ? (VAL) : -(VAL))
 
 typedef struct		s_plasma
 {
