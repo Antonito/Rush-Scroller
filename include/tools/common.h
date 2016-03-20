@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:40:48 2016 Antoine Baché
-** Last update Sun Mar 20 12:27:45 2016 Antoine Baché
+** Last update Sun Mar 20 14:59:14 2016 Antoine Baché
 */
 
 #ifndef	COMMON_H_
@@ -53,5 +53,6 @@ void			tekcircle(t_bunny_pixelarray *pix,
 double			my_sin(double);
 double			my_cos(double);
 void			setRainbowPal(t_color *);
+void			startMusic(t_bunny_sound *);
 
 #endif	/* !COMMON_H_ */

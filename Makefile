@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 12:44:26 2016 Ludovic Petrenko
+## Last update Sun Mar 20 14:58:56 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -43,6 +43,7 @@ TOOLS_FILES=		add_vec.c			\
 			mat_invert.c			\
 			load_font_ini.c			\
 			mat_construct.c			\
+			music.c				\
 			mult_mat.c			\
 			mult_vec.c			\
 			mult_vec_mat.c			\
