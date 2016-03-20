@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 00:30:51 2016 Antoine Baché
-** Last update Sun Mar 20 12:59:21 2016 Antoine Baché
+** Last update Sun Mar 20 13:51:24 2016 Antoine Baché
 */
 
 #ifndef SAMPLER_H_
@@ -26,6 +26,8 @@ typedef struct		s_sampler
   double		*frequency;
   int			size;
   int			freq;
+  int			save;
+  bool			vibrato;
   t_circle		*c;
 }			t_sampler;
 

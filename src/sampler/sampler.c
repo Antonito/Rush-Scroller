@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 04:03:11 2016 Antoine Baché
-** Last update Sun Mar 20 12:45:52 2016 Ludovic Petrenko
+** Last update Sun Mar 20 13:11:32 2016 Antoine Baché
 */
 
 #include "sampler.h"
@@ -85,6 +85,7 @@ int			samplerMain(t_data *data)
   bunny_delete_ini(sampler->file);
   my_free(path);
   sampler->freq = 250;
+  sampler->vibrato = false;
   bunny_sound_volume(&sampler->music->sound, 100);
   if (logo(sampler))
     return (1);
