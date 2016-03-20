@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 00:26:54 2016 Arthur ARNAUD
-** Last update Sun Mar 20 14:52:26 2016 Antoine Baché
+** Last update Sun Mar 20 15:47:40 2016 Antoine Baché
 */
 
 #ifndef SCROLLER_H_
@@ -25,7 +25,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <lapin.h>
-#include <math.h>
+# include <math.h>
 
 typedef struct		s_prog
 {

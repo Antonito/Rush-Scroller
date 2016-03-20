@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 13:16:50 2016 Antoine Baché
-** Last update Sun Mar 20 12:24:05 2016 Ludovic Petrenko
+** Last update Sun Mar 20 15:37:55 2016 Ludovic Petrenko
 */
 
 #include "demo.h"
@@ -24,8 +24,9 @@ int	setContext(t_data *data)
   setScrollerContext(&data->context[6]);
   setTunnelContext(&data->context[7]);
   setSamplerContext(&data->context[8]);
-  setProgDegradContext(&data->context[9]);
-  setTexturedDegradContext(&data->context[10]);
-  setRotozoomContext(&data->context[11]);
+  setTexturedDegradContext(&data->context[9]);
+  setRotozoomContext(&data->context[10]);
+  setScrollingTextContext(&data->context[11]);
+  setMatextContext(&data->context[12]);
   return (0);
 }

@@ -5,7 +5,8 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sun Mar 20 14:24:02 2016 Antoine Baché
+** Last update Sun Mar 20 15:48:08 2016 Antoine Baché
+** Last update Sun Mar 20 15:39:49 2016 Ludovic Petrenko
 */
 
 #ifndef	DEMO_H_
@@ -14,7 +15,7 @@
 # define WIN_X		1920
 # define WIN_Y		1080
 # define WIN_NAME	"Rush Scroller"
-# define NB_CONTEXT	12
+# define NB_CONTEXT	13
 
 # include <lapin.h>
 
@@ -65,9 +66,10 @@ void			setDamierContext(t_bunny_context *);
 void			setScrollerContext(t_bunny_context *);
 void			setTunnelContext(t_bunny_context *);
 void			setSamplerContext(t_bunny_context *);
-void			setProgDegradContext(t_bunny_context *);
 void			setTexturedDegradContext(t_bunny_context *);
 void			setRotozoomContext(t_bunny_context *);
+void			setMatextContext(t_bunny_context *);
+void			setScrollingTextContext(t_bunny_context *);
 
 /*
 ** Free
@@ -81,8 +83,9 @@ int			damierClose(t_data *);
 int			scrollerClose(t_data *);
 int			tunnelClose(t_data *);
 int			samplerClose(t_data *);
-int			progDegradClose(t_data *);
 int			texturedDegradClose(t_data *);
 int			rotoClose(t_data *);
+int			scrollingTextClose(t_data *);
+int			matextClose(t_data *);
 
 #endif /* !DEMO_H_ */

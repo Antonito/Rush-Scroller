@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 14:58:56 2016 Antoine Baché
+## Last update Sun Mar 20 15:48:23 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -23,9 +23,10 @@ SRC_DEMO_FILES=		main.c				\
 			context/scroller.c		\
 			context/tunnel.c		\
 			context/sampler.c		\
-			context/progDegrad.c		\
+			context/scrollingText.c		\
 			context/texturedDegrad.c	\
 			context/rotozoom.c		\
+			context/matext.c		\
 			transition/fade.c		\
 			transition/transition.c		\
 			select.c			\
@@ -39,6 +40,7 @@ TOOLS_FILES=		add_vec.c			\
 			draw_transformed.c		\
 			fill.c				\
 			free2D.c			\
+			free_font.c			\
 			interpolate.c			\
 			mat_invert.c			\
 			load_font_ini.c			\
@@ -123,15 +125,23 @@ SAMPLER_FILES=		logo.c				\
 			loop.c				\
 			sampler.c
 
+SCROLLINGTEXT_PREFIX=	src/scrollingText/
+
+SCROLLINGTEXT_FILES=	main.c
+
 DEGRAD_PREFIX=		src/degrade/
 
-DEGRAD_FILES=		progressive.c			\
-			textured.c
+DEGRAD_FILES=		textured.c
 
 ROTOZOOM_PREFIX=	src/rotozoom/
 
 ROTOZOOM_FILES=		main.c				\
 			rotozoom.c
+
+MATEXT_PREFIX=		src/matext/
+
+MATEXT_FILES=		main.c				\
+			matext.c
 
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 
@@ -155,9 +165,13 @@ SRC_TUNNEL=		$(addprefix $(TUNNEL_PREFIX),$(TUNNEL_FILES))
 
 SRC_SAMPLER=		$(addprefix $(SAMPLER_PREFIX),$(SAMPLER_FILES))
 
+SRC_SCROLLINGTEXT=	$(addprefix $(SCROLLINGTEXT_PREFIX),$(SCROLLINGTEXT_FILES))
+
 SRC_DEGRAD=		$(addprefix $(DEGRAD_PREFIX),$(DEGRAD_FILES))
 
 SRC_ROTOZOOM=		$(addprefix $(ROTOZOOM_PREFIX),$(ROTOZOOM_FILES))
+
+SRC_MATEXT=		$(addprefix $(MATEXT_PREFIX),$(MATEXT_FILES))
 
 SRC_DEMO+=		$(SRC_TOOLS)
 
@@ -179,9 +193,13 @@ SRC_DEMO+=		$(SRC_TUNNEL)
 
 SRC_DEMO+=		$(SRC_SAMPLER)
 
+SRC_DEMO+=		$(SRC_SCROLLINGTEXT)
+
 SRC_DEMO+=		$(SRC_DEGRAD)
 
 SRC_DEMO+=		$(SRC_ROTOZOOM)
+
+SRC_DEMO+=		$(SRC_MATEXT)
 
 DEMO=			demoEtDesLettres
 
