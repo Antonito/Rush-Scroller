@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 00:30:51 2016 Antoine Baché
-** Last update Sun Mar 20 11:36:42 2016 Antoine Baché
+** Last update Sun Mar 20 11:57:28 2016 Antoine Baché
 */
 
 #ifndef SAMPLER_H_
@@ -27,6 +27,7 @@ typedef struct		s_sampler
   int			freq;
 }			t_sampler;
 
+void			playMusic(t_sampler *, int);
 t_bunny_response	samplerKey(t_bunny_event_state,
 				  t_bunny_keysym,
 				  t_data *);

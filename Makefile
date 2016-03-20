@@ -5,8 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 08:22:19 2016 Antoine Baché
-## Last update Sun Mar 20 05:10:22 2016 Arthur ARNAUD
+## Last update Sun Mar 20 12:27:56 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -192,6 +191,8 @@ ifeq ($(DEBUG), yes)
 else
 	CFLAGS=		$(HEAD) -W -Wall -Wextra -Werror
 endif
+
+CFLAGS+= -D _XOPEN_SOURCE=700 -D _XOPEN_SOURCE_EXTENDED -D _DEFAULT_SOURCE
 
 CC=			gcc
 
