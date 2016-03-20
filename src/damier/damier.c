@@ -5,12 +5,13 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 05:05:23 2016 Antoine Baché
-** Last update Sun Mar 20 01:51:58 2016 Antoine Baché
+** Last update Sun Mar 20 02:38:23 2016 Antoine Baché
 */
 
 #include "demo.h"
 #include "damier.h"
 #include "tools/common.h"
+#include "transition.h"
 
 t_bunny_response	damierKey(t_bunny_event_state state,
 				  t_bunny_keysym key,
@@ -39,6 +40,7 @@ int			damierClose(t_data *data)
     }
   data->data = NULL;
   data->new = true;
+  transition(data, FADE, NULL);
   return (0);
 }
 

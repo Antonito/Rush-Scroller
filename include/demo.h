@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sun Mar 20 01:50:15 2016 Antoine Baché
+** Last update Sun Mar 20 02:26:53 2016 Antoine Baché
 */
 
 #ifndef	DEMO_H_
@@ -29,11 +29,17 @@ typedef struct		s_data
   int			contextPrev;
   void			*data;
   bool			new;
+  int			(**transition)(t_bunny_pixelarray *,
+				       t_bunny_pixelarray *,
+				       t_bunny_window *);
 }			t_data;
 
 typedef	int (**closeEvent)(t_data *);
 
 closeEvent		selector(void);
+int			(**selectorTransition(void))(t_bunny_pixelarray *,
+						     t_bunny_pixelarray *,
+						     t_bunny_window *);
 
 /*
 ** Common events

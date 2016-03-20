@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 01:23:58 2016 Antoine Baché
+## Last update Sun Mar 20 02:30:59 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -21,6 +21,8 @@ SRC_DEMO_FILES=		main.c				\
 			context/ondulation.c		\
 			context/damier.c		\
 			context/scroller.c		\
+			transition/fade.c		\
+			transition/transition.c		\
 			select.c			\
 			free.c
 
