@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 05:26:50 2016 Arthur ARNAUD
-** Last update Sun Mar 20 14:39:42 2016 Arthur ARNAUD
+** Last update Sun Mar 20 15:55:27 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -61,6 +61,8 @@ int		scrollingTextClose(t_data *data)
   prog = data->data;
   if (!data->new)
     {
+      bunny_sound_stop(&prog->music->sound);
+      bunny_delete_sound(&prog->music->sound);
       bunny_delete_clipable(&prog->pix->clipable);
       bunny_delete_clipable(&prog->lyrics->clipable);
       my_free(prog);
@@ -81,8 +83,10 @@ int		scrollingTextDisplay(t_data *data)
       !(prog->lyrics = printText("the time has come the time for a drink",
 				 "font2")) ||
       !(prog->rhum = printText("rhum", "font2")) ||
-      !(prog->rhum_sin = printText("rhum", "font2")))
+      !(prog->rhum_sin = printText("rhum", "font2")) ||
+      !(prog->music = bunny_load_music(SCROLL_SONG)))
     return (1);
+  startMusic(&prog->music->sound);
   prog->pos.x = 0;
   prog->pos.y = 100;
   prog->pos_rhum.x = 0;

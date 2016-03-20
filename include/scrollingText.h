@@ -5,11 +5,12 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 06:14:44 2016 Arthur ARNAUD
-** Last update Sun Mar 20 13:22:45 2016 Arthur ARNAUD
+** Last update Sun Mar 20 15:51:47 2016 Antoine Baché
 */
 
 #ifndef SCROLLINGTEXT_H_
 # define SCROLLINGTEXT_H_
+# define SCROLL_SONG	"assets/music/rum.ogg"
 
 # include "demo.h"
 # include "tools/transform.h"
@@ -29,6 +30,7 @@ typedef struct		s_prog
   t_ivec2		pos;
   t_ivec2		pos_sin;
   t_ivec2		pos_rhum;
+  t_bunny_music		*music;
 }			t_prog;
 
 t_bunny_response	scrollingTextKey(t_bunny_event_state,
