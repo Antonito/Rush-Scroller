@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 17:41:57 2016 Antoine Baché
-** Last update Sun Mar 20 07:35:02 2016 Antoine Baché
+** Last update Sun Mar 20 08:25:28 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -38,5 +38,6 @@ closeEvent     	selector(void)
   array[7] = &tunnelClose;
   array[8] = &samplerClose;
   array[9] = &progDegradClose;
+  array[10] = &texturedDegradClose;
   return (array);
 }

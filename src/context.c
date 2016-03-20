@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 13:16:50 2016 Antoine Baché
-** Last update Sun Mar 20 06:57:25 2016 Antoine Baché
+** Last update Sun Mar 20 08:21:41 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -25,5 +25,6 @@ int	setContext(t_data *data)
   setTunnelContext(&data->context[7]);
   setSamplerContext(&data->context[8]);
   setProgDegradContext(&data->context[9]);
+  setTexturedDegradContext(&data->context[10]);
   return (0);
 }

@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 06:58:04 2016 Antoine Baché
+## Last update Sun Mar 20 08:22:19 2016 Antoine Baché
 ## Last update Sun Mar 20 05:10:22 2016 Arthur ARNAUD
 ##
 
@@ -25,6 +25,7 @@ SRC_DEMO_FILES=		main.c				\
 			context/tunnel.c		\
 			context/sampler.c		\
 			context/progDegrad.c		\
+			context/texturedDegrad.c	\
 			transition/fade.c		\
 			transition/transition.c		\
 			select.c			\
@@ -121,7 +122,8 @@ SAMPLER_FILES=		loop.c				\
 
 DEGRAD_PREFIX=		src/degrade/
 
-DEGRAD_FILES=		progressive.c
+DEGRAD_FILES=		progressive.c			\
+			textured.c
 
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 

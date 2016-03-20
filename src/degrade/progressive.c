@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 05:05:23 2016 Antoine Baché
-** Last update Sun Mar 20 08:04:11 2016 Antoine Baché
+** Last update Sun Mar 20 10:27:31 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -30,7 +30,7 @@ void			progDegradDraw(t_progDegrad *progDegrad,
 
   i = 0;
   color = pix->pixels;
-  while (i < WIN_Y)
+  while (i < (WIN_Y - 10))
     {
       j = -1;
       while (++j < WIN_X)
@@ -72,6 +72,7 @@ int			progDegradClose(t_data *data)
   progDegrad = data->data;
   if (!data->new)
     {
+      my_free(progDegrad->palette);
       my_free(progDegrad);
     }
   data->data = NULL;
