@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 16:13:43 2016 Antoine Baché
+## Last update Sun Mar 20 17:25:23 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -29,6 +29,7 @@ SRC_DEMO_FILES=		main.c				\
 			context/matext.c		\
 			transition/fade.c		\
 			transition/transition.c		\
+			transition/morph.c		\
 			select.c			\
 			timer.c				\
 			free.c

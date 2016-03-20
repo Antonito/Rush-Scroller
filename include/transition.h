@@ -5,12 +5,12 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 00:30:51 2016 Antoine Baché
-** Last update Sun Mar 20 03:00:58 2016 Antoine Baché
+** Last update Sun Mar 20 17:23:37 2016 Antoine Baché
 */
 
 #ifndef TRANSITION_H_
 # define TRANSITION_H_
-# define NB_TRANSITION 1
+# define NB_TRANSITION 2
 
 # include "demo.h"
 # include <stdlib.h>

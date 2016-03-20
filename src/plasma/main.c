@@ -5,11 +5,12 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 03:44:45 2016 Ludovic Petrenko
-** Last update Sun Mar 20 16:42:11 2016 Antoine Baché
+** Last update Sun Mar 20 18:36:03 2016 Antoine Baché
 */
 
 #include <time.h>
 #include "plasma.h"
+#include "transition.h"
 #include "tools/common.h"
 
 t_bunny_response	plasmaKey(t_bunny_event_state state,
@@ -64,6 +65,7 @@ int			plasmaClose(t_data *data)
     {
       bunny_sound_stop(&plasma->music->sound);
       bunny_delete_sound(&plasma->music->sound);
+      myBlit(data->trans, plasma->pix, ivec2(0, 0));
       bunny_delete_clipable(&plasma->pix->clipable);
       my_free(plasma);
     }

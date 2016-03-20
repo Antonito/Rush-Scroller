@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 05:26:50 2016 Arthur ARNAUD
-** Last update Sun Mar 20 16:45:06 2016 Antoine Baché
+** Last update Sun Mar 20 19:14:11 2016 Antoine Baché
 */
 
 #include <time.h>
@@ -25,7 +25,7 @@ void			blitAllText(t_prog *prog)
   myBlit(prog->rhum, prog->pix, prog->pos_rhum);
   myBlit(prog->rhum_sin, prog->pix, prog->pos_sin);
   myBlit(prog->lyrics, prog->pix,
-	 addiVec2(prog->pos, ivec2(prog->pix->clipable.clip_width,0)));
+	 addiVec2(prog->pos, ivec2(prog->pix->clipable.clip_width, 0)));
 }
 
 t_bunny_response	scrollingTextLoop(t_data *data)

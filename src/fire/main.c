@@ -5,11 +5,12 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 02:06:05 2016 Antoine Baché
-** Last update Sun Mar 20 16:43:38 2016 Antoine Baché
+** Last update Sun Mar 20 19:13:30 2016 Antoine Baché
 */
 
 #include "demo.h"
 #include "fire.h"
+#include "transition.h"
 #include "tools/common.h"
 
 t_bunny_response	fireKey(t_bunny_event_state state,
