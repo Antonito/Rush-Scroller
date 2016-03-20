@@ -5,14 +5,14 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 03:42:39 2016 Ludovic Petrenko
-** Last update Sat Mar 19 03:57:29 2016 Antoine Baché
+** Last update Sun Mar 20 20:39:55 2016 Antoine Baché
 */
 
 #include "plasma.h"
 
 void		tekpixel2(t_bunny_pixelarray *pix,
-			 int x, int y,
-			 unsigned int color)
+			  int x, int y,
+			  unsigned int color)
 {
   unsigned int	*col;
 

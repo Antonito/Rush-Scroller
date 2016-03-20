@@ -5,14 +5,14 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 18:44:19 2016 Ludovic Petrenko
-** Last update Sat Mar 19 21:09:26 2016 Ludovic Petrenko
+** Last update Sun Mar 20 20:37:37 2016 Antoine Baché
 */
 
 #include <stdlib.h>
 #include "tools/transform.h"
 #include "starfield.h"
 
-void	genStar(t_star *star, double len)
+void		genStar(t_star *star, double len)
 {
   double	l;
   t_ivec2	sign;

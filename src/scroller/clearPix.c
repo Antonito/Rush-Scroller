@@ -5,13 +5,13 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 04:10:39 2016 Arthur ARNAUD
-** Last update Sun Mar 20 04:33:30 2016 Arthur ARNAUD
+** Last update Sun Mar 20 20:38:48 2016 Antoine Baché
 */
 
 #include "scroller.h"
 #include "tools/common.h"
 
-void	clearPix(t_bunny_pixelarray *pix)
+void		clearPix(t_bunny_pixelarray *pix)
 {
   t_color	*color;
   int		i;

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 04:46:38 2016 Antoine Baché
-** Last update Sat Mar 19 23:06:01 2016 Antoine Baché
+** Last update Sun Mar 20 20:40:10 2016 Antoine Baché
 */
 
 #include "ondulation.h"
@@ -34,7 +34,8 @@ void			fill_pix(t_ondulation		*ondulation,
     }
 }
 
-int			cpy_pix(t_ondulation *ondulation, char *str, double ratio)
+int			cpy_pix(t_ondulation *ondulation, char *str,
+				double ratio)
 {
   int			height;
 

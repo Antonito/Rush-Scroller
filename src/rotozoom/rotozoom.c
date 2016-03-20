@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 04:35:46 2016 Ludovic Petrenko
-** Last update Sun Mar 20 11:58:47 2016 Ludovic Petrenko
+** Last update Sun Mar 20 20:39:32 2016 Antoine Baché
 */
 
 #include <lapin.h>
@@ -30,8 +30,8 @@ void	changeZoomRotate(t_roto *roto)
     roto->rotSpeed += 360;
 }
 
-void	repeatImage(t_bunny_pixelarray *src,
-		    t_bunny_pixelarray *dest, double z)
+void		repeatImage(t_bunny_pixelarray *src,
+			    t_bunny_pixelarray *dest, double z)
 {
   t_ivec2	o;
   t_ivec2	incr;

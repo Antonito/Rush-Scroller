@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 18:21:55 2016 Ludovic Petrenko
-** Last update Sun Mar 20 16:45:26 2016 Antoine Baché
+** Last update Sun Mar 20 20:37:47 2016 Antoine Baché
 */
 
 #include <lapin.h>
@@ -55,7 +55,7 @@ t_bunny_response	starLoop(t_data *data)
   return (timerChange(data, TIMER_DELAY, timer));
 }
 
-int	starClose(t_data *data)
+int		starClose(t_data *data)
 {
   t_field	*field;
 

@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 12:56:55 2016 Ludovic Petrenko
-** Last update Sun Mar 20 19:00:56 2016 Antoine Baché
+** Last update Sun Mar 20 20:41:32 2016 Antoine Baché
 */
 
 #include <time.h>
@@ -16,13 +16,13 @@
 #include "tools/font.h"
 
 t_bunny_response	matextKey(t_bunny_event_state state,
-				t_bunny_keysym key,
-				t_data *data)
+				  t_bunny_keysym key,
+				  t_data *data)
 {
   return (eventKeys(state, key, data));
 }
 
-void	drawRainbow(t_bunny_pixelarray *pix, t_matext *m)
+void			drawRainbow(t_bunny_pixelarray *pix, t_matext *m)
 {
   int			i;
   int			j;
@@ -66,7 +66,7 @@ t_bunny_response	matextLoop(t_data *data)
   return (timerChange(data, TIMER_DELAY, timer));
 }
 
-int	matextClose(t_data *data)
+int		matextClose(t_data *data)
 {
   t_matext	*matext;
 

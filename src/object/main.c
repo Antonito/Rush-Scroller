@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 04:06:32 2016 Ludovic Petrenko
-** Last update Sun Mar 20 16:42:56 2016 Antoine Baché
+** Last update Sun Mar 20 20:40:39 2016 Antoine Baché
 */
 
 #include <lapin.h>
@@ -54,7 +54,7 @@ int	objClose(t_data *data)
 
 int	        object(t_data *data)
 {
-  t_obj	*obj;
+  t_obj		*obj;
 
   if (!(obj = MALLOC(100 * sizeof(t_obj))))
     return (1);

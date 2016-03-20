@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 19:31:12 2016 Ludovic Petrenko
-** Last update Sat Mar 19 20:18:05 2016 Ludovic Petrenko
+** Last update Sun Mar 20 20:42:14 2016 Antoine Baché
 */
 
 #include <lapin.h>
@@ -27,7 +27,7 @@ void			drawStar(t_bunny_pixelarray *pix, t_star *s)
   bunny_set_line(&pix->clipable.buffer, line, color);
 }
 
-void	moveStar(t_star *s)
+void		moveStar(t_star *s)
 {
   double	dist;
 

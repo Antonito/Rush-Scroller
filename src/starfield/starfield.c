@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 19:31:12 2016 Ludovic Petrenko
-** Last update Sun Mar 20 12:18:04 2016 Ludovic Petrenko
+** Last update Sun Mar 20 20:38:02 2016 Antoine Baché
 */
 
 #include <lapin.h>
@@ -24,10 +24,10 @@ void			drawStar(t_bunny_pixelarray *pix, t_star *s)
   tekline(pix, line, s->col);
 }
 
-void	moveStar(t_star *s)
+void		moveStar(t_star *s)
 {
   double	dist;
-  t_ivec2		screenCenter;
+  t_ivec2	screenCenter;
   t_mat2	rot;
 
   rot = mat2();
