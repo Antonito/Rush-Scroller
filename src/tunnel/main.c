@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 00:28:41 2016 Ludovic Petrenko
-** Last update Sun Mar 20 00:34:25 2016 Ludovic Petrenko
+** Last update Sun Mar 20 00:56:51 2016 Ludovic Petrenko
 */
 
 #include <lapin.h>
@@ -24,15 +24,17 @@ t_bunny_response	tunnelLoop(t_data *data)
 {
   int			i;
   t_circle		*c;
+  t_ivec2		pos;
 
   i = 0;
   if (data->new && tunnem(data))
     return (EXIT_ON_ERROR);
   clearColor(data->pix, 0xFF000000);
   c = data->data;
+  pos = ivec2(0, 0);
   while (i < 100)
     {
-      drawCircle(data->pix, c, i);
+      drawCircle(data->pix, c, i, &pos);
       i++;
     }
   moveCircles(c);
@@ -63,7 +65,7 @@ int		tunnel(t_data *data)
   if (!(c = MALLOC(100 * sizeof(t_circle))))
     return (1);
   data->data = c;
-  i = -1;
+  memset(c, 0, 100 * sizeof(t_circle));
   data->new = false;
   return (0);
 }
