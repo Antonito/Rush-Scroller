@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sun Mar 20 17:43:16 2016 Antoine Baché
+** Last update Sun Mar 20 21:41:39 2016 Antoine Baché
 */
 
 #include <math.h>
@@ -66,6 +66,7 @@ int		spriteClose(t_data *data)
       bunny_delete_clipable(&prog->pix->clipable);
       while (prog->spritePix[++i] != NULL)
 	bunny_delete_clipable(&prog->spritePix[i]->clipable);
+      my_free(prog->spritePix);
       my_free(prog);
     }
   data->data = NULL;
