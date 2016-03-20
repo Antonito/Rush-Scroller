@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 13:16:50 2016 Antoine Baché
-** Last update Sun Mar 20 05:40:19 2016 Antoine Baché
+** Last update Sun Mar 20 06:04:13 2016 Ludovic Petrenko
 */
 
 #include "demo.h"
@@ -24,5 +24,6 @@ int	setContext(t_data *data)
   setScrollerContext(&data->context[6]);
   setTunnelContext(&data->context[7]);
   setSamplerContext(&data->context[8]);
+  setRotozoomContext(&data->context[9]);
   return (0);
 }

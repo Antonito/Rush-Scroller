@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 23:30:38 2016 Antoine Baché
-** Last update Sun Mar 20 03:58:10 2016 Ludovic Petrenko
+** Last update Sun Mar 20 07:05:12 2016 Ludovic Petrenko
 */
 
 #include <lapin.h>
@@ -52,21 +52,25 @@ void		tekpixel(t_bunny_pixelarray *pix,
   t_color	color;
 
   transp = c->argb[3] / 255.0;
-  color = *c;
-  color.argb[3] = 255;
+  (color = *c).argb[3] = 255;
   if (pos[0].x < pix->clipable.clip_width &&
       pos[0].y < pix->clipable.clip_height && pos[0].x >= 0 && pos[0].y >= 0)
     {
       tmp = (t_color *)pix->pixels +
 	pos[0].x + pos[0].y * pix->clipable.clip_width;
-      tmp->argb[0] = (unsigned char)((color.argb[0] * transp) +
-				     (tmp->argb[0] * (1 - transp)));
-      tmp->argb[1] = (unsigned char)((color.argb[1] * transp) +
-				     (tmp->argb[1] * (1 - transp)));
-      tmp->argb[2] = (unsigned char)((color.argb[2] * transp) +
-				     (tmp->argb[2] * (1 - transp)));
-      tmp->argb[3] = (unsigned char)((color.argb[3] * transp) +
-				     (tmp->argb[3] * (1 - transp)));
+      if (transp != 1.0)
+	{
+	  tmp->argb[0] = (unsigned char)((color.argb[0] * transp) +
+					 (tmp->argb[0] * (1 - transp)));
+	  tmp->argb[1] = (unsigned char)((color.argb[1] * transp) +
+					 (tmp->argb[1] * (1 - transp)));
+	  tmp->argb[2] = (unsigned char)((color.argb[2] * transp) +
+					 (tmp->argb[2] * (1 - transp)));
+	  tmp->argb[3] = (unsigned char)((color.argb[3] * transp) +
+					 (tmp->argb[3] * (1 - transp)));
+	}
+      else
+	*tmp = *c;
     }
 }
 

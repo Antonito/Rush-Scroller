@@ -5,11 +5,12 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 04:36:02 2016 Ludovic Petrenko
-** Last update Sun Mar 20 05:26:01 2016 Ludovic Petrenko
+** Last update Sun Mar 20 11:55:57 2016 Ludovic Petrenko
 */
 
 #include <lapin.h>
 #include <stdlib.h>
+#include <math.h>
 #include "rotozoom.h"
 #include "tools/common.h"
 
@@ -29,8 +30,8 @@ t_bunny_response	rotoLoop(t_data *data)
   if (data->new && rotozoom(data))
     return (EXIT_ON_ERROR);
   roto = data->data;
-  repeatImage(roto->pix, roto->pict, roto->zoom);
-  /* rotateImage(data->pix, roto->pix, roto->rot); */
+  repeatImage(roto->pict, roto->pix, roto->zoomSpeed);
+  rotateImage(roto->pix, data->pix, roto->rotSpeed);
   changeZoomRotate(roto);
   bunny_blit(&(data->win->buffer),
 	     &(data->pix->clipable), 0);
@@ -45,7 +46,8 @@ int		rotoClose(t_data *data)
   if (!data->new)
     {
       roto = data->data;
-      bunny_delete_clipable(roto->pix);
+      bunny_delete_clipable(&roto->pix->clipable);
+      bunny_delete_clipable(&roto->pict->clipable);
       my_free(roto);
     }
   data->data = NULL;
@@ -62,8 +64,12 @@ int	        rotozoom(t_data *data)
   roto->size = (int)sqrt(POW2(WIN_X) + POW2(WIN_Y)) + 1;
   if (!(roto->pix = bunny_new_pixelarray(roto->size, roto->size)))
     return (1);
-  if (!(roto->pict = bunny_load_pixelarray("fsm.png")))
+  if (!(roto->pict = bunny_load_pixelarray("assets/picture/fsm.jpg")))
     return (1);
+  roto->zoom = 1.0;
+  roto->zoomSpeed = 1.0;
+  roto->rot = 0.0;
+  roto->rotSpeed = 1.0;
   data->data = roto;
   clearColor(data->pix, 0xFF000000);
   data->new = false;

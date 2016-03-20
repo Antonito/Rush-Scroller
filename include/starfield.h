@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 18:29:09 2016 Ludovic Petrenko
-** Last update Sat Mar 19 21:10:31 2016 Ludovic Petrenko
+** Last update Sun Mar 20 12:09:00 2016 Ludovic Petrenko
 */
 
 #ifndef STARFIELD_H_
