@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 04:00:14 2016 Antoine Baché
+## Last update Sun Mar 20 05:49:14 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -22,6 +22,7 @@ SRC_DEMO_FILES=		main.c				\
 			context/damier.c		\
 			context/scroller.c		\
 			context/tunnel.c		\
+			context/sampler.c		\
 			transition/fade.c		\
 			transition/transition.c		\
 			select.c			\
@@ -108,6 +109,10 @@ TUNNEL_PREFIX=		src/tunnel/
 TUNNEL_FILES=		main.c				\
 			tunnel.c
 
+SAMPLER_PREFIX=		src/sampler/
+
+SAMPLER_FILES=		loop.c				\
+			sampler.c
 
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 
@@ -129,6 +134,8 @@ SRC_SCROLLER=		$(addprefix $(SCROLLER_PREFIX),$(SCROLLER_FILES))
 
 SRC_TUNNEL=		$(addprefix $(TUNNEL_PREFIX),$(TUNNEL_FILES))
 
+SRC_SAMPLER=		$(addprefix $(SAMPLER_PREFIX),$(SAMPLER_FILES))
+
 SRC_DEMO+=		$(SRC_TOOLS)
 
 SRC_DEMO+=		$(SRC_FIRE)
@@ -146,6 +153,8 @@ SRC_DEMO+=		$(SRC_DAMIER)
 SRC_DEMO+=		$(SRC_SCROLLER)
 
 SRC_DEMO+=		$(SRC_TUNNEL)
+
+SRC_DEMO+=		$(SRC_SAMPLER)
 
 DEMO=			demoEtDesLettres
 

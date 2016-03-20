@@ -5,11 +5,13 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 04:03:11 2016 Antoine Baché
-** Last update Sun Mar 20 05:38:36 2016 Antoine Baché
+** Last update Sun Mar 20 05:53:50 2016 Antoine Baché
 */
 
 #include "sampler.h"
 #include "tools/common.h"
+#include <string.h>
+#include <stdio.h>
 
 int			countElemIni(t_bunny_ini *ini,
 				     const char *scope,
@@ -38,14 +40,14 @@ int			samplerLoad(t_bunny_ini *file, const char *scope,
   i = 0;
   while (i < nbDuration)
     {
-      if (!(tmp = bunny_ini_get_field(file, scope, "duration", i)))
+      if (!(tmp = (char *)bunny_ini_get_field(file, scope, "duration", i)))
 	return (1);
       sampler->duration[i++] = atof(tmp);
     }
   i = 0;
   while (i < nbFrequency)
     {
-      if (!(tmp = bunny_ini_get_field(file, scope, "frequency", i)))
+      if (!(tmp = (char *)bunny_ini_get_field(file, scope, "frequency", i)))
 	return (1);
       sampler->frequency[i++] = atof(tmp);
     }
@@ -56,13 +58,14 @@ int			samplerMain(t_data *data)
 {
   t_sampler		*sampler;
   char			*path;
-  const	char		*tmp;
+  char			*tmp;
 
   if (!(sampler = MALLOC(sizeof(t_sampler))) ||
       !(path = MALLOC(sizeof(char) * 1024)) ||
       (memset(path, 0, 1024),
        !(sampler->file = bunny_load_ini(SAMPLER_FILE)) ||
-       !(tmp = bunny_init_get_field(sampler->file, "track1", sample, 0))||
+       !(tmp =
+	 (char *)bunny_ini_get_field(sampler->file, "track1", "sample", 0))||
        sprintf(path, "assets/modlike/%s", tmp) < 0 ||
        !(sampler->music = bunny_load_music(path))) ||
       samplerLoad(sampler->file, "track1", sampler))

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 05:25:36 2016 Antoine Baché
-** Last update Sun Mar 20 05:39:03 2016 Antoine Baché
+** Last update Sun Mar 20 05:52:10 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -16,19 +16,19 @@ t_bunny_response	samplerKey(t_bunny_event_state state,
 				   t_bunny_keysym key,
 				   t_data *data)
 {
-  return (eventKeys(sate, key, data));
+  return (eventKeys(state, key, data));
 }
 
-t_bunny_response	sampleLoop(t_data *data)
+t_bunny_response	samplerLoop(t_data *data)
 {
-  if (data->new && sampleMain(data))
+  if (data->new && samplerMain(data))
     return (EXIT_ON_ERROR);
-  bunny_blit(&prog->win->buffer, &data->pix->clipable, 0);
+  bunny_blit(&data->win->buffer, &data->pix->clipable, 0);
   bunny_display(data->win);
   return (GO_ON);
 }
 
-int			sampleClose(t_data *data)
+int			samplerClose(t_data *data)
 {
   t_sampler		*sampler;
 
