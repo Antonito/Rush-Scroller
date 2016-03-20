@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sun Mar 20 01:43:34 2016 Ludovic Petrenko
+** Last update Sun Mar 20 01:50:49 2016 Ludovic Petrenko
 */
 
 #ifndef	DEMO_H_
@@ -56,6 +56,7 @@ void			setStarfieldContext(t_bunny_context *);
 void			setOndulationContext(t_bunny_context *);
 void			setDamierContext(t_bunny_context *);
 void			setScrollerContext(t_bunny_context *);
+void			setTunnelContext(t_bunny_context *);
 
 /*
 ** Free
@@ -67,6 +68,6 @@ int			starClose(t_data *);
 int			ondulationClose(t_data *);
 int			damierClose(t_data *);
 int			scrollerClose(t_data *);
-int			tunnelClose(t_data *data);
+int			tunnelClose(t_data *);
 
 #endif /* !DEMO_H_ */
