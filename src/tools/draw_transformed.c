@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 16:03:21 2016 Ludovic Petrenko
-** Last update Sat Mar 19 23:17:55 2016 Ludovic Petrenko
+** Last update Sun Mar 20 19:27:17 2016 Arthur ARNAUD
 */
 
 #include <stdbool.h>
@@ -93,6 +93,10 @@ void	drawResized(t_bunny_pixelarray *src, t_bunny_pixelarray *dest,
 	{
 	  tmp.x = incr.x / scale.x;
 	  tmp.y = incr.y / scale.y;
+	  if (scale.x < 0.0)
+	    tmp.x += src->clipable.clip_width;
+	  if (scale.y < 0.0)
+	    tmp.y += src->clipable.clip_height;
 	  color.full = getPixel(src, tmp);
 	  finalPos = addiVec2(incr, pos);
 	  tekpixel(dest, &finalPos, &color);
