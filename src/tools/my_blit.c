@@ -5,14 +5,14 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 00:09:43 2016 Antoine Baché
-** Last update Sat Mar 19 15:10:25 2016 Arthur ARNAUD
+** Last update Sun Mar 20 01:13:36 2016 Ludovic Petrenko
 */
 
 #include "tools/common.h"
 #include "tools/transform.h"
 
 void		myBlit(const t_bunny_pixelarray *src,
-		       t_bunny_pixelarray *dest, double transp, t_ivec2 pos)
+		       t_bunny_pixelarray *dest, t_ivec2 pos)
 {
   t_color	*colorSrc;
   int		i;
@@ -28,9 +28,7 @@ void		myBlit(const t_bunny_pixelarray *src,
 	{
 	  newPos.x = pos.x + j;
 	  newPos.y = pos.y + i;
-	  tekpixelTransp(dest, &newPos,
-			 &colorSrc[i * src->clipable.clip_width + j],
-			 transp);
+	  tekpixel(dest, &newPos, &colorSrc[i * src->clipable.clip_width + j]);
 	  ++j;
 	}
       ++i;

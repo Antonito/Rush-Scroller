@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:40:48 2016 Antoine Baché
-** Last update Sat Mar 19 21:18:39 2016 Antoine Baché
+** Last update Sun Mar 20 01:13:57 2016 Ludovic Petrenko
 */
 
 #ifndef	COMMON_H_
@@ -44,7 +44,6 @@ void			clearColor(t_bunny_pixelarray *, unsigned int);
 void			fillColor(t_bunny_pixelarray *, t_color *, double);
 void			myBlit(const t_bunny_pixelarray *,
 			       t_bunny_pixelarray *,
-			       double,
 			       t_ivec2);
 unsigned int		getPixel(t_bunny_pixelarray *, t_ivec2);
 
