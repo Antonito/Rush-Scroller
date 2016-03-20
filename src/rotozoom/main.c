@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 04:36:02 2016 Ludovic Petrenko
-** Last update Sun Mar 20 11:55:57 2016 Ludovic Petrenko
+** Last update Sun Mar 20 12:54:09 2016 Antoine Baché
 */
 
 #include <lapin.h>
@@ -23,10 +23,8 @@ t_bunny_response	rotoKey(t_bunny_event_state state,
 
 t_bunny_response	rotoLoop(t_data *data)
 {
-  int			i;
   t_roto		*roto;
 
-  i = 0;
   if (data->new && rotozoom(data))
     return (EXIT_ON_ERROR);
   roto = data->data;
