@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 15:12:43 2016 Ludovic Petrenko
+## Last update Sun Mar 20 15:40:52 2016 Ludovic Petrenko
 ##
 
 DEBUG=			yes
@@ -24,7 +24,6 @@ SRC_DEMO_FILES=		main.c				\
 			context/tunnel.c		\
 			context/sampler.c		\
 			context/scrollingText.c		\
-			context/progDegrad.c		\
 			context/texturedDegrad.c	\
 			context/rotozoom.c		\
 			context/matext.c		\
@@ -131,8 +130,7 @@ SCROLLINGTEXT_FILES=	main.c
 
 DEGRAD_PREFIX=		src/degrade/
 
-DEGRAD_FILES=		progressive.c			\
-			textured.c
+DEGRAD_FILES=		textured.c
 
 ROTOZOOM_PREFIX=	src/rotozoom/
 

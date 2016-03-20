@@ -5,27 +5,11 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 13:40:37 2016 Ludovic Petrenko
-** Last update Sun Mar 20 15:17:40 2016 Ludovic Petrenko
+** Last update Sun Mar 20 15:24:39 2016 Ludovic Petrenko
 */
 
 #include "matext.h"
 #include "tools/common.h"
-
-static void	tekbigpixel(t_bunny_pixelarray *pix, t_ivec2 pos, t_color c)
-{
-  t_ivec2	p[4];
-
-  p[0] = addiVec2(pos, ivec2(-1, 0));
-  p[1] = addiVec2(pos, ivec2(1, 0));
-  p[2] = addiVec2(pos, ivec2(0, -1));
-  p[3] = addiVec2(pos, ivec2(0, 1));
-  tekpixel(pix, &pos, &c);
-  c.argb[3] >>= 4;
-  tekpixel(pix, p, &c);
-  tekpixel(pix, p + 1, &c);
-  tekpixel(pix, p + 2, &c);
-  tekpixel(pix, p + 3, &c);
-}
 
 void		drawMatext(t_bunny_pixelarray *pix, t_matext *m)
 {
@@ -49,15 +33,15 @@ void		drawMatext(t_bunny_pixelarray *pix, t_matext *m)
 	  tmp = multMatVec3(&matrix, vec3(incr.x - m->decal.x,
 					  incr.y - m->decal.y, 0));
 	  pos = addiVec2(to_ivec2(vec2(tmp.x, tmp.y)), center);
-	  tekbigpixel(pix, pos, color);
+	  if (color.full != 0xFF000000)
+	    tekpixel(pix, &pos, &color);
 	}
     }
-
 }
 
 void	moveMatext(t_matext *m)
 {
-  m->rot.x += 2.4;
-  m->rot.y -= 5;
+  m->rot.x += 0.4;
+  m->rot.y -= 0.9;
   m->rot.z += 0.2;
 }

@@ -5,13 +5,14 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 12:56:55 2016 Ludovic Petrenko
-** Last update Sun Mar 20 15:16:21 2016 Ludovic Petrenko
+** Last update Sun Mar 20 15:42:47 2016 Ludovic Petrenko
 */
 
 #include <lapin.h>
 #include <stdlib.h>
 #include "matext.h"
 #include "tools/common.h"
+#include "tools/font.h"
 
 t_bunny_response	matextKey(t_bunny_event_state state,
 				t_bunny_keysym key,
@@ -29,7 +30,7 @@ void	drawRainbow(t_bunny_pixelarray *pix, t_matext *m)
 
   i = 0;
   color = pix->pixels;
-  while (i < (WIN_Y - 10))
+  while (i < (WIN_Y - 9))
     {
       j = -1;
       while (++j < WIN_X)
@@ -76,14 +77,25 @@ int	matextClose(t_data *data)
   return (0);
 }
 
-int		matext(t_data *data)
+int			matext(t_data *data)
 {
-  t_matext	*matext;
+  t_matext		*matext;
+  t_bunny_pixelarray	*tmp;
 
   if (!(matext = MALLOC(sizeof(t_matext))))
     return (1);
-  if (!(matext->img = bunny_load_pixelarray("assets/picture/fsm.jpg")))
+  if (!(tmp = printText("tu veux mon zizi?", "font2")))
     return (1);
+  if (tmp->clipable.clip_width < WIN_X / 3)
+    {
+      if (!(matext->img = bunny_new_pixelarray(tmp->clipable.clip_width * 2,
+					       tmp->clipable.clip_height * 2)))
+	return (1);
+      drawResized(tmp, matext->img, vec2(2, 2), ivec2(0, 0));
+      bunny_delete_clipable(&tmp->clipable);
+    }
+  else
+    matext->img = tmp;
   matext->rot = vec3(0, 0, 0);
   matext->decal = ivec2(matext->img->clipable.clip_width / 2,
 			matext->img->clipable.clip_height / 2);
