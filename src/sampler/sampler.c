@@ -5,13 +5,28 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 04:03:11 2016 Antoine Baché
-** Last update Sun Mar 20 05:53:50 2016 Antoine Baché
+** Last update Sun Mar 20 06:25:17 2016 Antoine Baché
 */
 
 #include "sampler.h"
 #include "tools/common.h"
 #include <string.h>
 #include <stdio.h>
+
+void			playMusic(t_sampler *sampler)
+{
+  int			i;
+
+  i = 0;
+  bunny_compute_effect(sampler->music);
+  bunny_sound_volume(&sampler->music->sound, 100);
+  while (i < sampler->size)
+    {
+      bunny_sound_pitch(&sampler->music->sound, sampler->frequency[i] / 250);
+      bunny_sound_play(&sampler->music->sound);
+      ++i;
+    }
+}
 
 int			countElemIni(t_bunny_ini *ini,
 				     const char *scope,
@@ -67,12 +82,14 @@ int			samplerMain(t_data *data)
        !(tmp =
 	 (char *)bunny_ini_get_field(sampler->file, "track1", "sample", 0))||
        sprintf(path, "assets/modlike/%s", tmp) < 0 ||
-       !(sampler->music = bunny_load_music(path))) ||
+       !(sampler->music = bunny_load_effect(path))) ||
       samplerLoad(sampler->file, "track1", sampler))
     return (1);
+  sampler->size = countElemIni(sampler->file, "track1", "duration");
   bunny_delete_ini(sampler->file);
   my_free(path);
   data->data = sampler;
   data->new = false;
+  playMusic(sampler);
   return (0);
 }
