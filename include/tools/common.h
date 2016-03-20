@@ -1,11 +1,11 @@
 /*
-1;4204;0c** common.h for gfx_scroller in /gfx_scroller/include/tools
+** common.h for gfx_scroller in /gfx_scroller/include/tools
 **
 ** Made by Antoine Baché
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:40:48 2016 Antoine Baché
-** Last update Sun Mar 20 18:41:30 2016 Antoine Baché
+** Last update Sun Mar 20 19:38:55 2016 Antoine Baché
 */
 
 #ifndef	COMMON_H_
