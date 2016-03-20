@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sun Mar 20 00:22:44 2016 Ludovic Petrenko
+** Last update Sun Mar 20 01:14:39 2016 Arthur ARNAUD
 */
 
 #include "demo.h"
@@ -79,10 +79,11 @@ int		spriteDisplay(t_data *data)
     return (1);
   if (!(prog->spritePix = loadSprite("wolf")))
     return (1);
+  prog->i = 0;
   prog->index = 0;
   prog->pos.y = 10;
   prog->pos.x = 10;
-  myBlit(prog->spritePix[prog->index], prog->pix, 1, prog->pos);
+  myBlit(prog->spritePix[prog->index], prog->pix, prog->pos);
   data->new = false;
   return (0);
 }

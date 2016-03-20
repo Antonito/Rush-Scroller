@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 13:16:50 2016 Antoine Baché
-** Last update Sun Mar 20 01:29:14 2016 Ludovic Petrenko
+** Last update Sun Mar 20 01:43:01 2016 Ludovic Petrenko
 */
 
 #include "demo.h"
@@ -20,6 +20,8 @@ int	setContext(t_data *data)
   setSpriteContext(&data->context[2]);
   setStarfieldContext(&data->context[3]);
   setOndulationContext(&data->context[4]);
+  setDamierContext(&data->context[5]);
+  setScrollerContext(&data->context[6]);
   setTunnelContext(&data->context[5]);
   return (0);
 }
