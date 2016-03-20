@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sat Mar 19 23:16:32 2016 Antoine Baché
+## Last update Sun Mar 20 01:01:32 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -19,6 +19,7 @@ SRC_DEMO_FILES=		main.c				\
 			context/sprite.c		\
 			context/starfield.c		\
 			context/ondulation.c		\
+			context/damier.c		\
 			select.c			\
 			free.c
 
@@ -90,6 +91,10 @@ STARFIELD_FILES=	gen_star.c			\
 			starfield.c			\
 			tekline.c
 
+DAMIER_PREFIX=		src/damier/
+
+DAMIER_FILES=		damier.c
+
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 
 SRC_TOOLS=		$(addprefix $(TOOLS_PREFIX),$(TOOLS_FILES))
@@ -104,6 +109,8 @@ SRC_SPRITE=		$(addprefix $(SPRITE_PREFIX),$(SPRITE_FILES))
 
 SRC_STARFIELD=		$(addprefix $(STARFIELD_PREFIX),$(STARFIELD_FILES))
 
+SRC_DAMIER=		$(addprefix $(DAMIER_PREFIX),$(DAMIER_FILES))
+
 SRC_DEMO+=		$(SRC_TOOLS)
 
 SRC_DEMO+=		$(SRC_FIRE)
@@ -115,6 +122,8 @@ SRC_DEMO+=		$(SRC_SPRITE)
 SRC_DEMO+=		$(SRC_STARFIELD)
 
 SRC_DEMO+=		$(SRC_ONDULATION)
+
+SRC_DEMO+=		$(SRC_DAMIER)
 
 DEMO=			demoEtDesLettres
 
