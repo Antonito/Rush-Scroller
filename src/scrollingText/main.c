@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 05:26:50 2016 Arthur ARNAUD
-** Last update Sun Mar 20 06:12:25 2016 Arthur ARNAUD
+** Last update Sun Mar 20 14:34:07 2016 Arthur ARNAUD
 */
 
 #include "demo.h"
@@ -18,16 +18,32 @@ t_bunny_response	scrollingTextKey(t_bunny_event_state state,
   return (eventKeys(state, key, data));
 }
 
+void			blitAllText()
 t_bunny_response	scrollingTextLoop(t_data *data)
 {
   t_prog		*prog;
 
-  if (data->new && scrollerDisplay(data))
+  if (data->new && scrollingTextDisplay(data))
     return (EXIT_ON_ERROR);
   prog = data->data;
-  if (prog->pos.x-- < -(prog->lyrics->clipable.clip_width))
+  if (prog->pos.x-- < -(prog->pix->clipable.clip_width))
     prog->pos.x = 0;
-  myBlit(prog->lyrics, prog->pix, prog->pos)
+  if ((prog->pos_rhum.x > prog->pix->clipable.clip_width  ||
+      !(prog->pos_rhum.x += 7)) ||
+      (prog->pos_rhum.y > prog->pix->clipable.clip_height ||
+       !(prog->pos_rhum.y += 4)))
+    {
+      prog->pos_rhum.x = 0;
+      prog->pos_rhum.y = 0;
+    }
+  if (prog->pos_sin.x++ > prog->pix->clipable.clip_width)
+    prog->pos_sin.x = 0;
+  clearColor(prog->pix, BLACK);
+  myBlit(prog->lyrics, prog->pix, prog->pos);
+  myBlit(prog->rhum, prog->pix, prog->pos_rhum);
+  myBlit(prog->rhum_sin, prog->pix, prog->pos_sin);
+  myBlit(prog->lyrics, prog->pix,
+	 addiVec2(prog->pos, ivec2(prog->pix->clipable.clip_width,0)));
   bunny_blit(&(data->win->buffer),
 	     &(prog->pix->clipable), 0);
   bunny_display(data->win);
@@ -42,6 +58,7 @@ int		scrollingTextClose(t_data *data)
   if (!data->new)
     {
       bunny_delete_clipable(&prog->pix->clipable);
+      bunny_delete_clipable(&prog->lyrics->clipable);
       my_free(prog);
     }
   data->data = NULL;
@@ -56,20 +73,18 @@ int		scrollingTextDisplay(t_data *data)
   if (!(prog = MALLOC(sizeof(t_prog))))
     return (1);
   data->data = prog;
-  if (!(prog->pix = bunny_new_pixelarray(WIN_X, WIN_Y) ||
-	!(prog->lyrics = printText("The time has come The time for a drink
-But I don't want whiskey or gin There's only one drink
-That gets me so drunk Until my head starts to spin
-Far to the west Under tropical sun This mystical drink is brewed
-On our mission to get totally drunk
-We have got nothing to lose Rum is the power
-Rum is the key Rum is the thing that will set us free!
-Rum rum rum yarr Rum rum ahoy Rum rum rum yarr
-Rum rum gimme more rum Rum rum rum yarr
-Rum rum ahoy Rum rum rum yarr Rum rum ya ha ha ha", "font2"))))
+  if (!(prog->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) ||
+      !(prog->lyrics = printText("the time has come the time for a drink",
+				 "font2")) ||
+      !(prog->rhum = printText("rhum", "font2")) ||
+      !(prog->rhum_sin = printText("rhum", "font2")))
     return (1);
   prog->pos.x = 0;
   prog->pos.y = 100;
+  prog->pos_rhum.x = 0;
+  prog->pos_rhum.y = 0;
+  prog->pos_sin.x = 0;
+  prog->pos_sin.y = 300;
   data->new = false;
   return (0);
 }

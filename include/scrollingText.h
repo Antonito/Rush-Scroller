@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 06:14:44 2016 Arthur ARNAUD
-** Last update Sun Mar 20 06:18:21 2016 Arthur ARNAUD
+** Last update Sun Mar 20 13:22:45 2016 Arthur ARNAUD
 */
 
 #ifndef SCROLLINGTEXT_H_
@@ -24,7 +24,11 @@ typedef struct		s_prog
 {
   t_bunny_pixelarray	*pix;
   t_bunny_pixelarray	*lyrics;
+  t_bunny_pixelarray	*rhum_sin;
+  t_bunny_pixelarray	*rhum;
   t_ivec2		pos;
+  t_ivec2		pos_sin;
+  t_ivec2		pos_rhum;
 }			t_prog;
 
 t_bunny_response	scrollingTextKey(t_bunny_event_state,
