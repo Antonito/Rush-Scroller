@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 19:40:34 2016 Antoine Baché
-** Last update Sat Mar 19 22:59:14 2016 Antoine Baché
+** Last update Sun Mar 20 01:51:35 2016 Antoine Baché
 */
 
 #include <unistd.h>
@@ -47,6 +47,7 @@ int			demo(void)
   if (!(data = MALLOC(sizeof(t_data))) ||
       !(data->win = bunny_start(WIN_X, WIN_Y, true, WIN_NAME)) ||
       !(data->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) ||
+      !(data->trans = bunny_new_pixelarray(WIN_X, WIN_Y)) ||
       setContext(data) || !(closeIt = selector()))
     return (1);
   data->new = true;

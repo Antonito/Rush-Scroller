@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sun Mar 20 01:22:58 2016 Antoine Baché
+** Last update Sun Mar 20 01:50:15 2016 Antoine Baché
 */
 
 #ifndef	DEMO_H_
@@ -22,6 +22,7 @@ typedef struct		s_data
 {
   t_bunny_window	*win;
   t_bunny_pixelarray	*pix;
+  t_bunny_pixelarray	*trans;
   t_bunny_position	*mousePos;
   t_bunny_context	*context;
   int			contextId;
