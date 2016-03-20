@@ -1,25 +1,19 @@
 /*
-** scroller.h for scroller in /home/arnaud_e/rendu/info/gfx_scroller/include
+** scrollingText.h for scrollingText in gfx_scroller/include
 **
 ** Made by Arthur ARNAUD
 ** Login   <arnaud_e@epitech.net>
 **
-** Started on  Sun Mar 20 00:26:54 2016 Arthur ARNAUD
-** Last update Sun Mar 20 06:16:53 2016 Arthur ARNAUD
+** Started on  Sun Mar 20 06:14:44 2016 Arthur ARNAUD
+** Last update Sun Mar 20 06:16:47 2016 Arthur ARNAUD
 */
 
-#ifndef SCROLLER_H_
-# define SCROLLER_H_
-
-# define WIDTH clipable.clip_width
-# define HEIGHT clipable.clip_height
-# define HERBE4	"assets/picture/herbe4.png"
-# define NUAGE3	"assets/picture/nuages3.png"
-# define MONTAGNES "assets/picture/montagnes.png"
-# define BUNNY "assets/picture/lapin_noir.png"
+#ifndef SCROLLINGTEXT_H_
+# define SCROLLINGTEXT_H_
 
 # include "demo.h"
 # include "tools/transform.h"
+# include "tools/font.h"
 # include "tools/common.h"
 # include <stdlib.h>
 # include <stdio.h>
@@ -52,4 +46,4 @@ void			blitAllPix(t_prog *);
 void			setProg(t_prog *);
 void			clearPix(t_bunny_pixelarray *);
 
-#endif /* !SCROLLER_H_ */
+#endif /* !SCROLLINGTET_H_ */

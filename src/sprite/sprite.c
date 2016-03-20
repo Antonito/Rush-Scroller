@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 17:30:03 2016 Arthur ARNAUD
-** Last update Sat Mar 19 20:34:19 2016 Arthur ARNAUD
+** Last update Sun Mar 20 05:24:05 2016 Arthur ARNAUD
 */
 
 #define _POSIX_C_SOURCE
@@ -35,6 +35,7 @@ int		loadSpriteIni(t_sprite *sprite, char *path)
       !(sprite->nb =
 	atoi(bunny_ini_get_field(file, "sprite", "nb", 0))))
     return (1);
+  bunny_delete_ini(file);
   return (0);
 }
 
