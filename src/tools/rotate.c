@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 02:16:38 2016 Ludovic Petrenko
-** Last update Sun Mar 20 10:26:43 2016 Ludovic Petrenko
+** Last update Sun Mar 20 22:34:16 2016 Antoine Baché
 */
 
 #include <math.h>
@@ -83,6 +83,7 @@ static void	rotateZ(t_mat3 *m, double deg)
   rot.m11 = c;
   multMat3(&rot, m);
 }
+
 void		rotate3D(t_mat3 *m, t_vec3 deg)
 {
   if (deg.z != 0.0)

@@ -5,12 +5,12 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 06:35:57 2016 Antoine Baché
-** Last update Sun Mar 20 06:38:36 2016 Antoine Baché
+** Last update Sun Mar 20 22:36:59 2016 Antoine Baché
 */
 
 #include <lapin.h>
 
-void	setRainbowPal(t_color *pal)
+void		setRainbowPal(t_color *pal)
 {
   int		i;
   t_color	rgb;

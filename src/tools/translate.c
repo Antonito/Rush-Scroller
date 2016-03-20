@@ -5,12 +5,12 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 02:20:36 2016 Ludovic Petrenko
-** Last update Sun Mar 20 11:09:11 2016 Ludovic Petrenko
+** Last update Sun Mar 20 22:37:49 2016 Antoine Baché
 */
 
 #include "tools/transform.h"
 
-void	translate3(t_mat3 *mat, t_vec2 t)
+void		translate3(t_mat3 *mat, t_vec2 t)
 {
   t_mat3	n;
 
@@ -20,7 +20,7 @@ void	translate3(t_mat3 *mat, t_vec2 t)
   multMat3(&n, mat);
 }
 
-void	translate4(t_mat4 *mat, t_vec3 t)
+void		translate4(t_mat4 *mat, t_vec3 t)
 {
   t_mat4	n;
 

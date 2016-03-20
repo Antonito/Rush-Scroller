@@ -5,16 +5,16 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 16:03:21 2016 Ludovic Petrenko
-** Last update Sun Mar 20 19:27:17 2016 Arthur ARNAUD
+** Last update Sun Mar 20 22:36:00 2016 Antoine Baché
 */
 
 #include <stdbool.h>
 #include "tools/transform.h"
 #include "tools/common.h"
 
-static	int sign(t_ivec2 pt1, t_ivec2 pt2, t_ivec2 pt3)
+static int	sign(t_ivec2 pt1, t_ivec2 pt2, t_ivec2 pt3)
 {
-  int	s;
+  int		s;
 
   s = (pt1.x - pt3.x) * (pt2.y - pt3.y) -
     (pt2.x - pt3.x) * (pt1.y - pt3.y);
@@ -23,7 +23,7 @@ static	int sign(t_ivec2 pt1, t_ivec2 pt2, t_ivec2 pt3)
 
 static bool	isInTriangle(t_ivec2 pt, t_ivec2 t[3])
 {
-  bool	b[3];
+  bool		b[3];
 
   b[0] = sign(pt, t[0], t[1]) < 0;
   b[1] = sign(pt, t[1], t[2]) < 0;
@@ -31,10 +31,10 @@ static bool	isInTriangle(t_ivec2 pt, t_ivec2 t[3])
   return ((b[0] == b[1]) && (b[1] == b[2]));
 }
 
-void	drawTransformedTriangle(t_bunny_pixelarray *src,
-				t_bunny_pixelarray *dest,
-				t_ivec2 corners[3],
-				t_ivec2 texCoords[3])
+void		drawTransformedTriangle(t_bunny_pixelarray *src,
+					t_bunny_pixelarray *dest,
+					t_ivec2 corners[3],
+					t_ivec2 texCoords[3])
 {
   t_ivec2	pt;
   t_ivec2	interpolated;
@@ -56,8 +56,9 @@ void	drawTransformedTriangle(t_bunny_pixelarray *src,
     }
 }
 
-void	drawTransformed(t_bunny_pixelarray *src, t_bunny_pixelarray *dest,
-			t_mat2 *transform)
+void		drawTransformed(t_bunny_pixelarray *src,
+				t_bunny_pixelarray *dest,
+				t_mat2 *transform)
 {
   t_ivec2	t1[3];
   t_ivec2	t2[3];
@@ -77,8 +78,8 @@ void	drawTransformed(t_bunny_pixelarray *src, t_bunny_pixelarray *dest,
   drawTransformedTriangle(src, dest, t2, texCoords2);
 }
 
-void	drawResized(t_bunny_pixelarray *src, t_bunny_pixelarray *dest,
-		    t_vec2 scale, t_ivec2 pos)
+void		drawResized(t_bunny_pixelarray *src, t_bunny_pixelarray *dest,
+			    t_vec2 scale, t_ivec2 pos)
 {
   t_ivec2	incr;
   t_ivec2	tmp;

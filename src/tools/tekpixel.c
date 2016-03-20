@@ -5,15 +5,16 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 23:30:38 2016 Antoine Baché
-** Last update Sun Mar 20 13:01:27 2016 Antoine Baché
+** Last update Sun Mar 20 22:37:35 2016 Antoine Baché
 */
 
 #include <lapin.h>
 #include "tools/transform.h"
 #include "tools/common.h"
 
-void	tekpixelTransp(t_bunny_pixelarray *pix,
-		       t_bunny_position *pos, t_color *color, double transp)
+void		tekpixelTransp(t_bunny_pixelarray *pix,
+			       t_bunny_position *pos, t_color *color,
+			       double transp)
 {
   t_color	*tmp;
 
