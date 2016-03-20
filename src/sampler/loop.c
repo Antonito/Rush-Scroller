@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 05:25:36 2016 Antoine Baché
-** Last update Sun Mar 20 06:22:26 2016 Antoine Baché
+** Last update Sun Mar 20 11:38:22 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -16,6 +16,16 @@ t_bunny_response	samplerKey(t_bunny_event_state state,
 				   t_bunny_keysym key,
 				   t_data *data)
 {
+  t_sampler		*sampler;
+
+  sampler = data->data;
+  if (state == GO_DOWN)
+    {
+      if (key == BKS_UP)
+	(sampler->freq > 1000) ? (sampler->freq = 1000) : (++sampler->freq);
+      if (key == BKS_DOWN)
+	(sampler->freq < 25) ? (sampler->freq = 25) : (--sampler->freq);
+    }
   return (eventKeys(state, key, data));
 }
 

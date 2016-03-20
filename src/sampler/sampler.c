@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 04:03:11 2016 Antoine Baché
-** Last update Sun Mar 20 06:25:17 2016 Antoine Baché
+** Last update Sun Mar 20 11:37:18 2016 Antoine Baché
 */
 
 #include "sampler.h"
@@ -22,8 +22,11 @@ void			playMusic(t_sampler *sampler)
   bunny_sound_volume(&sampler->music->sound, 100);
   while (i < sampler->size)
     {
-      bunny_sound_pitch(&sampler->music->sound, sampler->frequency[i] / 250);
+      bunny_sound_stop(&sampler->music->sound);
+      bunny_sound_pitch(&sampler->music->sound,
+			sampler->frequency[i] / sampler->freq);
       bunny_sound_play(&sampler->music->sound);
+      usleep((int)sampler->duration[i] * 1000);
       ++i;
     }
 }
@@ -88,6 +91,7 @@ int			samplerMain(t_data *data)
   sampler->size = countElemIni(sampler->file, "track1", "duration");
   bunny_delete_ini(sampler->file);
   my_free(path);
+  sampler->freq = 250;
   data->data = sampler;
   data->new = false;
   playMusic(sampler);
