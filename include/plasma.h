@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Fri Dec  4 20:13:39 2015 ludovic petrenko
-** Last update Sat Mar 19 18:59:02 2016 Antoine Baché
+** Last update Sun Mar 20 02:07:44 2016 Ludovic Petrenko
 */
 
 #ifndef MY_H_
@@ -45,11 +45,6 @@ void			tekpixel2(t_bunny_pixelarray *pix,
 				 unsigned int color);
 int			check_args(char **av);
 int			plasmaMain(t_data *);
-
-void			init_sinuses(double *);
-void			init_cosinuses(double *);
 int			get_val(double);
-double			my_sin(double);
-double			my_cos(double);
 
 #endif /* !MY_H_ */

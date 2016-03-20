@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 02:30:59 2016 Antoine Baché
+## Last update Sun Mar 20 04:00:14 2016 Antoine Baché
 ##
 
 DEBUG=			yes
@@ -21,6 +21,7 @@ SRC_DEMO_FILES=		main.c				\
 			context/ondulation.c		\
 			context/damier.c		\
 			context/scroller.c		\
+			context/tunnel.c		\
 			transition/fade.c		\
 			transition/transition.c		\
 			select.c			\
@@ -52,6 +53,7 @@ TOOLS_FILES=		add_vec.c			\
 			surface.c			\
 			tekpixel.c			\
 			translate.c			\
+			trigo.c				\
 			vec_construct.c			\
 			vec_dot.c			\
 			vec_length.c			\
@@ -73,7 +75,6 @@ PLASMA_FILES=		check_args.c			\
 			main.c				\
 			new_frame.c			\
 			set_palette.c			\
-			trigo.c				\
 			tekpixel.c
 
 ONDUL_PREFIX=		src/ondulation/
@@ -102,6 +103,11 @@ SCROLLER_PREFIX=	src/scroller/
 
 SCROLLER_FILES=		main.c
 
+TUNNEL_PREFIX=		src/tunnel/
+
+TUNNEL_FILES=		main.c				\
+			tunnel.c
+
 
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 
@@ -121,6 +127,8 @@ SRC_DAMIER=		$(addprefix $(DAMIER_PREFIX),$(DAMIER_FILES))
 
 SRC_SCROLLER=		$(addprefix $(SCROLLER_PREFIX),$(SCROLLER_FILES))
 
+SRC_TUNNEL=		$(addprefix $(TUNNEL_PREFIX),$(TUNNEL_FILES))
+
 SRC_DEMO+=		$(SRC_TOOLS)
 
 SRC_DEMO+=		$(SRC_FIRE)
@@ -136,6 +144,8 @@ SRC_DEMO+=		$(SRC_ONDULATION)
 SRC_DEMO+=		$(SRC_DAMIER)
 
 SRC_DEMO+=		$(SRC_SCROLLER)
+
+SRC_DEMO+=		$(SRC_TUNNEL)
 
 DEMO=			demoEtDesLettres
 

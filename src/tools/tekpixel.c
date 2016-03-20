@@ -5,10 +5,12 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 23:30:38 2016 Antoine Baché
-** Last update Sun Mar 20 00:24:11 2016 Ludovic Petrenko
+** Last update Sun Mar 20 03:58:10 2016 Ludovic Petrenko
 */
 
 #include <lapin.h>
+#include "tools/transform.h"
+#include "tools/common.h"
 
 void	tekpixelTransp(t_bunny_pixelarray *pix,
 		       t_bunny_position *pos, t_color *color, double transp)
@@ -65,5 +67,28 @@ void		tekpixel(t_bunny_pixelarray *pix,
 				     (tmp->argb[2] * (1 - transp)));
       tmp->argb[3] = (unsigned char)((color.argb[3] * transp) +
 				     (tmp->argb[3] * (1 - transp)));
+    }
+}
+
+void		tekcircle(t_bunny_pixelarray *pix,
+			  t_bunny_position pos, t_color *c, int size)
+{
+  int		i;
+  t_vec2	tmp;
+  t_vec2	tmp2;
+  t_ivec2	p;
+  int		j;
+
+  i = -1;
+  while (++i < 36)
+    {
+      j = size + 1;
+      tmp = vec2(my_sin(10 * i), my_cos(10 * i));
+      while (--j)
+	{
+	  tmp2 = multVec2(tmp, j);
+	  p = addiVec2(to_ivec2(tmp2), pos);
+	  tekpixel(pix, &p, c);
+	}
     }
 }

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 17:41:57 2016 Antoine Baché
-** Last update Sun Mar 20 02:21:20 2016 Antoine Baché
+** Last update Sun Mar 20 03:59:24 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -35,5 +35,6 @@ closeEvent     	selector(void)
   array[4] = &ondulationClose;
   array[5] = &damierClose;
   array[6] = &scrollerClose;
+  array[7] = &tunnelClose;
   return (array);
 }
