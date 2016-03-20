@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 05:05:23 2016 Antoine Baché
-** Last update Sun Mar 20 15:22:23 2016 Antoine Baché
+** Last update Sun Mar 20 17:03:54 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -50,10 +50,14 @@ void			texturedDegradDraw(t_bunny_pixelarray *img,
 
 t_bunny_response	       	texturedDegradLoop(t_data *data)
 {
+  time_t			timer;
+
+  timer = time(NULL);
   if (data->new && texturedDegradMain(data))
     return (EXIT_ON_ERROR);
   bunny_display(data->win);
-  return (GO_ON);
+  sleep(1);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 int				texturedDegradClose(t_data *data)

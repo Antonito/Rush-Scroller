@@ -5,18 +5,20 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sun Mar 20 16:03:48 2016 Antoine Baché
+** Last update Sun Mar 20 17:43:16 2016 Antoine Baché
 */
 
 #include <math.h>
+#include <time.h>
 #include "demo.h"
 #include "sprite.h"
+#include "transition.h"
 #include "tools/common.h"
 #include "tools/transform.h"
 
 t_bunny_response	spriteKey(t_bunny_event_state state,
-				t_bunny_keysym key,
-				t_data *data)
+				  t_bunny_keysym key,
+				  t_data *data)
 {
   return (eventKeys(state, key, data));
 }
@@ -27,8 +29,9 @@ t_bunny_response	spriteLoop(t_data *data)
   t_vec2		p;
   t_vec2		scale;
   static int		i = 0;
+  time_t		timer;
 
-  if (data->new && spriteDisplay(data))
+  if (timer = time(NULL), data->new && spriteDisplay(data))
     return (EXIT_ON_ERROR);
   prog = data->data;
   if (prog->i++ > 0 && !(prog->i = 0))
@@ -36,7 +39,7 @@ t_bunny_response	spriteLoop(t_data *data)
   if (prog->index > 13)
     prog->index = 0;
   clearColor(prog->pix, (unsigned int)(0xFF000000 + POW3(256) * sin(i / 5) +
-				      256 * sin(i / 5)));
+				       256 * sin(i / 5)));
   scale = vec2(10 + sin(i / 2.0) / 2.0, 10 + sin(i / 2.0) / 2.0);
   p = vec2((prog->pix->clipable.clip_width -
 	    prog->spritePix[prog->index]->clipable.clip_width * scale.x) / 2,
@@ -46,7 +49,7 @@ t_bunny_response	spriteLoop(t_data *data)
   bunny_blit(&(data->win->buffer), &(prog->pix->clipable), 0);
   bunny_display(data->win);
   i++;
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 int		spriteClose(t_data *data)

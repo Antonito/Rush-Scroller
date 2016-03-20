@@ -5,12 +5,13 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 04:36:02 2016 Ludovic Petrenko
-** Last update Sun Mar 20 15:08:51 2016 Antoine Baché
+** Last update Sun Mar 20 16:44:31 2016 Antoine Baché
 */
 
 #include <lapin.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 #include "rotozoom.h"
 #include "tools/common.h"
 
@@ -24,7 +25,9 @@ t_bunny_response	rotoKey(t_bunny_event_state state,
 t_bunny_response	rotoLoop(t_data *data)
 {
   t_roto		*roto;
+  time_t		timer;
 
+  timer = time(NULL);
   if (data->new && rotozoom(data))
     return (EXIT_ON_ERROR);
   roto = data->data;
@@ -34,7 +37,7 @@ t_bunny_response	rotoLoop(t_data *data)
   bunny_blit(&(data->win->buffer),
 	     &(data->pix->clipable), 0);
   bunny_display(data->win);
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 int		rotoClose(t_data *data)

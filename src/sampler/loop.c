@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 05:25:36 2016 Antoine Baché
-** Last update Sun Mar 20 14:03:53 2016 Antoine Baché
+** Last update Sun Mar 20 16:44:45 2016 Antoine Baché
 */
 
 #include <math.h>
@@ -56,7 +56,9 @@ t_bunny_response	samplerLoop(t_data *data)
   static int		loop = 0;
   t_ivec2		pos;
   int			i;
+  time_t		timer;
 
+  timer = time(NULL);
   if (data->new && samplerMain(data))
     return (EXIT_ON_ERROR);
   sampler = data->data;
@@ -74,7 +76,7 @@ t_bunny_response	samplerLoop(t_data *data)
   usleep((int)sampler->duration[loop] * 1000);
   if (++loop == sampler->size)
     loop = 0;
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));;
 }
 
 int			samplerClose(t_data *data)

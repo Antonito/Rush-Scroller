@@ -5,11 +5,12 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 18:21:55 2016 Ludovic Petrenko
-** Last update Sun Mar 20 15:42:53 2016 Antoine Baché
+** Last update Sun Mar 20 16:45:26 2016 Antoine Baché
 */
 
 #include <lapin.h>
 #include <stdlib.h>
+#include <time.h>
 #include "starfield.h"
 #include "tools/common.h"
 
@@ -32,7 +33,9 @@ t_bunny_response	starLoop(t_data *data)
 {
   int			i;
   t_field		*field;
+  time_t		timer;
 
+  timer = time(NULL);
   i = 0;
   if (data->new && starfield(data))
     return (EXIT_ON_ERROR);
@@ -49,7 +52,7 @@ t_bunny_response	starLoop(t_data *data)
   bunny_blit(&(data->win->buffer),
 	     &(data->pix->clipable), 0);
   bunny_display(data->win);
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 int	starClose(t_data *data)

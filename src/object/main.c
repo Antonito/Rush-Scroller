@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 04:06:32 2016 Ludovic Petrenko
-** Last update Sun Mar 20 04:08:50 2016 Ludovic Petrenko
+** Last update Sun Mar 20 16:42:56 2016 Antoine Baché
 */
 
 #include <lapin.h>
@@ -24,17 +24,18 @@ t_bunny_response	objLoop(t_data *data)
 {
   int			i;
   t_obj			*obj;
+  time_t		timer;
 
+  timer = time(NULL);
   i = 0;
   if (data->new && object(data))
     return (EXIT_ON_ERROR);
   clearColor(data->pix, 0xFF000000);
   obj = data->data;
-
   bunny_blit(&(data->win->buffer),
 	     &(data->pix->clipable), 0);
   bunny_display(data->win);
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 int	objClose(t_data *data)

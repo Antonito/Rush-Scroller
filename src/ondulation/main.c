@@ -5,9 +5,10 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Wed Jan 13 19:00:36 2016 Antoine Baché
-** Last update Sun Mar 20 14:47:39 2016 Antoine Baché
+** Last update Sun Mar 20 16:42:20 2016 Antoine Baché
 */
 
+#include <time.h>
 #include "ondulation.h"
 #include "demo.h"
 #include "tools/common.h"
@@ -15,14 +16,16 @@
 t_bunny_response	ondulationLoop(t_data *data)
 {
   t_ondulation		*ondulation;
+  time_t		timer;
 
+  timer = time(NULL);
   if (data->new && ondulationMain(data))
     return (EXIT_ON_ERROR);
   ondulation = data->data;
   move_flag(ondulation);
   bunny_blit(&data->win->buffer, &ondulation->pix->clipable, 0);
   bunny_display(data->win);
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 t_bunny_response	ondulationKey(t_bunny_event_state	state,

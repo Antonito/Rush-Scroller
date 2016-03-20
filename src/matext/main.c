@@ -5,9 +5,10 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 12:56:55 2016 Ludovic Petrenko
-** Last update Sun Mar 20 15:42:47 2016 Ludovic Petrenko
+** Last update Sun Mar 20 19:00:56 2016 Antoine Baché
 */
 
+#include <time.h>
 #include <lapin.h>
 #include <stdlib.h>
 #include "matext.h"
@@ -50,7 +51,9 @@ void	drawRainbow(t_bunny_pixelarray *pix, t_matext *m)
 t_bunny_response	matextLoop(t_data *data)
 {
   t_matext		*m;
+  time_t		timer;
 
+  timer = time(NULL);
   if (data->new && matext(data))
     return (EXIT_ON_ERROR);
   m = data->data;
@@ -60,7 +63,7 @@ t_bunny_response	matextLoop(t_data *data)
   bunny_blit(&(data->win->buffer),
 	     &(data->pix->clipable), 0);
   bunny_display(data->win);
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 int	matextClose(t_data *data)
@@ -84,18 +87,13 @@ int			matext(t_data *data)
 
   if (!(matext = MALLOC(sizeof(t_matext))))
     return (1);
-  if (!(tmp = printText("tu veux mon zizi?", "font2")))
+  if (!(tmp = printText("bestof ou maxi bestof ?", "font2")))
     return (1);
-  if (tmp->clipable.clip_width < WIN_X / 3)
-    {
-      if (!(matext->img = bunny_new_pixelarray(tmp->clipable.clip_width * 2,
-					       tmp->clipable.clip_height * 2)))
-	return (1);
-      drawResized(tmp, matext->img, vec2(2, 2), ivec2(0, 0));
-      bunny_delete_clipable(&tmp->clipable);
-    }
-  else
-    matext->img = tmp;
+  if (!(matext->img = bunny_new_pixelarray(tmp->clipable.clip_width * 2,
+					   tmp->clipable.clip_height * 2)))
+    return (1);
+  drawResized(tmp, matext->img, vec2(2, 2), ivec2(0, 0));
+  bunny_delete_clipable(&tmp->clipable);
   matext->rot = vec3(0, 0, 0);
   matext->decal = ivec2(matext->img->clipable.clip_width / 2,
 			matext->img->clipable.clip_height / 2);

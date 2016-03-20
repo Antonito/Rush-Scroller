@@ -5,13 +5,13 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 05:05:23 2016 Antoine Baché
-** Last update Sun Mar 20 03:17:23 2016 Antoine Baché
+** Last update Sun Mar 20 17:35:55 2016 Antoine Baché
 */
 
 #include "demo.h"
 #include "transition.h"
 
-bool		isBlack(t_color *colorPix, t_color *colorPix2)
+bool		isImg(t_color *colorPix, t_color *colorPix2)
 {
   int		i;
   int		size;

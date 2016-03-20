@@ -5,8 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sun Mar 20 21:14:51 2016 Arthur ARNAUD
-** Last update Sun Mar 20 15:39:49 2016 Ludovic Petrenko
+** Last update Sun Mar 20 21:51:17 2016 Arthur ARNAUD
 */
 
 #ifndef	DEMO_H_
@@ -41,6 +40,7 @@ closeEvent		selector(void);
 int			(**selectorTransition(void))(t_bunny_pixelarray *,
 						     t_bunny_pixelarray *,
 						     t_bunny_window *);
+t_bunny_response	timerChange(t_data *, int, time_t);
 
 /*
 ** Common events

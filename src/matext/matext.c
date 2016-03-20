@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 13:40:37 2016 Ludovic Petrenko
-** Last update Sun Mar 20 15:24:39 2016 Ludovic Petrenko
+** Last update Sun Mar 20 16:29:59 2016 Antoine Baché
 */
 
 #include "matext.h"
