@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 05:05:23 2016 Antoine Baché
-** Last update Sun Mar 20 02:38:23 2016 Antoine Baché
+** Last update Sun Mar 20 15:44:45 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -33,9 +33,11 @@ int			damierClose(t_data *data)
 {
   t_damier	       	*damier;
 
-  damier = data->data;
   if (!data->new)
     {
+      damier = data->data;
+      bunny_sound_stop(&damier->music->sound);
+      bunny_delete_sound(&damier->music->sound);
       my_free(damier);
     }
   data->data = NULL;
@@ -76,8 +78,10 @@ int			damierMain(t_data *data)
 
   if (!(damier = MALLOC(sizeof(t_damier))) ||
       !(damier->mask = bunny_load_pixelarray(MASK_SRC)) ||
-      !(damier->src = bunny_load_pixelarray(DAMIER_SRC)))
+      !(damier->src = bunny_load_pixelarray(DAMIER_SRC)) ||
+      !(damier->music = bunny_load_music(DAMIER_SONG)))
     return (1);
+  startMusic(&damier->music->sound);
   damierMask(data->pix, damier->mask, damier->src);
   bunny_delete_clipable(&damier->src->clipable);
   bunny_delete_clipable(&damier->mask->clipable);
