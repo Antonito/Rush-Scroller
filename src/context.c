@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 13:16:50 2016 Antoine Baché
-** Last update Sun Mar 20 00:59:11 2016 Antoine Baché
+** Last update Sun Mar 20 01:21:44 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -21,5 +21,6 @@ int	setContext(t_data *data)
   setStarfieldContext(&data->context[3]);
   setOndulationContext(&data->context[4]);
   setDamierContext(&data->context[5]);
+  setScrollerContext(&data->context[6]);
   return (0);
 }
