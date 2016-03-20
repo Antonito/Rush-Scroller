@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 12:44:26 2016 Ludovic Petrenko
+## Last update Sun Mar 20 14:19:49 2016 Ludovic Petrenko
 ##
 
 DEBUG=			yes
@@ -26,6 +26,7 @@ SRC_DEMO_FILES=		main.c				\
 			context/progDegrad.c		\
 			context/texturedDegrad.c	\
 			context/rotozoom.c		\
+			context/matext.c		\
 			transition/fade.c		\
 			transition/transition.c		\
 			select.c			\
@@ -132,6 +133,11 @@ ROTOZOOM_PREFIX=	src/rotozoom/
 ROTOZOOM_FILES=		main.c				\
 			rotozoom.c
 
+MATEXT_PREFIX=		src/matext/
+
+MATEXT_FILES=		main.c				\
+			matext.c
+
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 
 SRC_TOOLS=		$(addprefix $(TOOLS_PREFIX),$(TOOLS_FILES))
@@ -158,6 +164,8 @@ SRC_DEGRAD=		$(addprefix $(DEGRAD_PREFIX),$(DEGRAD_FILES))
 
 SRC_ROTOZOOM=		$(addprefix $(ROTOZOOM_PREFIX),$(ROTOZOOM_FILES))
 
+SRC_MATEXT=		$(addprefix $(MATEXT_PREFIX),$(MATEXT_FILES))
+
 SRC_DEMO+=		$(SRC_TOOLS)
 
 SRC_DEMO+=		$(SRC_FIRE)
@@ -181,6 +189,8 @@ SRC_DEMO+=		$(SRC_SAMPLER)
 SRC_DEMO+=		$(SRC_DEGRAD)
 
 SRC_DEMO+=		$(SRC_ROTOZOOM)
+
+SRC_DEMO+=		$(SRC_MATEXT)
 
 DEMO=			demoEtDesLettres
 

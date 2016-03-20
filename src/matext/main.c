@@ -1,0 +1,94 @@
+/*
+** main.c for scroll in /home/petren_l/rendu/tek1/semestre_02/gfx_scroller/src
+**
+** Made by Ludovic Petrenko
+** Login   <petren_l@epitech.net>
+**
+** Started on  Sun Mar 20 12:56:55 2016 Ludovic Petrenko
+** Last update Sun Mar 20 15:03:29 2016 Ludovic Petrenko
+*/
+
+#include <lapin.h>
+#include <stdlib.h>
+#include "matext.h"
+#include "tools/common.h"
+
+t_bunny_response	matextKey(t_bunny_event_state state,
+				t_bunny_keysym key,
+				t_data *data)
+{
+  return (eventKeys(state, key, data));
+}
+
+void	drawRainbow(t_bunny_pixelarray *pix, t_matext *m)
+{
+  int			i;
+  int			j;
+  static int		k = 0;
+  t_color		*color;
+
+  i = 0;
+  color = pix->pixels;
+  while (i < (WIN_Y - 10))
+    {
+      j = -1;
+      while (++j < WIN_X)
+	color[i * WIN_X + j].full = color[(i + 1) * WIN_X + j].full =
+	  color[(i + 2) * WIN_X + j].full = color[(i + 3) * WIN_X + j].full =
+	  color[(i + 4) * WIN_X + j].full = color[(i + 5) * WIN_X + j].full =
+	  color[(i + 6) * WIN_X + j].full = color[(i + 7) * WIN_X + j].full =
+	  color[(i + 8) * WIN_X + j].full = color[(i + 9) * WIN_X + j].full =
+	  m->pal[(i + k) % 510];
+      i += 5;
+    }
+  if (k == 510)
+    k = 0;
+  ++k;
+}
+
+t_bunny_response	matextLoop(t_data *data)
+{
+  t_matext		*m;
+
+  if (data->new && matext(data))
+    return (EXIT_ON_ERROR);
+  m = data->data;
+  drawRainbow(data->pix, m);
+  drawMatext(data->pix, m);
+  moveMatext(m);
+  bunny_blit(&(data->win->buffer),
+	     &(data->pix->clipable), 0);
+  bunny_display(data->win);
+  return (GO_ON);
+}
+
+int	matextClose(t_data *data)
+{
+  t_matext	*matext;
+
+  if (!data->new)
+    {
+      matext = data->data;
+      my_free(matext);
+    }
+  data->data = NULL;
+  data->new = true;
+  return (0);
+}
+
+int		matext(t_data *data)
+{
+  t_matext	*matext;
+
+  if (!(matext = MALLOC(sizeof(t_matext))))
+    return (1);
+  if (!(matext->img = bunny_load_pixelarray("assets/picture/fsm.jpg")))
+    return (1);
+  matext->rot = vec3(0, 0, 0);
+  matext->decal = ivec2(matext->img->clipable.clip_width / 2,
+			matext->img->clipable.clip_height / 2);
+  setRainbowPal(matext->pal);
+  data->data = matext;
+  data->new = false;
+  return (0);
+}
