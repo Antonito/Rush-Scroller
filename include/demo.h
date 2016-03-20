@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sun Mar 20 03:59:50 2016 Antoine Baché
+** Last update Sun Mar 20 05:39:33 2016 Antoine Baché
 */
 
 #ifndef	DEMO_H_
@@ -76,5 +76,6 @@ int			ondulationClose(t_data *);
 int			damierClose(t_data *);
 int			scrollerClose(t_data *);
 int			tunnelClose(t_data *);
+int			samplerClose(t_data *);
 
 #endif /* !DEMO_H_ */
