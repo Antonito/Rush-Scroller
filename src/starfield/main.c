@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 18:21:55 2016 Ludovic Petrenko
-** Last update Sat Mar 19 21:17:27 2016 Antoine Baché
+** Last update Sun Mar 20 15:35:30 2016 Antoine Baché
 */
 
 #include <lapin.h>
@@ -31,19 +31,19 @@ bool	isOffscreen(t_star *s)
 t_bunny_response	starLoop(t_data *data)
 {
   int			i;
-  t_star		*s;
+  t_field		*field;
 
   i = 0;
   if (data->new && starfield(data))
     return (EXIT_ON_ERROR);
   clearColor(data->pix, 0xFF000000);
-  s = data->data;
+  field = data->data;
   while (i < 100)
     {
-      drawStar(data->pix, s + i);
-      moveStar(s + i);
-      if (isOffscreen(s + i))
-	genStar(s + i, 20.0);
+      drawStar(data->pix, field->star + i);
+      moveStar(field->star + i);
+      if (isOffscreen(field->star + i))
+	genStar(field->star + i, 20.0);
       i++;
     }
   bunny_blit(&(data->win->buffer),
@@ -54,12 +54,15 @@ t_bunny_response	starLoop(t_data *data)
 
 int	starClose(t_data *data)
 {
-  t_star	*star;
+  t_field	*field;
 
   if (!data->new)
     {
-      star = data->data;
-      my_free(star);
+      field = data->data;
+      bunny_sound_stop(&field->music->sound);
+      bunny_delete_sound(&field->music->sound);
+      my_free(field->star);
+      my_free(field);
     }
   data->data = NULL;
   data->new = true;
@@ -68,15 +71,18 @@ int	starClose(t_data *data)
 
 int		starfield(t_data *data)
 {
-  t_star	*star;
+  t_field	*field;
   int		i;
 
-  if (!(star = MALLOC(100 * sizeof(t_star))))
+  if (!(field = MALLOC(sizeof(t_field))) ||
+      !(field->star = MALLOC(100 * sizeof(t_star))) ||
+      !(field->music = bunny_load_music(STARFIELD_SONG)))
     return (1);
-  data->data = star;
+  data->data = field;
+  startMusic(&field->music->sound);
   i = -1;
   while (++i < 100)
-    genStar(star + i, 20.0);
+    genStar(field->star + i, 20.0);
   data->new = false;
   return (0);
 }

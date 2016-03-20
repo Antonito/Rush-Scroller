@@ -5,11 +5,12 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 18:29:09 2016 Ludovic Petrenko
-** Last update Sun Mar 20 12:09:00 2016 Ludovic Petrenko
+** Last update Sun Mar 20 15:32:54 2016 Antoine Baché
 */
 
 #ifndef STARFIELD_H_
 # define STARFIELD_H_
+# define STARFIELD_SONG	"assets/music/takeARide.ogg"
 
 # include <stdbool.h>
 # include <lapin.h>
@@ -24,6 +25,12 @@ typedef struct	s_star
   t_ivec2	dir;
   t_color	col;
 }		t_star;
+
+typedef	struct	s_field
+{
+  t_star	*star;
+  t_bunny_music	*music;
+}		t_field;
 
 bool			isOffscreen(t_star *);
 t_bunny_response	starLoop(t_data *);
