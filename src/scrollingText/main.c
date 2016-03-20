@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 05:26:50 2016 Arthur ARNAUD
-** Last update Sun Mar 20 14:34:07 2016 Arthur ARNAUD
+** Last update Sun Mar 20 14:39:42 2016 Arthur ARNAUD
 */
 
 #include "demo.h"
@@ -18,7 +18,15 @@ t_bunny_response	scrollingTextKey(t_bunny_event_state state,
   return (eventKeys(state, key, data));
 }
 
-void			blitAllText()
+void			blitAllText(t_prog *prog)
+{
+  myBlit(prog->lyrics, prog->pix, prog->pos);
+  myBlit(prog->rhum, prog->pix, prog->pos_rhum);
+  myBlit(prog->rhum_sin, prog->pix, prog->pos_sin);
+  myBlit(prog->lyrics, prog->pix,
+	 addiVec2(prog->pos, ivec2(prog->pix->clipable.clip_width,0)));
+}
+
 t_bunny_response	scrollingTextLoop(t_data *data)
 {
   t_prog		*prog;
@@ -39,11 +47,7 @@ t_bunny_response	scrollingTextLoop(t_data *data)
   if (prog->pos_sin.x++ > prog->pix->clipable.clip_width)
     prog->pos_sin.x = 0;
   clearColor(prog->pix, BLACK);
-  myBlit(prog->lyrics, prog->pix, prog->pos);
-  myBlit(prog->rhum, prog->pix, prog->pos_rhum);
-  myBlit(prog->rhum_sin, prog->pix, prog->pos_sin);
-  myBlit(prog->lyrics, prog->pix,
-	 addiVec2(prog->pos, ivec2(prog->pix->clipable.clip_width,0)));
+  blitAllText(prog);
   bunny_blit(&(data->win->buffer),
 	     &(prog->pix->clipable), 0);
   bunny_display(data->win);
