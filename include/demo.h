@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sat Mar 19 23:12:19 2016 Antoine Baché
+** Last update Sun Mar 20 01:35:37 2016 Ludovic Petrenko
 */
 
 #ifndef	DEMO_H_
@@ -14,7 +14,7 @@
 # define WIN_X		1920
 # define WIN_Y		1080
 # define WIN_NAME	"Rush Scroller"
-# define NB_CONTEXT	5
+# define NB_CONTEXT	6
 
 # include <lapin.h>
 
@@ -63,5 +63,6 @@ int			plasmaClose(t_data *);
 int			spriteClose(t_data *);
 int			starClose(t_data *);
 int			ondulationClose(t_data *);
+int			tunnelClose(t_data *data);
 
 #endif /* !DEMO_H_ */
