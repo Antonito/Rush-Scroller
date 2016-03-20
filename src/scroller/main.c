@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sun Mar 20 16:44:57 2016 Antoine Baché
+** Last update Sun Mar 20 21:35:32 2016 Antoine Baché
 */
 
 #include <time.h>
@@ -80,6 +80,8 @@ int		scrollerClose(t_data *data)
       bunny_delete_clipable(&prog->bigSky->clipable);
       bunny_delete_clipable(&prog->bigGrass->clipable);
       bunny_delete_clipable(&prog->bigMountain->clipable);
+      bunny_delete_clipable(&prog->bigBunny->clipable);
+      bunny_delete_clipable(&prog->bunny->clipable);
       my_free(prog);
     }
   data->data = NULL;

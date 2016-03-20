@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 12:56:55 2016 Ludovic Petrenko
-** Last update Sun Mar 20 20:41:32 2016 Antoine Baché
+** Last update Sun Mar 20 21:30:44 2016 Antoine Baché
 */
 
 #include <time.h>
@@ -73,6 +73,7 @@ int		matextClose(t_data *data)
   if (!data->new)
     {
       matext = data->data;
+      bunny_delete_clipable(&matext->img->clipable);
       my_free(matext);
     }
   data->data = NULL;
