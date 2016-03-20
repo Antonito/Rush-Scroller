@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 13:16:50 2016 Antoine Baché
-** Last update Sun Mar 20 14:08:43 2016 Ludovic Petrenko
+** Last update Sun Mar 20 15:08:11 2016 Ludovic Petrenko
 */
 
 #include "demo.h"
@@ -27,6 +27,7 @@ int	setContext(t_data *data)
   setProgDegradContext(&data->context[9]);
   setTexturedDegradContext(&data->context[10]);
   setRotozoomContext(&data->context[11]);
+  setScrollingTextContext(&data->context[12]);
   setMatextContext(&data->context[12]);
   return (0);
 }

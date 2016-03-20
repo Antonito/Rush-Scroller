@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 17:41:57 2016 Antoine Baché
-** Last update Sun Mar 20 14:09:33 2016 Ludovic Petrenko
+** Last update Sun Mar 20 15:07:18 2016 Ludovic Petrenko
 */
 
 #include "demo.h"
@@ -40,6 +40,7 @@ closeEvent     	selector(void)
   array[9] = &progDegradClose;
   array[10] = &texturedDegradClose;
   array[11] = &rotoClose;
-  array[12] = &matextClose;
+  array[12] = &scrollingTextClose;
+  array[13] = &matextClose;
   return (array);
 }

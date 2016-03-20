@@ -5,12 +5,13 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 13:40:37 2016 Ludovic Petrenko
-** Last update Sun Mar 20 14:51:46 2016 Ludovic Petrenko
+** Last update Sun Mar 20 15:17:40 2016 Ludovic Petrenko
 */
 
 #include "matext.h"
+#include "tools/common.h"
 
-static		tekbigpixel(t_bunny_pixelarray *pix, t_ivec2 pos, t_color c)
+static void	tekbigpixel(t_bunny_pixelarray *pix, t_ivec2 pos, t_color c)
 {
   t_ivec2	p[4];
 

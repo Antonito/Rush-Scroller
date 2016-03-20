@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 23:30:38 2016 Antoine Baché
-** Last update Sun Mar 20 07:05:12 2016 Ludovic Petrenko
+** Last update Sun Mar 20 13:01:27 2016 Antoine Baché
 */
 
 #include <lapin.h>
@@ -52,8 +52,7 @@ void		tekpixel(t_bunny_pixelarray *pix,
   t_color	color;
 
   transp = c->argb[3] / 255.0;
-  (color = *c).argb[3] = 255;
-  if (pos[0].x < pix->clipable.clip_width &&
+  if (color = *c, color.argb[3] = 255, pos[0].x < pix->clipable.clip_width &&
       pos[0].y < pix->clipable.clip_height && pos[0].x >= 0 && pos[0].y >= 0)
     {
       tmp = (t_color *)pix->pixels +

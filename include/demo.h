@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sun Mar 20 14:20:56 2016 Ludovic Petrenko
+** Last update Sun Mar 20 15:09:37 2016 Ludovic Petrenko
 */
 
 #ifndef	DEMO_H_
@@ -69,6 +69,7 @@ void			setProgDegradContext(t_bunny_context *);
 void			setTexturedDegradContext(t_bunny_context *);
 void			setRotozoomContext(t_bunny_context *);
 void			setMatextContext(t_bunny_context *);
+void			setScrollingTextContext(t_bunny_context *);
 
 /*
 ** Free
@@ -85,6 +86,7 @@ int			samplerClose(t_data *);
 int			progDegradClose(t_data *);
 int			texturedDegradClose(t_data *);
 int			rotoClose(t_data *);
+int			scrollingTextClose(t_data *);
 int			matextClose(t_data *);
 
 #endif /* !DEMO_H_ */

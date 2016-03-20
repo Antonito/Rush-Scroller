@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 12:56:55 2016 Ludovic Petrenko
-** Last update Sun Mar 20 15:03:29 2016 Ludovic Petrenko
+** Last update Sun Mar 20 15:16:21 2016 Ludovic Petrenko
 */
 
 #include <lapin.h>
@@ -87,7 +87,7 @@ int		matext(t_data *data)
   matext->rot = vec3(0, 0, 0);
   matext->decal = ivec2(matext->img->clipable.clip_width / 2,
 			matext->img->clipable.clip_height / 2);
-  setRainbowPal(matext->pal);
+  setRainbowPal((t_color *)matext->pal);
   data->data = matext;
   data->new = false;
   return (0);

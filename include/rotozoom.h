@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 04:44:02 2016 Ludovic Petrenko
-** Last update Sun Mar 20 06:08:02 2016 Ludovic Petrenko
+** Last update Sun Mar 20 12:55:17 2016 Antoine Baché
 */
 
 #ifndef ROTOZOOM_H_
@@ -30,6 +30,8 @@ t_bunny_response	rotoKey(t_bunny_event_state,
 				t_data *);
 t_bunny_response	rotoLoop(t_data *);
 int			rotozoom(t_data *);
+void			rotateImage(t_bunny_pixelarray *,
+				    t_bunny_pixelarray *, double);
 void			changeZoomRotate(t_roto *);
 void			repeatImage(t_bunny_pixelarray *,
 				    t_bunny_pixelarray *, double);

@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 17:30:03 2016 Arthur ARNAUD
-** Last update Sun Mar 20 12:09:29 2016 Antoine Baché
+** Last update Sun Mar 20 14:42:58 2016 Arthur ARNAUD
 */
 
 #include "sprite.h"
@@ -30,6 +30,7 @@ int		loadSpriteIni(t_sprite *sprite, char *path)
       !(sprite->nb =
 	atoi(bunny_ini_get_field(file, "sprite", "nb", 0))))
     return (1);
+  bunny_delete_ini(file);
   return (0);
 }
 

@@ -5,10 +5,11 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Fri Mar 18 22:50:54 2016 Arthur ARNAUD
-** Last update Sun Mar 20 12:08:55 2016 Antoine Baché
+** Last update Sun Mar 20 14:42:38 2016 Arthur ARNAUD
 */
 
 #include "tools/font.h"
+#include "tools/common.h"
 
 int		loadFontIni(t_font *font, char *path)
 {
@@ -25,6 +26,7 @@ int		loadFontIni(t_font *font, char *path)
       !(font->width = atoi(bunny_ini_get_field(file, "font", "width", 0))) ||
       !(font->height = atoi(bunny_ini_get_field(file, "font", "height", 0))))
     return (1);
+  bunny_delete_ini(file);
   return (0);
 }
 
@@ -116,19 +118,21 @@ t_bunny_pixelarray	*printText(char *str, char *fontName)
   char			*path;
 
   if (!(font = MALLOC(sizeof(t_font *))) ||
-      !(path = MALLOC(sizeof(char) * (16 + strlen(fontName)))))
+      !(path = malloc(sizeof(char) * (17 + strlen(fontName)))))
     return (NULL);
   sprintf(path, "assets/font/%s.ini", fontName);
   if (loadFontIni(font, path))
     return (NULL);
   if (!(font->pix = bunny_load_pixelarray(font->asset)) ||
       !(font->tab =
-	MALLOC(sizeof(t_bunny_pixelarray *) * (strlenSpace(font->chars) + 2))))
+	MALLOC(sizeof(t_bunny_pixelarray *) * (strlenSpace(font->chars) + 3))))
     return (NULL);
-  font->tab[strlenSpace(font->chars) + 1] = NULL;
+  font->tab[strlenSpace(font->chars) + 2] = NULL;
   if (fillFontTab(font) ||
       !(res = bunny_new_pixelarray(font->width * strlen(str), font->height)) ||
       make_text_pix(res, font, str))
     return (NULL);
+  free(path);
+  freeFont(font);
   return (res);
 }
