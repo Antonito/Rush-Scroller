@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 05:05:23 2016 Antoine Baché
-** Last update Sun Mar 20 10:27:31 2016 Antoine Baché
+** Last update Sun Mar 20 10:29:24 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -34,17 +34,15 @@ void			progDegradDraw(t_progDegrad *progDegrad,
     {
       j = -1;
       while (++j < WIN_X)
-	{
-	  color[i * WIN_X + j].full = color[(i + 1) * WIN_X + j].full =
-	    color[(i + 2) * WIN_X + j].full = color[(i + 3) * WIN_X + j].full =
-	    color[(i + 4) * WIN_X + j].full =
-	    color[(i + 5) * WIN_X + j].full =
-	    color[(i + 6) * WIN_X + j].full =
-	    color[(i + 7) * WIN_X + j].full =
-	    color[(i + 8) * WIN_X + j].full =
-	    color[(i + 9) * WIN_X + j].full =
-	    progDegrad->palette[(i + k)  % 510].full;
-	}
+	color[i * WIN_X + j].full = color[(i + 1) * WIN_X + j].full =
+	  color[(i + 2) * WIN_X + j].full = color[(i + 3) * WIN_X + j].full =
+	  color[(i + 4) * WIN_X + j].full =
+	  color[(i + 5) * WIN_X + j].full =
+	  color[(i + 6) * WIN_X + j].full =
+	  color[(i + 7) * WIN_X + j].full =
+	  color[(i + 8) * WIN_X + j].full =
+	  color[(i + 9) * WIN_X + j].full =
+	  progDegrad->palette[(i + k) % 510].full;
       i += 5;
     }
   if (k == 510)

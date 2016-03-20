@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 05:05:23 2016 Antoine Baché
-** Last update Sun Mar 20 10:14:55 2016 Antoine Baché
+** Last update Sun Mar 20 10:59:03 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -37,14 +37,15 @@ void			texturedDegradDraw(t_bunny_pixelarray *img,
 	{
 	  pos.x = j;
 	  pos.y = i;
-	  if (color[i * WIN_X + j].argb[3] - 5)
-	    color[i * WIN_X + j].argb[3] -= 5;
+	  if (color[i * WIN_X + j].argb[3] - (i >> 2) > 30)
+	    color[i * WIN_X + j].argb[3] -= (i >> 2);
 	  else
-	    color[i * WIN_X + j].argb[3] = 0;
+	    color[i * WIN_X + j].argb[3] = 30;
 	  tekpixel(img, &pos, &color[i * WIN_X + j]);
 	}
     }
-  clearColor(pix, BLACK);
+  clearColor(pix, 0xFF6600);
+  myBlit(img, pix, ivec2(0, 0));
 }
 
 t_bunny_response	       	texturedDegradLoop(t_data *data)
@@ -70,7 +71,7 @@ int				texturedDegradMain(t_data *data)
     return (1);
   data->new = false;
   texturedDegradDraw(img, data->pix);
-  bunny_blit(&data->win->buffer, &img->clipable, 0);
+  bunny_blit(&data->win->buffer, &data->pix->clipable, 0);
   bunny_delete_clipable(&img->clipable);
   return (0);
 }
