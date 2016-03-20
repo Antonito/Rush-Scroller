@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Wed Jan 13 19:00:36 2016 Antoine Baché
-** Last update Sat Mar 19 23:33:47 2016 Antoine Baché
+** Last update Sun Mar 20 14:47:39 2016 Antoine Baché
 */
 
 #include "ondulation.h"
@@ -52,6 +52,8 @@ int			ondulationClose(t_data *data)
   ondulation = data->data;
   if (!data->new)
     {
+      bunny_sound_stop(&ondulation->music->sound);
+      bunny_delete_sound(&ondulation->music->sound);
       bunny_delete_clipable(&ondulation->pix->clipable);
       bunny_delete_clipable(&ondulation->flag->clipable);
       my_free(ondulation);
@@ -66,8 +68,12 @@ int	       	ondulationMain(t_data *data)
   t_ondulation	*ondulation;
 
   if ((ondulation = MALLOC(sizeof(t_ondulation))) == NULL ||
-      cpy_pix(ondulation, FLAG_NAME, RATIO))
+      cpy_pix(ondulation, FLAG_NAME, RATIO) ||
+      !(ondulation->music = bunny_load_music(FLAG_MUSIC)))
     return (1);
+  bunny_sound_volume(&ondulation->music->sound, 100);
+  bunny_sound_loop(&ondulation->music->sound, true);
+  bunny_sound_play(&ondulation->music->sound);
   ondulation->dir = 1;
   ondulation->var = 1;
   ondulation->wind = 60;

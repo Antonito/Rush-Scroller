@@ -5,11 +5,12 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Fri Dec  4 20:13:39 2015 ludovic petrenko
-** Last update Sun Mar 20 05:10:00 2016 Arthur ARNAUD
+** Last update Sun Mar 20 15:23:32 2016 Antoine Baché
 */
 
 #ifndef MY_H_
 # define MY_H_
+# define PLASMA_MUSIC	"assets/music/plasma.ogg"
 
 # include "tools/common.h"
 # include <lapin.h>
@@ -31,6 +32,7 @@ typedef struct		s_plasma
   double		coeff;
   double		**preCos;
   unsigned int		palette[128];
+  t_bunny_music		*music;
 }			t_plasma;
 
 void			free_all(t_plasma *plasma);

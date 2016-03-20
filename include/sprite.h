@@ -5,11 +5,12 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:51:50 2016 Arthur ARNAUD
-** Last update Sat Mar 19 19:28:33 2016 Arthur ARNAUD
+** Last update Sun Mar 20 16:02:20 2016 Antoine Baché
 */
 
 #ifndef SPRITE_H_
 # define SPRITE_H_
+# define NYAN		"assets/music/nyanWolf.ogg"
 
 # include "demo.h"
 # include "tools/transform.h"
@@ -25,6 +26,7 @@ typedef struct		s_prog
   int			i;
   int			index;
   t_ivec2		pos;
+  t_bunny_music		*music;
 }			t_prog;
 
 typedef struct		s_sprite

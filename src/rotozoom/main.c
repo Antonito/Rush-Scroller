@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 04:36:02 2016 Ludovic Petrenko
-** Last update Sun Mar 20 12:54:09 2016 Antoine Baché
+** Last update Sun Mar 20 15:08:51 2016 Antoine Baché
 */
 
 #include <lapin.h>
@@ -44,6 +44,8 @@ int		rotoClose(t_data *data)
   if (!data->new)
     {
       roto = data->data;
+      bunny_sound_stop(&roto->music->sound);
+      bunny_delete_sound(&roto->music->sound);
       bunny_delete_clipable(&roto->pix->clipable);
       bunny_delete_clipable(&roto->pict->clipable);
       my_free(roto);
@@ -60,10 +62,11 @@ int	        rotozoom(t_data *data)
   if (!(roto = MALLOC(sizeof(t_roto))))
     return (1);
   roto->size = (int)sqrt(POW2(WIN_X) + POW2(WIN_Y)) + 1;
-  if (!(roto->pix = bunny_new_pixelarray(roto->size, roto->size)))
+  if (!(roto->pix = bunny_new_pixelarray(roto->size, roto->size)) ||
+      !(roto->pict = bunny_load_pixelarray("assets/picture/fsm.jpg")) ||
+      !(roto->music = bunny_load_music(ROTO_MUSIC)))
     return (1);
-  if (!(roto->pict = bunny_load_pixelarray("assets/picture/fsm.jpg")))
-    return (1);
+  startMusic(&roto->music->sound);
   roto->zoom = 1.0;
   roto->zoomSpeed = 1.0;
   roto->rot = 0.0;

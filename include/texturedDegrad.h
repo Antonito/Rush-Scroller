@@ -5,12 +5,13 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 00:30:51 2016 Antoine Baché
-** Last update Sun Mar 20 08:42:41 2016 Antoine Baché
+** Last update Sun Mar 20 15:17:52 2016 Antoine Baché
 */
 
 #ifndef TEXTUREDDEGRAD_H_
 # define TEXTUREDDEGRAD_H_
 # define TEXTURE_SRC	"assets/picture/iceberg.jpg"
+# define TEXTURE_SONG	"assets/music/floatingPointException.ogg"
 
 # include "demo.h"
 # include <stdlib.h>

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 05:05:23 2016 Antoine Baché
-** Last update Sun Mar 20 10:59:03 2016 Antoine Baché
+** Last update Sun Mar 20 15:22:23 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -44,7 +44,7 @@ void			texturedDegradDraw(t_bunny_pixelarray *img,
 	  tekpixel(img, &pos, &color[i * WIN_X + j]);
 	}
     }
-  clearColor(pix, 0xFF6600);
+  clearColor(pix, 0x0100AE);
   myBlit(img, pix, ivec2(0, 0));
 }
 
@@ -58,6 +58,14 @@ t_bunny_response	       	texturedDegradLoop(t_data *data)
 
 int				texturedDegradClose(t_data *data)
 {
+  t_bunny_music			*music;
+
+  if (!data->new)
+    {
+      music = data->data;
+      bunny_sound_stop(&music->sound);
+      bunny_delete_sound(&music->sound);
+    }
   data->data = NULL;
   data->new = true;
   return (0);
@@ -66,10 +74,14 @@ int				texturedDegradClose(t_data *data)
 int				texturedDegradMain(t_data *data)
 {
   t_bunny_pixelarray		*img;
+  t_bunny_music			*music;
 
-  if (!(img = bunny_load_pixelarray(TEXTURE_SRC)))
+  if (!(img = bunny_load_pixelarray(TEXTURE_SRC)) ||
+      !(music = bunny_load_music(TEXTURE_SONG)))
     return (1);
   data->new = false;
+  data->data = music;
+  startMusic(&music->sound);
   texturedDegradDraw(img, data->pix);
   bunny_blit(&data->win->buffer, &data->pix->clipable, 0);
   bunny_delete_clipable(&img->clipable);

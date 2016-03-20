@@ -5,13 +5,14 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 04:43:43 2016 Antoine Baché
-** Last update Sat Mar 19 23:47:52 2016 Antoine Baché
+** Last update Sun Mar 20 14:39:38 2016 Antoine Baché
 */
 
 #ifndef ONDULATION_H_
 # define ONDULATION_H_
 # define RATIO		0.33
 # define FLAG_NAME	"assets/picture/star_wars.jpg"
+# define FLAG_MUSIC	"assets/music/star_wars.ogg"
 # define END_WHILE	100000
 
 # include <unistd.h>
@@ -31,6 +32,7 @@ typedef	struct		s_ondulation
   int			wind;
   int			speed;
   int			inv;
+  t_bunny_music		*music;
 }			t_ondulation;
 
 void			move_flag(t_ondulation *);

@@ -5,11 +5,12 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 04:44:02 2016 Ludovic Petrenko
-** Last update Sun Mar 20 12:55:17 2016 Antoine Baché
+** Last update Sun Mar 20 15:06:51 2016 Antoine Baché
 */
 
 #ifndef ROTOZOOM_H_
 # define ROTOZOOM_H_
+# define ROTO_MUSIC	"assets/music/pasta.ogg"
 
 # include <lapin.h>
 # include "demo.h"
@@ -23,6 +24,7 @@ typedef struct		s_roto
   double		zoom;
   double		rotSpeed;
   double		rot;
+  t_bunny_music		*music;
 }			t_roto;
 
 t_bunny_response	rotoKey(t_bunny_event_state,

@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sun Mar 20 11:05:35 2016 Antoine Baché
+** Last update Sun Mar 20 16:03:48 2016 Antoine Baché
 */
 
 #include <math.h>
@@ -54,10 +54,12 @@ int		spriteClose(t_data *data)
   t_prog	*prog;
   int		i;
 
-  i = -1;
-  prog = data->data;
   if (!data->new)
     {
+      i = -1;
+      prog = data->data;
+      bunny_sound_stop(&prog->music->sound);
+      bunny_delete_sound(&prog->music->sound);
       bunny_delete_clipable(&prog->pix->clipable);
       while (prog->spritePix[++i] != NULL)
 	bunny_delete_clipable(&prog->spritePix[i]->clipable);
@@ -77,8 +79,10 @@ int		spriteDisplay(t_data *data)
   data->data = prog;
   if (!(prog->pix = bunny_new_pixelarray(WIN_X, WIN_Y)))
     return (1);
-  if (!(prog->spritePix = loadSprite("wolf")))
+  if (!(prog->spritePix = loadSprite("wolf")) ||
+      !(prog->music = bunny_load_music(NYAN)))
     return (1);
+  startMusic(&prog->music->sound);
   prog->i = 0;
   prog->index = 0;
   prog->pos.y = 10;

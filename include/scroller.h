@@ -5,18 +5,19 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 00:26:54 2016 Arthur ARNAUD
-** Last update Sun Mar 20 06:16:53 2016 Arthur ARNAUD
+** Last update Sun Mar 20 15:47:40 2016 Antoine Baché
 */
 
 #ifndef SCROLLER_H_
 # define SCROLLER_H_
 
-# define WIDTH clipable.clip_width
-# define HEIGHT clipable.clip_height
-# define HERBE4	"assets/picture/herbe4.png"
-# define NUAGE3	"assets/picture/nuages3.png"
-# define MONTAGNES "assets/picture/montagnes.png"
-# define BUNNY "assets/picture/lapin_noir.png"
+# define WIDTH		clipable.clip_width
+# define HEIGHT		clipable.clip_height
+# define HERBE4		"assets/picture/herbe4.png"
+# define NUAGE3		"assets/picture/nuages3.png"
+# define MONTAGNES	"assets/picture/montagnes.png"
+# define BUNNY		"assets/picture/lapin_noir.png"
+# define MUSIC_BUNNY	"assets/music/bunny.ogg"
 
 # include "demo.h"
 # include "tools/transform.h"
@@ -41,6 +42,7 @@ typedef struct		s_prog
   t_ivec2		mountain_pos;
   t_ivec2		grass_pos;
   t_ivec2		bunny_pos;
+  t_bunny_music		*music;
 }			t_prog;
 
 t_bunny_response	scrollerKey(t_bunny_event_state,

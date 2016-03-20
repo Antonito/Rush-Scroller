@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sun Mar 20 05:07:12 2016 Arthur ARNAUD
+** Last update Sun Mar 20 15:02:40 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -52,7 +52,7 @@ t_bunny_response	scrollerLoop(t_data *data)
   if ((prog->grass_pos.x > prog->grass->clipable.clip_width) ||
       !(prog->grass_pos.x += 4))
     prog->grass_pos.x = 0;
-  if (prog->bunny_pos.x > prog->pix->WIDTH || !(prog->bunny_pos.x += 5))
+  if (prog->bunny_pos.x > prog->pix->WIDTH || !(prog->bunny_pos.x += 3))
     prog->bunny_pos.x = 0;
   blitAllPix(prog);
   bunny_blit(&(data->win->buffer),
@@ -68,6 +68,8 @@ int		scrollerClose(t_data *data)
   prog = data->data;
   if (!data->new)
     {
+      bunny_sound_stop(&prog->music->sound);
+      bunny_delete_sound(&prog->music->sound);
       bunny_delete_clipable(&prog->pix->clipable);
       bunny_delete_clipable(&prog->sky->clipable);
       bunny_delete_clipable(&prog->mountain->clipable);
@@ -101,8 +103,10 @@ int		scrollerDisplay(t_data *data)
       !(prog->bigGrass = bunny_new_pixelarray
 	(prog->grass->WIDTH * 3, prog->grass->HEIGHT * 3)) ||
       !(prog->bigBunny = bunny_new_pixelarray
-	(prog->bunny->WIDTH * 2, prog->bunny->HEIGHT * 2)))
+	(prog->bunny->WIDTH * 2, prog->bunny->HEIGHT * 2)) ||
+      !(prog->music = bunny_load_music(MUSIC_BUNNY)))
     return (1);
+  startMusic(&prog->music->sound);
   clearPix(prog->bigBunny);
   setProg(prog);
   data->new = false;
