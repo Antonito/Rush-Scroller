@@ -5,13 +5,13 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 05:26:50 2016 Arthur ARNAUD
-** Last update Sun Mar 20 15:23:37 2016 Arthur ARNAUD
+** Last update Sun Mar 20 15:38:52 2016 Arthur ARNAUD
 */
 
 #include "demo.h"
-#include "scrollingText.h"
+#include "boldText.h"
 
-t_bunny_response	scrollingTextKey(t_bunny_event_state state,
+t_bunny_response	boldTextKey(t_bunny_event_state state,
 				t_bunny_keysym key,
 				t_data *data)
 {
@@ -29,7 +29,7 @@ void			blitAllText(t_prog *prog)
 	 addiVec2(prog->pos, ivec2(prog->pix->clipable.clip_width,0)));
 }
 
-t_bunny_response	scrollingTextLoop(t_data *data)
+t_bunny_response	boldTextLoop(t_data *data)
 {
   t_prog		*prog;
 
@@ -56,7 +56,7 @@ t_bunny_response	scrollingTextLoop(t_data *data)
   return (GO_ON);
 }
 
-int		scrollingTextClose(t_data *data)
+int		boldTextClose(t_data *data)
 {
   t_prog	*prog;
 
@@ -72,7 +72,7 @@ int		scrollingTextClose(t_data *data)
   return (0);
 }
 
-int		scrollingTextDisplay(t_data *data)
+int		boldTextDisplay(t_data *data)
 {
   t_prog	*prog;
 

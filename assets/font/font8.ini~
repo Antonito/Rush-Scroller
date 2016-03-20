@@ -1,0 +1,5 @@
+[font]
+asset="assets/font/font8.gif"
+height="35"
+width="35"
+chars="abcdefghijklmnopqrstuvwxyz 1234567890,.:;'-<>!"
