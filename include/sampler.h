@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 00:30:51 2016 Antoine Baché
-** Last update Sun Mar 20 06:13:13 2016 Antoine Baché
+** Last update Sun Mar 20 12:43:49 2016 Ludovic Petrenko
 */
 
 #ifndef SAMPLER_H_
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <lapin.h>
 # include <time.h>
+# include "tunnel.h"
 
 typedef struct		s_sampler
 {
@@ -24,8 +25,11 @@ typedef struct		s_sampler
   double		*duration;
   double		*frequency;
   int			size;
+  int			freq;
+  t_circle		*c;
 }			t_sampler;
 
+void			playMusic(t_sampler *, int);
 t_bunny_response	samplerKey(t_bunny_event_state,
 				  t_bunny_keysym,
 				  t_data *);

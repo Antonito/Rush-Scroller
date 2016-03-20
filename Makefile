@@ -5,7 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 12:26:49 2016 Ludovic Petrenko
+## Last update Sun Mar 20 12:44:26 2016 Ludovic Petrenko
 ##
 
 DEBUG=			yes
@@ -118,7 +118,8 @@ TUNNEL_FILES=		main.c				\
 
 SAMPLER_PREFIX=		src/sampler/
 
-SAMPLER_FILES=		loop.c				\
+SAMPLER_FILES=		logo.c				\
+			loop.c				\
 			sampler.c
 
 DEGRAD_PREFIX=		src/degrade/
@@ -202,6 +203,8 @@ ifeq ($(DEBUG), yes)
 else
 	CFLAGS=		$(HEAD) -W -Wall -Wextra -Werror
 endif
+
+CFLAGS+= -D _XOPEN_SOURCE=700 -D _XOPEN_SOURCE_EXTENDED -D _DEFAULT_SOURCE
 
 CC=			gcc
 

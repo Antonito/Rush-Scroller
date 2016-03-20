@@ -5,12 +5,9 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:03:41 2016 Antoine Baché
-** Last update Sat Mar 19 20:19:32 2016 Antoine Baché
+** Last update Sun Mar 20 12:09:12 2016 Antoine Baché
 */
 
-#define	_GNU_SOURCE
-#define	_XOPEN_SOURCE
-#define	_POSX_C_SOURCE
 #include <stdio.h>
 #include <unistd.h>
 #include <lapin.h>
