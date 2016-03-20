@@ -5,13 +5,8 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Fri Mar 18 22:50:54 2016 Arthur ARNAUD
-** Last update Sun Mar 20 12:38:15 2016 Arthur ARNAUD
+** Last update Sun Mar 20 14:42:38 2016 Arthur ARNAUD
 */
-
-#define _POSIX_C_SOURCE
-#define _GNU_SOURCE
-#define _BSD_SOURCE
-#define _DEFAULT_SOURCE
 
 #include "tools/font.h"
 #include "tools/common.h"

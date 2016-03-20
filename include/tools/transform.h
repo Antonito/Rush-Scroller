@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 02:25:35 2016 Ludovic Petrenko
-** Last update Sun Mar 20 05:58:24 2016 Antoine Baché
+** Last update Sun Mar 20 10:45:17 2016 Ludovic Petrenko
 */
 
 #ifndef TRANSFORM_H_
@@ -145,7 +145,8 @@ t_vec4		multMatVec4(t_mat4 *, t_vec4);
 /*
 ** Transformation applyed on matrix
 */
-void		translate(t_mat4 *, t_vec3);
+void		translate3(t_mat3 *, t_vec2);
+void		translate4(t_mat4 *, t_vec3);
 
 void		rotate2D(t_mat2 *m, double deg);
 void		rotate3D(t_mat3 *m, t_vec3 deg);
@@ -167,6 +168,12 @@ t_ivec2		to_ivec2(t_vec2);
 t_vec2		to_vec2(t_ivec2);
 t_vec4		to_vec4(t_vec3, double);
 t_mat4		to_mat4(t_mat3);
+
+/*
+** Matrix invertion
+*/
+void		mat2Invert(t_mat2 *);
+void		mat3Invert(t_mat3 *);
 
 /*
 ** Interpolation

@@ -5,11 +5,11 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 13:24:19 2016 Antoine Baché
-** Last update Sun Mar 20 05:41:22 2016 Antoine Baché
+** Last update Sun Mar 20 11:00:49 2016 Antoine Baché
 */
 
-#include "sampler.h"
 #include <string.h>
+#include "sampler.h"
 
 void	setSamplerContext(t_bunny_context *context)
 {

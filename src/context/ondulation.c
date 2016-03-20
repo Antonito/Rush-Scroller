@@ -5,11 +5,11 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 13:24:19 2016 Antoine Baché
-** Last update Sat Mar 19 22:44:09 2016 Antoine Baché
+** Last update Sun Mar 20 11:00:35 2016 Antoine Baché
 */
 
-#include "ondulation.h"
 #include <string.h>
+#include "ondulation.h"
 
 void	setOndulationContext(t_bunny_context *context)
 {

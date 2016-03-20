@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:40:48 2016 Antoine Baché
-** Last update Sun Mar 20 05:09:34 2016 Arthur ARNAUD
+** Last update Sun Mar 20 12:27:45 2016 Antoine Baché
 */
 
 #ifndef	COMMON_H_
@@ -14,6 +14,7 @@
 
 # include <stdlib.h>
 # include <lapin.h>
+# include <unistd.h>
 # include "transform.h"
 
 /*
@@ -51,5 +52,6 @@ void			tekcircle(t_bunny_pixelarray *pix,
 				  t_bunny_position pos, t_color *c, int size);
 double			my_sin(double);
 double			my_cos(double);
+void			setRainbowPal(t_color *);
 
 #endif	/* !COMMON_H_ */

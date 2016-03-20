@@ -5,13 +5,8 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 17:30:03 2016 Arthur ARNAUD
-** Last update Sun Mar 20 05:24:05 2016 Arthur ARNAUD
+** Last update Sun Mar 20 14:42:58 2016 Arthur ARNAUD
 */
-
-#define _POSIX_C_SOURCE
-#define _GNU_SOURCE
-#define _BSD_SOURCE
-#define _DEFAULT_SOURCE
 
 #include "sprite.h"
 #include "tools/common.h"

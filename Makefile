@@ -5,8 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 07:12:09 2016 Arthur ARNAUD
-## Last update Sun Mar 20 05:10:22 2016 Arthur ARNAUD
+## Last update Sun Mar 20 14:45:18 2016 Arthur ARNAUD
 ##
 
 DEBUG=			yes
@@ -25,6 +24,9 @@ SRC_DEMO_FILES=		main.c				\
 			context/tunnel.c		\
 			context/sampler.c		\
 			context/scrollingText.c		\
+			context/progDegrad.c		\
+			context/texturedDegrad.c	\
+			context/rotozoom.c		\
 			transition/fade.c		\
 			transition/transition.c		\
 			select.c			\
@@ -40,6 +42,7 @@ TOOLS_FILES=		add_vec.c			\
 			free2D.c			\
 			free_font.c			\
 			interpolate.c			\
+			mat_invert.c			\
 			load_font_ini.c			\
 			mat_construct.c			\
 			mult_mat.c			\
@@ -48,6 +51,7 @@ TOOLS_FILES=		add_vec.c			\
 			my_blit.c			\
 			my_free.c			\
 			my_malloc.c			\
+			pal.c				\
 			perspective.c			\
 			rotate.c			\
 			rotate2.c			\
@@ -116,12 +120,23 @@ TUNNEL_FILES=		main.c				\
 
 SAMPLER_PREFIX=		src/sampler/
 
-SAMPLER_FILES=		loop.c				\
+SAMPLER_FILES=		logo.c				\
+			loop.c				\
 			sampler.c
 
 SCROLLINGTEXT_PREFIX=	src/scrollingText/
 
 SCROLLINGTEXT_FILES=	main.c
+
+DEGRAD_PREFIX=		src/degrade/
+
+DEGRAD_FILES=		progressive.c			\
+			textured.c
+
+ROTOZOOM_PREFIX=	src/rotozoom/
+
+ROTOZOOM_FILES=		main.c				\
+			rotozoom.c
 
 SRC_DEMO=		$(addprefix $(SRC_DEMO_PREFIX),$(SRC_DEMO_FILES))
 
@@ -147,6 +162,10 @@ SRC_SAMPLER=		$(addprefix $(SAMPLER_PREFIX),$(SAMPLER_FILES))
 
 SRC_SCROLLINGTEXT=	$(addprefix $(SCROLLINGTEXT_PREFIX),$(SCROLLINGTEXT_FILES))
 
+SRC_DEGRAD=		$(addprefix $(DEGRAD_PREFIX),$(DEGRAD_FILES))
+
+SRC_ROTOZOOM=		$(addprefix $(ROTOZOOM_PREFIX),$(ROTOZOOM_FILES))
+
 SRC_DEMO+=		$(SRC_TOOLS)
 
 SRC_DEMO+=		$(SRC_FIRE)
@@ -169,6 +188,10 @@ SRC_DEMO+=		$(SRC_SAMPLER)
 
 SRC_DEMO+=		$(SRC_SCROLLINGTEXT)
 
+SRC_DEMO+=		$(SRC_DEGRAD)
+
+SRC_DEMO+=		$(SRC_ROTOZOOM)
+
 DEMO=			demoEtDesLettres
 
 HEAD=			-Iinclude			\
@@ -190,6 +213,8 @@ ifeq ($(DEBUG), yes)
 else
 	CFLAGS=		$(HEAD) -W -Wall -Wextra -Werror
 endif
+
+CFLAGS+= -D _XOPEN_SOURCE=700 -D _XOPEN_SOURCE_EXTENDED -D _DEFAULT_SOURCE
 
 CC=			gcc
 
