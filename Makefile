@@ -5,7 +5,8 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 05:49:14 2016 Antoine Baché
+## Last update Sun Mar 20 05:55:37 2016 Antoine Baché
+## Last update Sun Mar 20 05:10:22 2016 Arthur ARNAUD
 ##
 
 DEBUG=			yes
@@ -102,7 +103,9 @@ DAMIER_FILES=		damier.c
 
 SCROLLER_PREFIX=	src/scroller/
 
-SCROLLER_FILES=		main.c
+SCROLLER_FILES=		main.c				\
+			setProg.c			\
+			clearPix.c
 
 TUNNEL_PREFIX=		src/tunnel/
 

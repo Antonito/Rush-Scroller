@@ -5,13 +5,14 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sun Mar 20 01:14:39 2016 Arthur ARNAUD
+** Last update Sun Mar 20 05:56:16 2016 Antoine Baché
 */
 
 #include "demo.h"
 #include "sprite.h"
 #include "tools/common.h"
 #include "tools/transform.h"
+#include <math.h>
 
 t_bunny_response	spriteKey(t_bunny_event_state state,
 				t_bunny_keysym key,
