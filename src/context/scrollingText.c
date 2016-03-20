@@ -5,11 +5,11 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 06:22:24 2016 Arthur ARNAUD
-** Last update Sun Mar 20 06:23:07 2016 Arthur ARNAUD
+** Last update Sun Mar 20 22:41:57 2016 Antoine Baché
 */
 
-#include "scrollingText.h"
 #include <string.h>
+#include "scrollingText.h"
 
 void	setScrollingTextContext(t_bunny_context *context)
 {

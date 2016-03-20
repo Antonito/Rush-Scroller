@@ -5,11 +5,11 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 06:02:57 2016 Ludovic Petrenko
-** Last update Sun Mar 20 06:03:50 2016 Ludovic Petrenko
+** Last update Sun Mar 20 22:41:47 2016 Antoine Baché
 */
 
-#include "rotozoom.h"
 #include <string.h>
+#include "rotozoom.h"
 
 void	setRotozoomContext(t_bunny_context *context)
 {
