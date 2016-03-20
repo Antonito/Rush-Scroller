@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 05:05:23 2016 Antoine Baché
-** Last update Sun Mar 20 10:59:03 2016 Antoine Baché
+** Last update Sun Mar 20 14:31:36 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -44,7 +44,7 @@ void			texturedDegradDraw(t_bunny_pixelarray *img,
 	  tekpixel(img, &pos, &color[i * WIN_X + j]);
 	}
     }
-  clearColor(pix, 0xFF6600);
+  clearColor(pix, 0x0100AE);
   myBlit(img, pix, ivec2(0, 0));
 }
 
