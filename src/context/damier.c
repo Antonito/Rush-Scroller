@@ -5,11 +5,11 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 13:24:19 2016 Antoine Baché
-** Last update Sun Mar 20 01:00:23 2016 Antoine Baché
+** Last update Sun Mar 20 11:00:19 2016 Antoine Baché
 */
 
-#include "damier.h"
 #include <string.h>
+#include "damier.h"
 
 void	setDamierContext(t_bunny_context *context)
 {

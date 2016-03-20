@@ -5,8 +5,7 @@
 ## Login   <bache_a@epitech.net>
 ##
 ## Started on  Fri Mar 18 19:26:18 2016 Antoine Baché
-## Last update Sun Mar 20 10:39:19 2016 Ludovic Petrenko
-## Last update Sun Mar 20 05:10:22 2016 Arthur ARNAUD
+## Last update Sun Mar 20 12:26:49 2016 Ludovic Petrenko
 ##
 
 DEBUG=			yes
@@ -24,6 +23,8 @@ SRC_DEMO_FILES=		main.c				\
 			context/scroller.c		\
 			context/tunnel.c		\
 			context/sampler.c		\
+			context/progDegrad.c		\
+			context/texturedDegrad.c	\
 			context/rotozoom.c		\
 			transition/fade.c		\
 			transition/transition.c		\
@@ -48,6 +49,7 @@ TOOLS_FILES=		add_vec.c			\
 			my_blit.c			\
 			my_free.c			\
 			my_malloc.c			\
+			pal.c				\
 			perspective.c			\
 			rotate.c			\
 			rotate2.c			\
@@ -119,6 +121,11 @@ SAMPLER_PREFIX=		src/sampler/
 SAMPLER_FILES=		loop.c				\
 			sampler.c
 
+DEGRAD_PREFIX=		src/degrade/
+
+DEGRAD_FILES=		progressive.c			\
+			textured.c
+
 ROTOZOOM_PREFIX=	src/rotozoom/
 
 ROTOZOOM_FILES=		main.c				\
@@ -146,6 +153,8 @@ SRC_TUNNEL=		$(addprefix $(TUNNEL_PREFIX),$(TUNNEL_FILES))
 
 SRC_SAMPLER=		$(addprefix $(SAMPLER_PREFIX),$(SAMPLER_FILES))
 
+SRC_DEGRAD=		$(addprefix $(DEGRAD_PREFIX),$(DEGRAD_FILES))
+
 SRC_ROTOZOOM=		$(addprefix $(ROTOZOOM_PREFIX),$(ROTOZOOM_FILES))
 
 SRC_DEMO+=		$(SRC_TOOLS)
@@ -167,6 +176,8 @@ SRC_DEMO+=		$(SRC_SCROLLER)
 SRC_DEMO+=		$(SRC_TUNNEL)
 
 SRC_DEMO+=		$(SRC_SAMPLER)
+
+SRC_DEMO+=		$(SRC_DEGRAD)
 
 SRC_DEMO+=		$(SRC_ROTOZOOM)
 

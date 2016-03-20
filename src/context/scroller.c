@@ -5,11 +5,11 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 00:42:42 2016 Arthur ARNAUD
-** Last update Sun Mar 20 00:43:07 2016 Arthur ARNAUD
+** Last update Sun Mar 20 11:00:55 2016 Antoine Baché
 */
 
-#include "scroller.h"
 #include <string.h>
+#include "scroller.h"
 
 void	setScrollerContext(t_bunny_context *context)
 {

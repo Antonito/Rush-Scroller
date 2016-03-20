@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 00:30:51 2016 Antoine Baché
-** Last update Sun Mar 20 04:54:18 2016 Antoine Baché
+** Last update Sun Mar 20 06:13:13 2016 Antoine Baché
 */
 
 #ifndef SAMPLER_H_
@@ -19,10 +19,11 @@
 
 typedef struct		s_sampler
 {
-  t_bunny_music		*music;
+  t_bunny_effect       	*music;
   t_bunny_ini		*file;
   double		*duration;
   double		*frequency;
+  int			size;
 }			t_sampler;
 
 t_bunny_response	samplerKey(t_bunny_event_state,

@@ -5,7 +5,7 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 03:44:45 2016 Ludovic Petrenko
-** Last update Sun Mar 20 02:15:40 2016 Ludovic Petrenko
+** Last update Sun Mar 20 11:04:35 2016 Antoine Baché
 */
 
 #include "plasma.h"
@@ -57,7 +57,7 @@ int			plasmaClose(t_data *data)
   plasma = data->data;
   if (!data->new)
     {
-      bunny_delete_clipable(&plasma->pix->clipable);;
+      bunny_delete_clipable(&plasma->pix->clipable);
       my_free(plasma);
     }
   data->data = NULL;

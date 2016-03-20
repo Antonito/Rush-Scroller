@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 05:25:36 2016 Antoine Baché
-** Last update Sun Mar 20 05:52:10 2016 Antoine Baché
+** Last update Sun Mar 20 06:22:26 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -37,6 +37,7 @@ int			samplerClose(t_data *data)
     {
       my_free(sampler->duration);
       my_free(sampler->frequency);
+      bunny_delete_sound(&sampler->music->sound);
       my_free(sampler);
     }
   data->data = NULL;
