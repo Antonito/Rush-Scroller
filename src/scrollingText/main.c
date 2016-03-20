@@ -5,9 +5,10 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sun Mar 20 05:26:50 2016 Arthur ARNAUD
-** Last update Sun Mar 20 15:55:27 2016 Antoine Baché
+** Last update Sun Mar 20 16:45:06 2016 Antoine Baché
 */
 
+#include <time.h>
 #include "demo.h"
 #include "scrollingText.h"
 
@@ -30,7 +31,9 @@ void			blitAllText(t_prog *prog)
 t_bunny_response	scrollingTextLoop(t_data *data)
 {
   t_prog		*prog;
+  time_t		timer;
 
+  timer = time(NULL);
   if (data->new && scrollingTextDisplay(data))
     return (EXIT_ON_ERROR);
   prog = data->data;
@@ -51,7 +54,7 @@ t_bunny_response	scrollingTextLoop(t_data *data)
   bunny_blit(&(data->win->buffer),
 	     &(prog->pix->clipable), 0);
   bunny_display(data->win);
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 int		scrollingTextClose(t_data *data)

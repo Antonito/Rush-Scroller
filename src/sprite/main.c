@@ -5,10 +5,11 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sun Mar 20 16:03:48 2016 Antoine Baché
+** Last update Sun Mar 20 16:45:16 2016 Antoine Baché
 */
 
 #include <math.h>
+#include <time.h>
 #include "demo.h"
 #include "sprite.h"
 #include "tools/common.h"
@@ -27,8 +28,9 @@ t_bunny_response	spriteLoop(t_data *data)
   t_vec2		p;
   t_vec2		scale;
   static int		i = 0;
+  time_t		timer;
 
-  if (data->new && spriteDisplay(data))
+  if (timer = time(NULL), data->new && spriteDisplay(data))
     return (EXIT_ON_ERROR);
   prog = data->data;
   if (prog->i++ > 0 && !(prog->i = 0))
@@ -46,7 +48,7 @@ t_bunny_response	spriteLoop(t_data *data)
   bunny_blit(&(data->win->buffer), &(prog->pix->clipable), 0);
   bunny_display(data->win);
   i++;
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 int		spriteClose(t_data *data)

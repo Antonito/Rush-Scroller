@@ -5,9 +5,10 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 12:56:55 2016 Ludovic Petrenko
-** Last update Sun Mar 20 15:42:47 2016 Ludovic Petrenko
+** Last update Sun Mar 20 16:43:26 2016 Antoine Baché
 */
 
+#include <time.h>
 #include <lapin.h>
 #include <stdlib.h>
 #include "matext.h"
@@ -50,7 +51,9 @@ void	drawRainbow(t_bunny_pixelarray *pix, t_matext *m)
 t_bunny_response	matextLoop(t_data *data)
 {
   t_matext		*m;
+  time_t		timer;
 
+  timer = time(NULL);
   if (data->new && matext(data))
     return (EXIT_ON_ERROR);
   m = data->data;
@@ -60,7 +63,7 @@ t_bunny_response	matextLoop(t_data *data)
   bunny_blit(&(data->win->buffer),
 	     &(data->pix->clipable), 0);
   bunny_display(data->win);
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 int	matextClose(t_data *data)

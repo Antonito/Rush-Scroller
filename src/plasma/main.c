@@ -5,9 +5,10 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sat Mar 19 03:44:45 2016 Ludovic Petrenko
-** Last update Sun Mar 20 15:30:32 2016 Antoine Baché
+** Last update Sun Mar 20 16:42:11 2016 Antoine Baché
 */
 
+#include <time.h>
 #include "plasma.h"
 #include "tools/common.h"
 
@@ -36,7 +37,9 @@ t_bunny_response	plasmaKey(t_bunny_event_state state,
 t_bunny_response	plasmaLoop(t_data *data)
 {
   t_plasma		*plasma;
+  time_t		timer;
 
+  timer = time(NULL);
   if (data->new && plasmaMain(data))
     return (EXIT_ON_ERROR);
   plasma = data->data;
@@ -47,6 +50,8 @@ t_bunny_response	plasmaLoop(t_data *data)
   new_frame(plasma);
   bunny_blit(&data->win->buffer, &plasma->pix->clipable, NULL);
   bunny_display(data->win);
+  if (timerChange(data, TIMER_DELAY, timer) != GO_ON)
+    return (SWITCH_CONTEXT);
   return (GO_ON);
 }
 

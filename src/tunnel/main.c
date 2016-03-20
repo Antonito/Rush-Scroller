@@ -5,12 +5,13 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 00:28:41 2016 Ludovic Petrenko
-** Last update Sun Mar 20 14:22:11 2016 Antoine Baché
+** Last update Sun Mar 20 16:45:42 2016 Antoine Baché
 */
 
 #include <lapin.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "tunnel.h"
 #include "tools/common.h"
 
@@ -26,7 +27,9 @@ t_bunny_response	tunnelLoop(t_data *data)
   int			i;
   t_tunnel		*tun;
   t_ivec2		pos;
+  time_t		timer;
 
+  timer = time(NULL);
   i = 0;
   if (data->new && tunnel(data))
     return (EXIT_ON_ERROR);
@@ -41,7 +44,7 @@ t_bunny_response	tunnelLoop(t_data *data)
   moveCircles(tun->c);
   bunny_blit(&(data->win->buffer), &(data->pix->clipable), 0);
   bunny_display(data->win);
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 int		tunnelClose(t_data *data)

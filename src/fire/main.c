@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 02:06:05 2016 Antoine Baché
-** Last update Sat Mar 19 22:30:39 2016 Antoine Baché
+** Last update Sun Mar 20 16:43:38 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -31,7 +31,9 @@ t_bunny_response	fireKey(t_bunny_event_state state,
 t_bunny_response	fireLoop(t_data *data)
 {
   t_prog		*prog;
+  time_t		timer;
 
+  timer = time(NULL);
   if (data->new && flame(data))
     return (EXIT_ON_ERROR);
   prog = data->data;
@@ -46,7 +48,7 @@ t_bunny_response	fireLoop(t_data *data)
   bunny_blit(&(data->win->buffer),
 	     &(prog->pix->clipable), 0);
   bunny_display(data->win);
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 void	set_to_black(short *colors)

@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 05:05:23 2016 Antoine Baché
-** Last update Sun Mar 20 15:44:45 2016 Antoine Baché
+** Last update Sun Mar 20 16:44:15 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -22,11 +22,14 @@ t_bunny_response	damierKey(t_bunny_event_state state,
 
 t_bunny_response       	damierLoop(t_data *data)
 {
+  time_t		timer;
+
+  timer = time(NULL);
   if (data->new && damierMain(data))
     return (EXIT_ON_ERROR);
   bunny_blit(&data->win->buffer, &data->pix->clipable, 0);
   bunny_display(data->win);
-  return (GO_ON);
+  return (timerChange(data, TIMER_DELAY, timer));
 }
 
 int			damierClose(t_data *data)
