@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 21:36:02 2016 Antoine Baché
-** Last update Sun Mar 20 01:50:49 2016 Ludovic Petrenko
+** Last update Sun Mar 20 05:41:47 2016 Antoine Baché
 */
 
 #ifndef	DEMO_H_
@@ -14,7 +14,7 @@
 # define WIN_X		1920
 # define WIN_Y		1080
 # define WIN_NAME	"Rush Scroller"
-# define NB_CONTEXT	8
+# define NB_CONTEXT	9
 
 # include <lapin.h>
 
@@ -22,17 +22,24 @@ typedef struct		s_data
 {
   t_bunny_window	*win;
   t_bunny_pixelarray	*pix;
+  t_bunny_pixelarray	*trans;
   t_bunny_position	*mousePos;
   t_bunny_context	*context;
   int			contextId;
   int			contextPrev;
   void			*data;
   bool			new;
+  int			(**transition)(t_bunny_pixelarray *,
+				       t_bunny_pixelarray *,
+				       t_bunny_window *);
 }			t_data;
 
 typedef	int (**closeEvent)(t_data *);
 
 closeEvent		selector(void);
+int			(**selectorTransition(void))(t_bunny_pixelarray *,
+						     t_bunny_pixelarray *,
+						     t_bunny_window *);
 
 /*
 ** Common events
@@ -57,6 +64,7 @@ void			setOndulationContext(t_bunny_context *);
 void			setDamierContext(t_bunny_context *);
 void			setScrollerContext(t_bunny_context *);
 void			setTunnelContext(t_bunny_context *);
+void			setSamplerContext(t_bunny_context *);
 
 /*
 ** Free
@@ -69,5 +77,6 @@ int			ondulationClose(t_data *);
 int			damierClose(t_data *);
 int			scrollerClose(t_data *);
 int			tunnelClose(t_data *);
+int			samplerClose(t_data *);
 
 #endif /* !DEMO_H_ */

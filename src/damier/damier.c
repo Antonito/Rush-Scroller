@@ -5,12 +5,13 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 05:05:23 2016 Antoine Baché
-** Last update Sun Mar 20 01:18:54 2016 Antoine Baché
+** Last update Sun Mar 20 02:38:23 2016 Antoine Baché
 */
 
 #include "demo.h"
 #include "damier.h"
 #include "tools/common.h"
+#include "transition.h"
 
 t_bunny_response	damierKey(t_bunny_event_state state,
 				  t_bunny_keysym key,
@@ -21,12 +22,9 @@ t_bunny_response	damierKey(t_bunny_event_state state,
 
 t_bunny_response       	damierLoop(t_data *data)
 {
-  t_damier		*damier;
-
   if (data->new && damierMain(data))
     return (EXIT_ON_ERROR);
-  damier = data->data;
-  bunny_blit(&data->win->buffer, &damier->pix->clipable, 0);
+  bunny_blit(&data->win->buffer, &data->pix->clipable, 0);
   bunny_display(data->win);
   return (GO_ON);
 }
@@ -38,11 +36,11 @@ int			damierClose(t_data *data)
   damier = data->data;
   if (!data->new)
     {
-      bunny_delete_clipable(&damier->pix->clipable);
       my_free(damier);
     }
   data->data = NULL;
   data->new = true;
+  transition(data, FADE, NULL);
   return (0);
 }
 
@@ -77,11 +75,10 @@ int			damierMain(t_data *data)
   t_damier		*damier;
 
   if (!(damier = MALLOC(sizeof(t_damier))) ||
-      !(damier->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) ||
       !(damier->mask = bunny_load_pixelarray(MASK_SRC)) ||
       !(damier->src = bunny_load_pixelarray(DAMIER_SRC)))
     return (1);
-  damierMask(damier->pix, damier->mask, damier->src);
+  damierMask(data->pix, damier->mask, damier->src);
   bunny_delete_clipable(&damier->src->clipable);
   bunny_delete_clipable(&damier->mask->clipable);
   data->data = damier;
