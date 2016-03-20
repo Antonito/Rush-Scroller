@@ -5,11 +5,11 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 01:27:08 2016 Ludovic Petrenko
-** Last update Sun Mar 20 08:22:01 2016 Antoine Baché
+** Last update Sun Mar 20 11:01:08 2016 Antoine Baché
 */
 
-#include "texturedDegrad.h"
 #include <string.h>
+#include "texturedDegrad.h"
 
 void	setTexturedDegradContext(t_bunny_context *context)
 {

@@ -5,11 +5,11 @@
 ** Login   <petren_l@epitech.net>
 **
 ** Started on  Sun Mar 20 01:27:08 2016 Ludovic Petrenko
-** Last update Sun Mar 20 06:57:47 2016 Antoine Baché
+** Last update Sun Mar 20 11:00:44 2016 Antoine Baché
 */
 
-#include "progDegrad.h"
 #include <string.h>
+#include "progDegrad.h"
 
 void	setProgDegradContext(t_bunny_context *context)
 {

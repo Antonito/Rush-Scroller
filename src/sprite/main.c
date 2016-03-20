@@ -5,14 +5,14 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sun Mar 20 05:56:16 2016 Antoine Baché
+** Last update Sun Mar 20 11:05:35 2016 Antoine Baché
 */
 
+#include <math.h>
 #include "demo.h"
 #include "sprite.h"
 #include "tools/common.h"
 #include "tools/transform.h"
-#include <math.h>
 
 t_bunny_response	spriteKey(t_bunny_event_state state,
 				t_bunny_keysym key,
@@ -71,7 +71,6 @@ int		spriteClose(t_data *data)
 int		spriteDisplay(t_data *data)
 {
   t_prog	*prog;
-
 
   if (!(prog = MALLOC(sizeof(t_prog))))
     return (1);
