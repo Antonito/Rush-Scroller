@@ -5,7 +5,7 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sat Mar 19 22:47:28 2016 Arthur ARNAUD
+** Last update Sun Mar 20 01:14:59 2016 Arthur ARNAUD
 */
 
 #include "demo.h"
@@ -19,6 +19,19 @@ t_bunny_response	scrollerKey(t_bunny_event_state state,
   return (eventKeys(state, key, data));
 }
 
+void			blitAllPix(t_prog *prog)
+{
+  /* myBlit(prog->sky, prog->pix, 1, subiVec2 */
+  /* 	 (prog->sky_pos, ivec2(prog->sky->clipable.clip_width, 0))); */
+  myBlit(prog->sky, prog->pix, prog->sky_pos);
+  /* myBlit(prog->mountain, prog->pix, 1, subiVec2 */
+  /* 	 (prog->mountain_pos, ivec2(prog->mountain->clipable.clip_width, 0))); */
+  myBlit(prog->mountain, prog->pix, prog->mountain_pos);
+  /* myBlit(prog->grass, prog->pix, 1, subiVec2 */
+  /* 	 (prog->grass_pos, ivec2(prog->mountain->clipable.clip_width, 0))); */
+  myBlit(prog->grass, prog->pix, prog->grass_pos);
+}
+
 t_bunny_response	scrollerLoop(t_data *data)
 {
   t_prog		*prog;
@@ -26,6 +39,13 @@ t_bunny_response	scrollerLoop(t_data *data)
   if (data->new && scrollerDisplay(data))
     return (EXIT_ON_ERROR);
   prog = data->data;
+  /* if (prog->sky_pos.x++ > prog->sky->clipable.clip_width) */
+  /*   prog->sky_pos.x = 0; */
+  /* if (prog->mountain_pos.x++ > prog->mountain->clipable.clip_width) */
+  /*   prog->mountain_pos.x = 0; */
+  /* if (prog->grass_pos.x++ > prog->grass->clipable.clip_width) */
+  /*   prog->grass_pos.x = 0; */
+  blitAllPix(prog);
   bunny_blit(&(data->win->buffer),
 	     &(prog->pix->clipable), 0);
   bunny_display(data->win);
@@ -40,6 +60,9 @@ int		scrollerClose(t_data *data)
   if (!data->new)
     {
       bunny_delete_clipable(&prog->pix->clipable);
+      bunny_delete_clipable(&prog->sky->clipable);
+      bunny_delete_clipable(&prog->mountain->clipable);
+      bunny_delete_clipable(&prog->grass->clipable);
       my_free(prog);
     }
   data->data = NULL;
@@ -47,23 +70,26 @@ int		scrollerClose(t_data *data)
   return (0);
 }
 
-int		spriteDisplay(t_data *data)
+int		scrollerDisplay(t_data *data)
 {
   t_prog	*prog;
 
   if (!(prog = MALLOC(sizeof(t_prog))))
     return (1);
   data->data = prog;
-  if (!(prog->pix = bunny_new_pixelarray(WIN_X, WIN_Y))
+  if (!(prog->pix = bunny_new_pixelarray(WIN_X, WIN_Y)) ||
       !(prog->grass = bunny_load_pixelarray("assets/picture/herbe4.png")) ||
-      !(prog->sky = bunny_load_pixelarray("assets/picture/nuage3.png")) ||
-      !(prog->mountain = bunny_load_pixelarray("assets/picture/herbe4.png")))
+      !(prog->sky =
+	bunny_load_pixelarray("assets/picture/nuages3.png")) ||
+      !(prog->mountain =
+	bunny_load_pixelarray("assets/picture/montagnes.png")))
     return (1);
-
-  prog->index = 0;
-  prog->pos.y = 10;
-  prog->pos.x = 10;
-  myBlit(prog->spritePix[prog->index], prog->pix, 1, prog->pos);
+  prog->sky_pos.x = 0;
+  prog->sky_pos.y = 0;
+  prog->mountain_pos.x = 0;
+  prog->mountain_pos.y = 100;
+  prog->grass_pos.x = 0;
+  prog->grass_pos.y = 700;
   data->new = false;
   return (0);
 }

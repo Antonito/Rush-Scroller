@@ -5,12 +5,13 @@
 ** Login   <arnaud_e@epitech.net>
 **
 ** Started on  Sat Mar 19 18:30:57 2016 Arthur ARNAUD
-** Last update Sat Mar 19 22:47:17 2016 Arthur ARNAUD
+** Last update Sun Mar 20 01:14:39 2016 Arthur ARNAUD
 */
 
 #include "demo.h"
 #include "sprite.h"
 #include "tools/common.h"
+#include "tools/transform.h"
 
 t_bunny_response	spriteKey(t_bunny_event_state state,
 				t_bunny_keysym key,
@@ -22,21 +23,28 @@ t_bunny_response	spriteKey(t_bunny_event_state state,
 t_bunny_response	spriteLoop(t_data *data)
 {
   t_prog		*prog;
+  t_vec2		p;
+  t_vec2		scale;
+  static int		i = 0;
 
   if (data->new && spriteDisplay(data))
     return (EXIT_ON_ERROR);
   prog = data->data;
-  if (prog->i++ > 6)
-    {
-      prog->i = 0;
-      prog->index++;
-    }
+  if (prog->i++ > 0 && !(prog->i = 0))
+    prog->index++;
   if (prog->index > 13)
     prog->index = 0;
-  myBlit(prog->spritePix[prog->index], prog->pix, 1, prog->pos);
-  bunny_blit(&(data->win->buffer),
-	     &(prog->pix->clipable), 0);
+  clearColor(prog->pix, (unsigned int)(0xFF000000 + POW3(256) * sin(i / 5) +
+				      256 * sin(i / 5)));
+  scale = vec2(10 + sin(i / 2.0) / 2.0, 10 + sin(i / 2.0) / 2.0);
+  p = vec2((prog->pix->clipable.clip_width -
+	    prog->spritePix[prog->index]->clipable.clip_width * scale.x) / 2,
+	   (prog->pix->clipable.clip_height -
+	    prog->spritePix[prog->index]->clipable.clip_height * scale.y) / 2);
+  drawResized(prog->spritePix[prog->index], prog->pix, scale, to_ivec2(p));
+  bunny_blit(&(data->win->buffer), &(prog->pix->clipable), 0);
   bunny_display(data->win);
+  i++;
   return (GO_ON);
 }
 
@@ -63,6 +71,7 @@ int		spriteDisplay(t_data *data)
 {
   t_prog	*prog;
 
+
   if (!(prog = MALLOC(sizeof(t_prog))))
     return (1);
   data->data = prog;
@@ -74,7 +83,7 @@ int		spriteDisplay(t_data *data)
   prog->index = 0;
   prog->pos.y = 10;
   prog->pos.x = 10;
-  myBlit(prog->spritePix[prog->index], prog->pix, 1, prog->pos);
+  myBlit(prog->spritePix[prog->index], prog->pix, prog->pos);
   data->new = false;
   return (0);
 }

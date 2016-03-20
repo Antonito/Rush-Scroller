@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 17:41:57 2016 Antoine Baché
-** Last update Sat Mar 19 23:16:13 2016 Antoine Baché
+** Last update Sun Mar 20 00:40:44 2016 Arthur ARNAUD
 */
 
 #include "demo.h"
@@ -22,5 +22,6 @@ closeEvent     	selector(void)
   array[2] = &spriteClose;
   array[3] = &starClose;
   array[4] = &ondulationClose;
+  array[5] = &scrollerClose;
   return (array);
 }
