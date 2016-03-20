@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sat Mar 19 05:05:23 2016 Antoine Baché
-** Last update Sun Mar 20 01:04:42 2016 Antoine Baché
+** Last update Sun Mar 20 01:18:54 2016 Antoine Baché
 */
 
 #include "demo.h"
@@ -39,8 +39,6 @@ int			damierClose(t_data *data)
   if (!data->new)
     {
       bunny_delete_clipable(&damier->pix->clipable);
-      bunny_delete_clipable(&damier->src->clipable);
-      bunny_delete_clipable(&damier->mask->clipable);
       my_free(damier);
     }
   data->data = NULL;
@@ -84,6 +82,8 @@ int			damierMain(t_data *data)
       !(damier->src = bunny_load_pixelarray(DAMIER_SRC)))
     return (1);
   damierMask(damier->pix, damier->mask, damier->src);
+  bunny_delete_clipable(&damier->src->clipable);
+  bunny_delete_clipable(&damier->mask->clipable);
   data->data = damier;
   data->new = false;
   return (0);
