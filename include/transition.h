@@ -5,7 +5,7 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Sun Mar 20 00:30:51 2016 Antoine Baché
-** Last update Sun Mar 20 02:19:01 2016 Antoine Baché
+** Last update Sun Mar 20 03:00:58 2016 Antoine Baché
 */
 
 #ifndef TRANSITION_H_
@@ -19,7 +19,8 @@
 
 typedef	enum	e_transType
   {
-    FADE	= 0
+    FADE	= 0,
+    MORPHING	= 1
   }		t_transType;
 
 typedef	int (**transFunc)(t_bunny_pixelarray *, t_bunny_pixelarray *,
@@ -33,6 +34,9 @@ int			transition(t_data *, int, t_bunny_pixelarray *);
 */
 int			transitionFade(t_bunny_pixelarray *,
 				       t_bunny_pixelarray *,
+				       t_bunny_window *);
+int			transitionMorph(t_bunny_pixelarray *,
+					t_bunny_pixelarray *,
 				       t_bunny_window *);
 
 #endif /* !TRANSITION_H_ */
