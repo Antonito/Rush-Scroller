@@ -3,7 +3,7 @@ An igraph rush in C
 
 The goal of this rush was to create a Demo like crackers did during the 80's - 90's.
 
-We started on Friday at 8pm, and finished  on Sunday at 11pm.
+We started on Friday at 8pm, and finished  on Sunday at 11pm. We used the LibLapin 1.7 (Epitech's graphic lib)
 
 The delay between each effect is defined by the macro TIMER_DELAY in include/tools/common.h (if set to 0, no timer)
 
