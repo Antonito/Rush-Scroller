@@ -5,13 +5,13 @@
 ** Login   <bache_a@epitech.net>
 **
 ** Started on  Fri Mar 18 22:40:48 2016 Antoine Baché
-** Last update Sun Mar 20 21:55:47 2016 Antoine Baché
+** Last update Mon Mar 21 19:34:22 2016 Antoine Baché
 */
 
 #ifndef	COMMON_H_
 # define COMMON_H_
 # define MALLOC(X)	my_malloc(X)
-# define TIMER_DELAY	30
+# define TIMER_DELAY	8
 
 # include <stdlib.h>
 # include <lapin.h>
