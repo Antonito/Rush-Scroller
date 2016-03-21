@@ -97,6 +97,9 @@ Fire :
     - Fire sound
 ![Fire](/assets/screenshots/fire.png?raw=true "Basic view")
 
+Video :
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/kzCFN4DCXcw/0.jpg)](http://www.youtube.com/watch?v=kzCFN4DCXcw "Rush Scroller - Video")
+
 Realized with Arthur Arnaud and Ludovic Petrenko.
 
 Grade : 44.75 / 20
